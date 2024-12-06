@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+#root {
+  background-color: #1B262C;
+  font-family: 'Franklin Gothic';
+}
+
+/* CSS de la navbar */
+
+.navbar {
+  background-color: #0F4C75;
+  font-family: 'Franklin Gothic';
+}
+
+/* CSS de Home */
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
