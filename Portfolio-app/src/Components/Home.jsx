@@ -3,6 +3,7 @@ import "../App.css";
 import Présentation from "./HomeComponents/Présentation";
 import Projets from "./HomeComponents/Projets";
 import TechSkills from "./HomeComponents/TechSkills";
+import Timeline from "./HomeComponents/Timeline";
 import Contact from "./HomeComponents/Contact";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -23,6 +24,9 @@ const Home = () => {
       </section>
       <section id="projets" className="pt-20 pb-24">
         <Projets />
+      </section>
+      <section id="timeline" className="pt-20 pb-24">
+        <Timeline />
       </section>
       <section id="contact" className="pt-20 pb-24">
         <Contact />

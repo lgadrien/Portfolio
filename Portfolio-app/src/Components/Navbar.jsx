@@ -1,28 +1,52 @@
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeContext";
+import { LanguageContext } from "../context/LanguageContext";
 
 const NavBar = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { language, toggleLanguage, t } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleScrollTo = (id) => {
     setIsOpen(false);
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      if (section) {
-        const headerHeight = 80;
-        const sectionTop =
-          section.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = sectionTop - headerHeight;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100);
+    // Si nous ne sommes pas sur la page d'accueil, naviguer d'abord
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          const headerHeight = 80;
+          const sectionTop =
+            section.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = sectionTop - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
+    } else {
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          const headerHeight = 80;
+          const sectionTop =
+            section.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = sectionTop - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
   };
 
   useEffect(() => {
@@ -79,7 +103,7 @@ const NavBar = () => {
             } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Présentation"
           >
-            Présentation
+            {t.nav.presentation}
           </button>
           <button
             onClick={() => handleScrollTo("projets")}
@@ -88,8 +112,26 @@ const NavBar = () => {
             } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Projets"
           >
-            Projets
+            {t.nav.projects}
           </button>
+          <button
+            onClick={() => handleScrollTo("timeline")}
+            className={`${
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            aria-label="Aller à la section Parcours"
+          >
+            {t.nav.timeline}
+          </button>
+          <Link
+            to="/stats"
+            className={`${
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            aria-label="Aller à la page Stats"
+          >
+            {t.nav.stats}
+          </Link>
           <button
             onClick={() => handleScrollTo("contact")}
             className={`${
@@ -97,10 +139,21 @@ const NavBar = () => {
             } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Contact"
           >
-            Contact
+            {t.nav.contact}
           </button>
         </nav>
-        <div className="flex items-center ml-6">
+        <div className="flex items-center ml-6 space-x-3">
+          <button
+            onClick={toggleLanguage}
+            className={`${
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2 py-1 font-semibold hover:text-custom-purple-light transition-colors duration-300`}
+            aria-label={`Changer la langue en ${
+              language === "fr" ? "English" : "Français"
+            }`}
+          >
+            {language === "fr" ? "EN" : "FR"}
+          </button>
           <button
             onClick={toggleDarkMode}
             className={`${
@@ -150,7 +203,7 @@ const NavBar = () => {
               role="menuitem"
               aria-label="Aller à la section Présentation"
             >
-              Présentation
+              {t.nav.presentation}
             </button>
             <button
               onClick={() => handleScrollTo("projets")}
@@ -162,8 +215,33 @@ const NavBar = () => {
               role="menuitem"
               aria-label="Aller à la section Projets"
             >
-              Projets
+              {t.nav.projects}
             </button>
+            <button
+              onClick={() => handleScrollTo("timeline")}
+              className={`${
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-left py-2 px-3 rounded ${
+                darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
+              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              role="menuitem"
+              aria-label="Aller à la section Parcours"
+            >
+              {t.nav.timeline}
+            </button>
+            <Link
+              to="/stats"
+              onClick={() => setIsOpen(false)}
+              className={`${
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-left py-2 px-3 rounded ${
+                darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
+              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              role="menuitem"
+              aria-label="Aller à la page Stats"
+            >
+              {t.nav.stats}
+            </Link>
             <button
               onClick={() => handleScrollTo("contact")}
               className={`${
@@ -174,7 +252,7 @@ const NavBar = () => {
               role="menuitem"
               aria-label="Aller à la section Contact"
             >
-              Contact
+              {t.nav.contact}
             </button>
           </div>
         </div>
