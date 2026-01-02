@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const ErrorPage = () => {
   const { darkMode } = useContext(ThemeContext);
+  const { t } = useContext(LanguageContext);
 
   const loaderStyle = {
     wrapper: {
@@ -33,14 +35,14 @@ const ErrorPage = () => {
             darkMode ? "text-dark-text" : "text-light-text"
           }`}
         >
-          404
+          {t.error.title}
         </h1>
         <p
           className={`text-xl mb-8 ${
             darkMode ? "text-gray-400" : "text-light-accent"
           } text-center`}
         >
-          Oups ! La page que vous cherchez n&apos;existe pas.
+          {t.error.message}
         </p>
         <div style={loaderStyle.wrapper}>
           <div style={{ ...loaderStyle.circle, animationDelay: "0s" }} />
@@ -55,7 +57,7 @@ const ErrorPage = () => {
               : "border-light-accent text-light-accent hover:bg-light-surface"
           } transition duration-300`}
         >
-          Retour à l&apos;accueil
+          {t.error.backHome}
         </a>
       </div>
       <style>

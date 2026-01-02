@@ -142,7 +142,9 @@ const Projects = () => {
                   {project.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 line-clamp-3 mb-4 leading-relaxed">
-                  {project.description}
+                  {language === "en" && project.descriptionEn
+                    ? project.descriptionEn
+                    : project.description}
                 </p>
                 <div className="flex flex-wrap gap-3 mt-4">
                   {project.technologies.map((tech) => (
@@ -255,13 +257,17 @@ const Projects = () => {
                   : "bg-yellow-200 text-yellow-900"
               }`}
             >
-              {selectedProject.status}
+              {getStatusInCurrentLanguage(selectedProject.status)}
             </span>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
-              {selectedProject.description}
+              {language === "en" && selectedProject.descriptionEn
+                ? selectedProject.descriptionEn
+                : selectedProject.description}
             </p>
             <h5 className="text-lg font-semibold mb-4 dark:text-white">
-              Technologies utilisées
+              {language === "fr"
+                ? "Technologies utilisées"
+                : "Technologies used"}
             </h5>
             <div className="flex flex-wrap gap-4 mb-8">
               {selectedProject.technologies.map((tech) => (
