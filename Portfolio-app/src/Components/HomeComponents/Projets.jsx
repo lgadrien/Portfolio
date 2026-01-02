@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import projectData from "../Infos/projectData";
+import projectData from "../../Infos/projectData";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const Projects = () => {
