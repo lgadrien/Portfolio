@@ -85,6 +85,11 @@ const translations = {
       rights: "Tous droits réservés",
       madeWith: "Fait avec",
     },
+    error: {
+      title: "404",
+      message: "Oups ! La page que vous cherchez n'existe pas.",
+      backHome: "Retour à l'accueil",
+    },
   },
   en: {
     nav: {
@@ -167,13 +172,28 @@ const translations = {
       rights: "All rights reserved",
       madeWith: "Made with",
     },
+    error: {
+      title: "404",
+      message: "Oops! The page you're looking for doesn't exist.",
+      backHome: "Back to home",
+    },
   },
 };
 
 const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
+    // Vérifier d'abord si une langue est sauvegardée
     const saved = localStorage.getItem("language");
-    return saved || "fr";
+    if (saved) {
+      return saved;
+    }
+
+    // Sinon, détecter la langue du navigateur
+    const browserLang = navigator.language || navigator.userLanguage;
+    const langCode = browserLang.split("-")[0]; // Prendre seulement 'en' de 'en-US'
+
+    // Retourner 'en' si le navigateur est en anglais, sinon 'fr' par défaut
+    return langCode === "en" ? "en" : "fr";
   });
 
   useEffect(() => {
@@ -185,10 +205,16 @@ const LanguageProvider = ({ children }) => {
     setLanguage((prev) => (prev === "fr" ? "en" : "fr"));
   };
 
+  const setLanguageManually = (lang) => {
+    setLanguage(lang);
+  };
+
   const t = translations[language];
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider
+      value={{ language, toggleLanguage, setLanguageManually, t }}
+    >
       {children}
     </LanguageContext.Provider>
   );

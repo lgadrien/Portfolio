@@ -3,6 +3,8 @@ const projectData = [
     title: "Yowl",
     description:
       "Créer un réseau social de A à Z avec React et Tailwind CSS. Créer un back complet avec JS et Express. Avec une base de donnée en PHP avec PHPMyAdmin.",
+    descriptionEn:
+      "Create a social network from scratch with React and Tailwind CSS. Build a complete backend with JS and Express. With a PHP database using PHPMyAdmin.",
     technologies: [
       {
         name: "React",
@@ -32,6 +34,8 @@ const projectData = [
     title: "SneaKR",
     description:
       "Créer un site e-commerce de sneakers avec React et Node.js. Créer un back complet avec Strapi.",
+    descriptionEn:
+      "Create a sneakers e-commerce website with React and Node.js. Build a complete backend with Strapi.",
     technologies: [
       {
         name: "React",
@@ -56,6 +60,7 @@ const projectData = [
   {
     title: "Portfolio",
     description: "Mon portfolio afin que mes projets soient répertoriés.",
+    descriptionEn: "My portfolio to showcase my projects.",
     technologies: [
       {
         name: "React",
@@ -77,6 +82,8 @@ const projectData = [
     title: "Back2Fest",
     description:
       "Créer un site vitrine pour un festival avec React et Tailwind CSS. Créer un back complet avec une API en Python et en JS avec un base de donnée en PHP.",
+    descriptionEn:
+      "Create a showcase website for a festival with React and Tailwind CSS. Build a complete backend with a Python and JS API with a PHP database.",
     technologies: [
       {
         name: "React",
