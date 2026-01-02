@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import { ThemeContext } from "../../context/ThemeContext";
-import ProfilePic from "../../../img/PP.png";
 
 const calculateAge = (birthDate) => {
   const today = new Date();
@@ -55,7 +54,7 @@ const Présentation = () => {
         >
           <div className="relative w-full h-full rounded-full shadow-2xl overflow-hidden ring-4 ring-custom-purple-light ring-opacity-70">
             <img
-              src={ProfilePic}
+              src="/img/PP.png"
               alt="Photo de profil d'Adrien Le Guen, développeur full-stack"
               className="w-full h-full object-cover"
               loading="eager"
@@ -175,7 +174,7 @@ const Présentation = () => {
           </a>
         </div>
         <a
-          href="/src/Components/Infos/CV_Adrien_Le_Guen.pdf"
+          href="/CV_Adrien_Le_Guen.pdf"
           download="CV_Adrien_Le_Guen.pdf"
           className={`inline-block ${
             darkMode
