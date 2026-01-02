@@ -1,4 +1,3 @@
-
 <h1 align="center">🌐 Mon Portfolio</h1>
 <h3 align="center">Un portfolio interactif pour présenter mes projets, compétences et mon parcours.</h3>
 
@@ -13,6 +12,7 @@
 ## 🌟 Aperçu
 
 Ce dépôt contient le code source de mon portfolio personnel. Il met en avant :
+
 - Mes projets.
 - Les technologies que j'utilise.
 - Mes expériences professionnelles et académiques.
@@ -24,16 +24,19 @@ Ce dépôt contient le code source de mon portfolio personnel. Il met en avant :
 ## 🛠️ Technologies Utilisées
 
 ### **Frontend**
+
 - **React.js** - Bibliothèque pour construire l'interface utilisateur.
 - **Tailwind CSS** - Framework CSS pour un design moderne et responsive.
 - **JavaScript** - Langage principal pour les interactions frontend.
 
 ### **Outils**
+
 - **Vite.js** - Outil de bundling rapide pour le développement.
 
 ---
 
 ## 🎨 Fonctionnalités
+
 - **Présentation** : Une section qui introduit mon profil et mon parcours.
 - **Projets** : Une liste interactive de mes projets avec descriptions, technologies et liens GitHub.
 - **Technologies** : Un aperçu des outils et technologies que j'utilise.
@@ -46,17 +49,20 @@ Ce dépôt contient le code source de mon portfolio personnel. Il met en avant :
 Pour exécuter ce projet en local, suivez ces étapes :
 
 1. **Clonez ce dépôt** :
+
    ```bash
    git clone https://github.com/lgadrien/Portfolio.git
    cd Portfolio
    ```
 
 2. **Installez les dépendances** :
+
    ```bash
    npm install
    ```
 
 3. **Lancez le projet en local** :
+
    ```bash
    npm run dev
    ```
@@ -69,6 +75,7 @@ Pour exécuter ce projet en local, suivez ces étapes :
 ## 📈 Roadmap
 
 Voici les fonctionnalités prévues pour les futures versions :
+
 - Intégration d'une **version anglaise**.
 - Amélioration des performances grâce au **Lazy Loading**.
 - Ajout d'une section qui retrace mon **parcours**.
@@ -76,11 +83,11 @@ Voici les fonctionnalités prévues pour les futures versions :
 
 ---
 
-## 📬 Me contacter / contribuer 
+## 📬 Me contacter / contribuer
 
 - **Email** : [adrien.leguen.p@gmail.com](mailto:adrien.leguen.p@gmail.com)
-- **LinkedIn** : [Adrien Le Guen](https://www.linkedin.com/in/adrien-le-guen-a544b62a9/)
+- **LinkedIn** : [Adrien Le Guen](https://www.linkedin.com/in/adrien-le-guen/)
 
 ---
 
-© 2024 Adrien Le Guen. Tous droits réservés.
+© 2026 Adrien Le Guen. Tous droits réservés.

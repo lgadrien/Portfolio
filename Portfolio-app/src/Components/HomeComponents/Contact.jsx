@@ -1,106 +1,243 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-import { FaUser, FaEnvelope, FaRegCommentDots } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import { FaUser, FaEnvelope, FaRegCommentDots } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-    const { darkMode } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+  const validateForm = () => {
+    const newErrors = {};
 
-        // Collecte des données du formulaire
-        const form = event.target;
+    if (!formData.name.trim() || formData.name.length < 2) {
+      newErrors.name = "Le nom doit contenir au moins 2 caractères";
+    }
 
-        // Envoie les données via EmailJS
-        emailjs
-            .sendForm(
-                'service_sdjy7gu', // Remplacez par votre Service ID EmailJS
-                'template_mgcas0c', // Remplacez par votre Template ID EmailJS
-                form,
-                'IGAjA1kiop9zdzAt7' // Remplacez par votre Public Key (User ID) EmailJS
-            )
-            .then(
-                (result) => {
-                    console.log('Email envoyé avec succès:', result.text);
-                    alert('Message envoyé avec succès !');
-                    form.reset(); // Réinitialise le formulaire
-                },
-                (error) => {
-                    console.error('Erreur lors de l\'envoi de l\'email:', error.text);
-                    alert('Erreur lors de l\'envoi. Veuillez réessayer.');
-                }
-            );
-    };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Veuillez entrer une adresse email valide";
+    }
 
-    return (
-        <div
-            className={`w-full py-12 mx-auto max-w-3xl transition-colors duration-300 ${
-                darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'
+    if (!formData.message.trim() || formData.message.length < 10) {
+      newErrors.message = "Le message doit contenir au moins 10 caractères";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      toast.error("Veuillez corriger les erreurs du formulaire", {
+        position: "top-right",
+        autoClose: 3000,
+        theme: darkMode ? "dark" : "light",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    emailjs
+      .sendForm(
+        "service_sdjy7gu",
+        "template_mgcas0c",
+        event.target,
+        "IGAjA1kiop9zdzAt7"
+      )
+      .then(
+        (result) => {
+          console.log("Email envoyé avec succès:", result.text);
+          toast.success("Message envoyé avec succès !", {
+            position: "top-right",
+            autoClose: 3000,
+            theme: darkMode ? "dark" : "light",
+          });
+          setFormData({ name: "", email: "", message: "" });
+          event.target.reset();
+        },
+        (error) => {
+          console.error("Erreur lors de l'envoi de l'email:", error.text);
+          toast.error("Erreur lors de l'envoi. Veuillez réessayer.", {
+            position: "top-right",
+            autoClose: 3000,
+            theme: darkMode ? "dark" : "light",
+          });
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
+  return (
+    <div
+      className={`w-full py-12 mx-auto max-w-3xl transition-colors duration-300 ${
+        darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+      }`}
+      id="contact"
+    >
+      <ToastContainer />
+      <h2 className="text-3xl font-bold mb-6 text-center dark:text-gray-200">
+        Contactez-moi
+      </h2>
+      <p className="mb-8 text-center text-lg dark:text-gray-300">
+        Vous avez une question ou souhaitez collaborer ? Remplissez le
+        formulaire ci-dessous.
+      </p>
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        <div className="relative">
+          <label htmlFor="name" className="sr-only">
+            Votre nom
+          </label>
+          <FaUser
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+          />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Votre nom"
+            aria-required="true"
+            aria-invalid={errors.name ? "true" : "false"}
+            aria-describedby={errors.name ? "name-error" : undefined}
+            className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
+              errors.name
+                ? "border-2 border-red-500 focus:ring-red-500"
+                : "focus:ring-blue-500"
+            } ${
+              darkMode
+                ? "bg-gray-700 text-white placeholder-gray-400"
+                : "bg-gray-100 text-black placeholder-gray-500"
             }`}
-            id="contact"
-        >
-            <h2 className="text-3xl font-bold mb-6 text-center dark:text-gray-200">
-                Contactez-moi
-            </h2>
-            <p className="mb-8 text-center text-lg dark:text-gray-300">
-                Vous avez une question ou souhaitez collaborer ? Remplissez le formulaire ci-dessous.
+          />
+          {errors.name && (
+            <p
+              id="name-error"
+              className="text-red-500 text-sm mt-1 ml-4"
+              role="alert"
+            >
+              {errors.name}
             </p>
-            <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="relative">
-                    <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="Votre nom"
-                        className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
-                            darkMode
-                                ? 'bg-gray-700 text-white placeholder-gray-400 focus:ring-blue-500'
-                                : 'bg-gray-100 text-black placeholder-gray-500 focus:ring-blue-500'
-                        }`}
-                    />
-                </div>
-                <div className="relative">
-                    <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        placeholder="Votre email"
-                        className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
-                            darkMode
-                                ? 'bg-gray-700 text-white placeholder-gray-400 focus:ring-blue-500'
-                                : 'bg-gray-100 text-black placeholder-gray-500 focus:ring-blue-500'
-                        }`}
-                    />
-                </div>
-                <div className="relative">
-                    <FaRegCommentDots className="absolute left-4 top-4 text-gray-500 dark:text-gray-400" />
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                        placeholder="Votre message"
-                        className={`w-full pl-12 pr-4 py-3 rounded-2xl focus:outline-none focus:ring-2 resize-none ${
-                            darkMode
-                                ? 'bg-gray-700 text-white placeholder-gray-400 focus:ring-blue-500'
-                                : 'bg-gray-100 text-black placeholder-gray-500 focus:ring-blue-500'
-                        }`}
-                    ></textarea>
-                </div>
-                <button
-                    type="submit"
-                    className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-full transition duration-300 font-semibold"
-                >
-                    Envoyer le message
-                </button>
-            </form>
+          )}
         </div>
-    );
+        <div className="relative">
+          <label htmlFor="email" className="sr-only">
+            Votre email
+          </label>
+          <FaEnvelope
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Votre email"
+            aria-required="true"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
+              errors.email
+                ? "border-2 border-red-500 focus:ring-red-500"
+                : "focus:ring-blue-500"
+            } ${
+              darkMode
+                ? "bg-gray-700 text-white placeholder-gray-400"
+                : "bg-gray-100 text-black placeholder-gray-500"
+            }`}
+          />
+          {errors.email && (
+            <p
+              id="email-error"
+              className="text-red-500 text-sm mt-1 ml-4"
+              role="alert"
+            >
+              {errors.email}
+            </p>
+          )}
+        </div>
+        <div className="relative">
+          <label htmlFor="message" className="sr-only">
+            Votre message
+          </label>
+          <FaRegCommentDots
+            className="absolute left-4 top-4 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+          />
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Votre message"
+            aria-required="true"
+            aria-invalid={errors.message ? "true" : "false"}
+            aria-describedby={errors.message ? "message-error" : undefined}
+            className={`w-full pl-12 pr-4 py-3 rounded-2xl focus:outline-none focus:ring-2 resize-none ${
+              errors.message
+                ? "border-2 border-red-500 focus:ring-red-500"
+                : "focus:ring-blue-500"
+            } ${
+              darkMode
+                ? "bg-gray-700 text-white placeholder-gray-400"
+                : "bg-gray-100 text-black placeholder-gray-500"
+            }`}
+          ></textarea>
+          {errors.message && (
+            <p
+              id="message-error"
+              className="text-red-500 text-sm mt-1 ml-4"
+              role="alert"
+            >
+              {errors.message}
+            </p>
+          )}
+        </div>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full py-3 rounded-full transition duration-300 font-semibold ${
+            isSubmitting
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600 text-white"
+          }`}
+          aria-label={isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+        >
+          {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default ContactForm;
