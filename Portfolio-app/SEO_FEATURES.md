@@ -3,6 +3,7 @@
 ## 🚀 Nouvelles fonctionnalités
 
 ### 1. SEO Optimisé
+
 - ✅ Meta tags complets (description, keywords, author)
 - ✅ Open Graph tags pour les réseaux sociaux
 - ✅ Twitter Card tags
@@ -14,18 +15,21 @@
 **Mots-clés ciblés :** Adrien Le Guen, développeur full-stack, data analyst, React, Node.js, Python, Epitech
 
 ### 2. Page Stats (/stats)
+
 - 📊 Statistiques GitHub en temps réel
 - 🌟 Affichage des dépôts publics, stars, followers
 - 📈 Top 6 projets les plus populaires
 - 🔗 Liens directs vers les repositories
 
 ### 3. Système Multilingue (FR/EN)
+
 - 🌍 Changement de langue dynamique
 - 💾 Sauvegarde de la préférence dans localStorage
 - 🔄 Traductions complètes de l'interface
 - 🎯 Support FR et EN
 
 ### 4. Timeline / Parcours
+
 - ⏱️ Frise chronologique interactive
 - 📅 Historique du parcours professionnel et académique
 - 🎨 Design responsive (desktop et mobile)
@@ -49,23 +53,27 @@ public/
 ## 🔧 Modifications
 
 ### index.html
+
 - Ajout de Schema.org structured data
 - Meta tags SEO optimisés
 - Canonical URL
 
 ### Navigation
-- Nouveau lien "Stats" 
+
+- Nouveau lien "Stats"
 - Nouveau lien "Parcours/Timeline"
 - Sélecteur de langue FR/EN
 - Navigation améliorée entre pages
 
 ### Routing
+
 - Route `/stats` ajoutée
 - Navigation fluide avec scroll automatique
 
 ## 📝 À personnaliser
 
 1. **SEO** : Remplacer `https://votre-domaine.com` par votre vrai domaine dans :
+
    - `index.html` (Open Graph, Twitter Card, Schema.org, canonical)
    - `public/sitemap.xml`
 
@@ -76,6 +84,7 @@ public/
 ## 🎯 Impact SEO
 
 Le site est maintenant optimisé pour :
+
 - ✅ Recherche Google : "Adrien Le Guen"
 - ✅ Recherche Google : "data analyst"
 - ✅ Recherche Google : "développeur full-stack"

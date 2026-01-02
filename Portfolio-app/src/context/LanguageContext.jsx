@@ -14,7 +14,7 @@ const translations = {
       contact: "Contact",
     },
     home: {
-      greeting: "Salut ! Je suis",
+      greeting: "Bonjour ! Je suis",
       subtitle: "Développeur Full-Stack & Data Analyst",
       description:
         "Étudiant passionné à Epitech Paris, je crée des applications web modernes et analyse des données pour résoudre des problèmes complexes.",
@@ -54,6 +54,32 @@ const translations = {
       title: "Me Contacter",
       subtitle: "N'hésitez pas à me contacter",
       email: "M'envoyer un email",
+      form: {
+        name: "Nom",
+        namePlaceholder: "Votre nom",
+        nameError: "Le nom doit contenir au moins 2 caractères",
+        email: "Email",
+        emailPlaceholder: "votre.email@exemple.com",
+        emailError: "Veuillez entrer une adresse email valide",
+        message: "Message",
+        messagePlaceholder: "Votre message...",
+        messageError: "Le message doit contenir au moins 10 caractères",
+        send: "Envoyer",
+        sending: "Envoi en cours...",
+        successTitle: "Message envoyé !",
+        successMessage:
+          "Merci pour votre message. Je vous répondrai rapidement.",
+        errorTitle: "Erreur",
+        errorMessage: "Une erreur s'est produite. Veuillez réessayer.",
+      },
+    },
+    presentation: {
+      greeting: "Salut ! Je suis",
+      name: "Adrien Le Guen",
+      role: "Développeur Full-Stack & Data Analyst",
+      description:
+        "Étudiant passionné à Epitech Paris de {age} ans, je crée des applications web modernes et analyse des données pour résoudre des problèmes complexes.",
+      yearsOld: "ans",
     },
     footer: {
       rights: "Tous droits réservés",
@@ -111,6 +137,31 @@ const translations = {
       title: "Contact Me",
       subtitle: "Feel free to reach out",
       email: "Send me an email",
+      form: {
+        name: "Name",
+        namePlaceholder: "Your name",
+        nameError: "Name must contain at least 2 characters",
+        email: "Email",
+        emailPlaceholder: "your.email@example.com",
+        emailError: "Please enter a valid email address",
+        message: "Message",
+        messagePlaceholder: "Your message...",
+        messageError: "Message must contain at least 10 characters",
+        send: "Send",
+        sending: "Sending...",
+        successTitle: "Message sent!",
+        successMessage: "Thank you for your message. I will reply soon.",
+        errorTitle: "Error",
+        errorMessage: "An error occurred. Please try again.",
+      },
+    },
+    presentation: {
+      greeting: "Hi! I'm",
+      name: "Adrien Le Guen",
+      role: "Full-Stack Developer & Data Analyst",
+      description:
+        "Passionate {age}-year-old student at Epitech Paris, I create modern web applications and analyze data to solve complex problems.",
+      yearsOld: "years old",
     },
     footer: {
       rights: "All rights reserved",

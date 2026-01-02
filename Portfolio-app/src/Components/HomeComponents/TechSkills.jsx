@@ -1,5 +1,6 @@
 import { useState, useMemo, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 import {
   DiCss3,
   DiDocker,
@@ -187,11 +188,17 @@ const categories = ["Tout", "Web", "Data", "Design"];
 
 const TechSkills = () => {
   const { darkMode } = useContext(ThemeContext);
-  const [filter, setFilter] = useState("Tout");
+  const { t, language } = useContext(LanguageContext);
+  const [filter, setFilter] = useState(language === "fr" ? "Tout" : "All");
+
+  const categories =
+    language === "fr"
+      ? ["Tout", "Web", "Data", "Design"]
+      : ["All", "Web", "Data", "Design"];
 
   const filteredTechnologies = useMemo(
     () =>
-      filter === "Tout"
+      filter === "Tout" || filter === "All"
         ? technologies
         : technologies.filter((tech) => tech.type === filter),
     [filter]
@@ -206,11 +213,11 @@ const TechSkills = () => {
             darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
           } font-bold`}
         >
-          Technologies que j'utilise
+          {t.skills.title}
         </span>
       </h3>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12 animate-fadeInUp delay-100">
-        Mon stack technique et outils favoris
+        {t.skills.subtitle}
       </p>
 
       {/* Boutons de filtrage centrés */}
