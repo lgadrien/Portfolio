@@ -12,19 +12,19 @@ const Home = () => {
   return (
     <div
       className={`${
-        darkMode ? "bg-gray-800" : "bg-white"
+        darkMode ? "bg-custom-black" : "bg-custom-beige"
       } transition-colors duration-300`}
     >
-      <section id="présentation" className="py-24">
+      <section id="présentation" className="pt-20 pb-24">
         <Présentation />
       </section>
-      <section id="tech-skills" className="py-24">
+      <section id="tech-skills" className="pt-20 pb-24">
         <TechSkills />
       </section>
-      <section id="projets" className="py-24">
+      <section id="projets" className="pt-20 pb-24">
         <Projets />
       </section>
-      <section id="contact" className="py-24">
+      <section id="contact" className="pt-20 pb-24">
         <Contact />
       </section>
     </div>
