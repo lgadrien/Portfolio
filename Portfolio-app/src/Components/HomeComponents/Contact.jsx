@@ -60,14 +60,16 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_sdjy7gu",
-        "template_mgcas0c",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         event.target,
-        "IGAjA1kiop9zdzAt7"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
-          console.log("Email envoyé avec succès:", result.text);
+          if (import.meta.env.DEV) {
+            console.log("Email envoyé avec succès:", result.text);
+          }
           toast.success("Message envoyé avec succès !", {
             position: "top-right",
             autoClose: 3000,
@@ -77,7 +79,9 @@ const ContactForm = () => {
           event.target.reset();
         },
         (error) => {
-          console.error("Erreur lors de l'envoi de l'email:", error.text);
+          if (import.meta.env.DEV) {
+            console.error("Erreur lors de l'envoi de l'email:", error.text);
+          }
           toast.error("Erreur lors de l'envoi. Veuillez réessayer.", {
             position: "top-right",
             autoClose: 3000,
