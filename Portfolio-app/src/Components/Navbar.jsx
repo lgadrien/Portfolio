@@ -143,7 +143,7 @@ const NavBar = () => {
           </button>
         </nav>
         <div className="flex items-center ml-6 space-x-3">
-          <button
+          {/* <button
             onClick={toggleLanguage}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
@@ -153,7 +153,7 @@ const NavBar = () => {
             }`}
           >
             {language === "fr" ? "EN" : "FR"}
-          </button>
+          </button> */}
           <button
             onClick={toggleDarkMode}
             className={`${
