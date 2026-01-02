@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { LanguageContext } from "../context/LanguageContext";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
+  const { t } = useContext(LanguageContext);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +18,7 @@ const Footer = () => {
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm">
-          © {currentYear} Adrien Le Guen. Tous droits réservés.
+          © {currentYear} Adrien Le Guen. {t.footer.rights}
         </p>
         <div className="flex space-x-6">
           <a

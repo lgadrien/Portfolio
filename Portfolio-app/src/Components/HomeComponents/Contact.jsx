@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 import { FaUser, FaEnvelope, FaRegCommentDots } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +8,7 @@ import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const { darkMode } = useContext(ThemeContext);
+  const { t, language } = useContext(LanguageContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -19,16 +21,16 @@ const ContactForm = () => {
     const newErrors = {};
 
     if (!formData.name.trim() || formData.name.length < 2) {
-      newErrors.name = "Le nom doit contenir au moins 2 caractères";
+      newErrors.name = t.contact.form.nameError;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Veuillez entrer une adresse email valide";
+      newErrors.email = t.contact.form.emailError;
     }
 
     if (!formData.message.trim() || formData.message.length < 10) {
-      newErrors.message = "Le message doit contenir au moins 10 caractères";
+      newErrors.message = t.contact.form.messageError;
     }
 
     setErrors(newErrors);
@@ -70,7 +72,7 @@ const ContactForm = () => {
           if (import.meta.env.DEV) {
             console.log("Email envoyé avec succès:", result.text);
           }
-          toast.success("Message envoyé avec succès !", {
+          toast.success(t.contact.form.successMessage, {
             position: "top-right",
             autoClose: 3000,
             theme: darkMode ? "dark" : "light",
@@ -82,7 +84,7 @@ const ContactForm = () => {
           if (import.meta.env.DEV) {
             console.error("Erreur lors de l'envoi de l'email:", error.text);
           }
-          toast.error("Erreur lors de l'envoi. Veuillez réessayer.", {
+          toast.error(t.contact.form.errorMessage, {
             position: "top-right",
             autoClose: 3000,
             theme: darkMode ? "dark" : "light",
@@ -110,12 +112,11 @@ const ContactForm = () => {
             darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
           } font-bold`}
         >
-          Contactez-moi
+          {t.contact.title}
         </span>
       </h2>
       <p className="mb-10 text-center text-lg dark:text-gray-300 animate-fadeInUp delay-100">
-        Vous avez une question ou souhaitez collaborer ? Remplissez le
-        formulaire ci-dessous.
+        {t.contact.subtitle}
       </p>
       <form
         onSubmit={handleSubmit}
@@ -124,7 +125,7 @@ const ContactForm = () => {
       >
         <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="name" className="sr-only">
-            Votre nom
+            {t.contact.form.name}
           </label>
           <FaUser
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
@@ -137,7 +138,7 @@ const ContactForm = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            placeholder="Votre nom"
+            placeholder={t.contact.form.namePlaceholder}
             aria-required="true"
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
@@ -165,7 +166,7 @@ const ContactForm = () => {
         </div>
         <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="email" className="sr-only">
-            Votre email
+            {t.contact.form.email}
           </label>
           <FaEnvelope
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
@@ -178,7 +179,7 @@ const ContactForm = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            placeholder="Votre email"
+            placeholder={t.contact.form.emailPlaceholder}
             aria-required="true"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
@@ -206,7 +207,7 @@ const ContactForm = () => {
         </div>
         <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="message" className="sr-only">
-            Votre message
+            {t.contact.form.message}
           </label>
           <FaRegCommentDots
             className="absolute left-4 top-4 text-gray-500 dark:text-gray-400"
@@ -219,7 +220,7 @@ const ContactForm = () => {
             required
             value={formData.message}
             onChange={handleChange}
-            placeholder="Votre message"
+            placeholder={t.contact.form.messagePlaceholder}
             aria-required="true"
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
@@ -255,7 +256,9 @@ const ContactForm = () => {
               ? "bg-custom-purple-light text-custom-black hover:bg-white"
               : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
           }`}
-          aria-label={isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+          aria-label={
+            isSubmitting ? t.contact.form.sending : t.contact.form.send
+          }
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
@@ -275,10 +278,10 @@ const ContactForm = () => {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 ></path>
               </svg>
-              Envoi en cours...
+              {t.contact.form.sending}
             </span>
           ) : (
-            "Envoyer le message"
+            t.contact.form.send
           )}
         </button>
       </form>

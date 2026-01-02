@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const calculateAge = (birthDate) => {
   const today = new Date();
@@ -19,6 +20,7 @@ const calculateAge = (birthDate) => {
 
 const Présentation = () => {
   const { darkMode } = useContext(ThemeContext);
+  const { t, language } = useContext(LanguageContext);
   const [age, setAge] = useState(calculateAge("2005-03-07"));
 
   useEffect(() => {
@@ -66,7 +68,7 @@ const Présentation = () => {
       <div className="flex flex-col justify-center w-full lg:w-1/2 lg:order-1 order-2 space-y-6 text-center lg:text-left">
         <div className="flex items-center justify-center lg:justify-start space-x-3 animate-slideInLeft">
           <h1 className="text-3xl lg:text-5xl font-extrabold whitespace-nowrap">
-            Bonjour, je suis{" "}
+            {t.presentation.greeting}{" "}
             <span
               className={`${
                 darkMode
@@ -82,35 +84,88 @@ const Présentation = () => {
           </span>
         </div>
         <p className="text-lg lg:text-xl leading-relaxed animate-slideInLeft delay-100">
-          Développeur{" "}
-          <span
-            className={`${
-              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } font-semibold`}
-          >
-            full-stack
-          </span>
-          , et{" "}
-          <span
-            className={`${
-              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } font-semibold`}
-          >
-            data analyst
-          </span>
-          , passionné par le code, les nouvelles technologies,
-          l&apos;entrepreneuriat et la finance.
+          {language === "fr" ? (
+            <>
+              Développeur{" "}
+              <span
+                className={`${
+                  darkMode
+                    ? "text-custom-purple-light"
+                    : "text-custom-purple-dark"
+                } font-semibold`}
+              >
+                full-stack
+              </span>
+              , et{" "}
+              <span
+                className={`${
+                  darkMode
+                    ? "text-custom-purple-light"
+                    : "text-custom-purple-dark"
+                } font-semibold`}
+              >
+                data analyst
+              </span>
+              , passionné par le code, les nouvelles technologies,
+              l&apos;entrepreneuriat et la finance.
+            </>
+          ) : (
+            <>
+              <span
+                className={`${
+                  darkMode
+                    ? "text-custom-purple-light"
+                    : "text-custom-purple-dark"
+                } font-semibold`}
+              >
+                Full-stack
+              </span>{" "}
+              developer and{" "}
+              <span
+                className={`${
+                  darkMode
+                    ? "text-custom-purple-light"
+                    : "text-custom-purple-dark"
+                } font-semibold`}
+              >
+                data analyst
+              </span>
+              , passionate about code, new technologies, entrepreneurship and
+              finance.
+            </>
+          )}
         </p>
         <ul className="space-y-3 text-lg animate-slideInLeft delay-200">
           <li className="hover:translate-x-2 transition-transform duration-300">
-            🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
-            <strong>2028</strong>.
+            {language === "fr" ? (
+              <>
+                🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
+                <strong>2028</strong>.
+              </>
+            ) : (
+              <>
+                🎓 Student at <strong>Epitech Paris</strong>, class of{" "}
+                <strong>2028</strong>.
+              </>
+            )}
           </li>
           <li className="hover:translate-x-2 transition-transform duration-300">
-            📅 Âge actuel : <strong>{age} ans</strong>.
+            {language === "fr" ? (
+              <>
+                📅 Âge actuel : <strong>{age} ans</strong>.
+              </>
+            ) : (
+              <>
+                📅 Current age: <strong>{age} years old</strong>.
+              </>
+            )}
           </li>
           <li className="hover:translate-x-2 transition-transform duration-300">
-            💻 Découvrez mes projets sur{" "}
+            {language === "fr" ? (
+              <>💻 Découvrez mes projets sur </>
+            ) : (
+              <>💻 Check out my projects on </>
+            )}
             <a
               href="https://github.com/lgadrien"
               target="_blank"
@@ -126,7 +181,11 @@ const Présentation = () => {
             .
           </li>
           <li className="hover:translate-x-2 transition-transform duration-300">
-            ✉️ Contactez-moi via{" "}
+            {language === "fr" ? (
+              <>✉️ Contactez-moi via </>
+            ) : (
+              <>✉️ Contact me via </>
+            )}
             <a
               href="mailto:adrien.leguen.p@gmail.com"
               className={`${
@@ -135,7 +194,7 @@ const Présentation = () => {
                   : "text-custom-purple-dark"
               } hover:underline font-semibold`}
             >
-              mon email
+              {language === "fr" ? "mon email" : "my email"}
             </a>
             .
           </li>
@@ -183,8 +242,8 @@ const Présentation = () => {
           } font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl mt-4 animate-slideInLeft delay-400`}
           aria-label="Télécharger le CV d'Adrien Le Guen au format PDF"
         >
-          <FaDownload className="mr-2 inline" aria-hidden="true" /> Télécharger
-          mon CV
+          <FaDownload className="mr-2 inline" aria-hidden="true" />{" "}
+          {t.home.downloadCV}
         </a>
       </div>
       <style>{`
