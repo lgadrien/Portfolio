@@ -100,7 +100,7 @@ const Présentation = () => {
             data analyst
           </span>
           , passionné par le code, les nouvelles technologies,
-          l&apos;entreprenariat et la finance.
+          l&apos;entrepreneuriat et la finance.
         </p>
         <ul className="space-y-3 text-lg animate-slideInLeft delay-200">
           <li className="hover:translate-x-2 transition-transform duration-300">
