@@ -52,7 +52,7 @@ Pour exécuter ce projet en local, suivez ces étapes :
 
    ```bash
    git clone https://github.com/lgadrien/Portfolio.git
-   cd Portfolio
+   cd Portfolio/Portfolio-app
    ```
 
 2. **Installez les dépendances** :
@@ -61,13 +61,27 @@ Pour exécuter ce projet en local, suivez ces étapes :
    npm install
    ```
 
-3. **Lancez le projet en local** :
+3. **Configurez les variables d'environnement** :
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Puis éditez le fichier `.env` et remplissez vos clés EmailJS :
+
+   - Créez un compte sur [EmailJS](https://www.emailjs.com/)
+   - Configurez un service email et un template
+   - Copiez vos credentials dans `.env`
+
+   📖 Consultez [SECURITY.md](Portfolio-app/SECURITY.md) pour plus de détails.
+
+4. **Lancez le projet en local** :
 
    ```bash
    npm run dev
    ```
 
-4. **Ouvrez votre navigateur** :
+5. **Ouvrez votre navigateur** :
    Accédez à [http://localhost:5173](http://localhost:5173) pour voir le portfolio.
 
 ---
