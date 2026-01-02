@@ -1,15 +1,18 @@
-import { useState, useEffect, useContext } from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from 'react-icons/fa';
-import Tilt from 'react-parallax-tilt';
-import { ThemeContext } from '../../context/ThemeContext';
-import ProfilePic from '../../../img/profile-pic.png';
+import { useState, useEffect, useContext } from "react";
+import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
+import Tilt from "react-parallax-tilt";
+import { ThemeContext } from "../../context/ThemeContext";
+import ProfilePic from "../../../img/PP.png";
 
 const calculateAge = (birthDate) => {
   const today = new Date();
   const birthDateObj = new Date(birthDate);
   let age = today.getFullYear() - birthDateObj.getFullYear();
   const monthDifference = today.getMonth() - birthDateObj.getMonth();
-  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDateObj.getDate())
+  ) {
     age--;
   }
   return age;
@@ -17,11 +20,11 @@ const calculateAge = (birthDate) => {
 
 const Présentation = () => {
   const { darkMode } = useContext(ThemeContext);
-  const [age, setAge] = useState(calculateAge('2005-03-07'));
+  const [age, setAge] = useState(calculateAge("2005-03-07"));
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setAge(calculateAge('2005-03-07'));
+      setAge(calculateAge("2005-03-07"));
     }, 86400000);
     return () => clearInterval(intervalId);
   }, []);
@@ -30,9 +33,9 @@ const Présentation = () => {
     <div
       id="présentation"
       className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-12 mx-auto max-w-7xl transition-colors duration-300 ${
-        darkMode ? 'dark:text-white text-gray-900' : 'text-gray-900'
+        darkMode ? "dark:text-white text-gray-900" : "text-gray-900"
       }`}
-      style={{ paddingTop: 'calc(10vh + 2rem)' }} // Padding-top ajusté
+      style={{ paddingTop: "calc(10vh + 2rem)" }} // Padding-top ajusté
     >
       {/* Image de profil en haut pour mobile */}
       <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0">
@@ -46,12 +49,17 @@ const Présentation = () => {
           glareMaxOpacity={0.5}
           glarePosition="bottom"
           style={{
-            borderRadius: '50%',
-            overflow: 'hidden',
+            borderRadius: "50%",
+            overflow: "hidden",
           }}
         >
           <div className="relative w-full h-full rounded-full shadow-xl overflow-hidden">
-            <img src={ProfilePic} alt="Profil" className="w-full h-full object-cover" />
+            <img
+              src={ProfilePic}
+              alt="Photo de profil d'Adrien Le Guen, développeur full-stack"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
           </div>
         </Tilt>
       </div>
@@ -61,16 +69,27 @@ const Présentation = () => {
           <h1 className="text-3xl lg:text-5xl font-extrabold whitespace-nowrap">
             Bonjour, je suis <span className="text-blue-500">Adrien</span>
           </h1>
-          <span className="wave text-3xl lg:text-5xl" aria-label="wave">👋</span>
+          <span className="wave text-3xl lg:text-5xl" aria-label="wave">
+            👋
+          </span>
         </div>
         <p className="text-lg lg:text-xl leading-relaxed">
-          Développeur <span className="text-blue-500 font-semibold">full-stack</span>, passionné par le code, les nouvelles technologies, l&apos;entrepreneuriat et de finances.
+          Développeur{" "}
+          <span className="text-blue-500 font-semibold">full-stack</span>, et{" "}
+          <span className="text-blue-500 font-semibold">data analyst</span>,
+          passionné par le code, les nouvelles technologies,
+          l&apos;entrepreneuriat et la finance.
         </p>
         <ul className="space-y-3 text-lg">
-          <li>🎓 Étudiant à <strong>Epitech Paris</strong>, promotion <strong>2028</strong>.</li>
-          <li>📅 Âge actuel : <strong>{age} ans</strong>.</li>
           <li>
-            💻 Découvrez mes projets sur{' '}
+            🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
+            <strong>2028</strong>.
+          </li>
+          <li>
+            📅 Âge actuel : <strong>{age} ans</strong>.
+          </li>
+          <li>
+            💻 Découvrez mes projets sur{" "}
             <a
               href="https://github.com/lgadrien"
               target="_blank"
@@ -78,16 +97,18 @@ const Présentation = () => {
               className="text-blue-500 hover:underline"
             >
               GitHub
-            </a>.
+            </a>
+            .
           </li>
           <li>
-            ✉️ Contactez-moi via{' '}
+            ✉️ Contactez-moi via{" "}
             <a
               href="mailto:adrien.leguen.p@gmail.com"
               className="text-blue-500 hover:underline"
             >
               mon email
-            </a>.
+            </a>
+            .
           </li>
         </ul>
         <div className="flex justify-center lg:justify-start space-x-6">
@@ -96,30 +117,34 @@ const Présentation = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-600 transition duration-300"
+            aria-label="Voir mon profil LinkedIn"
           >
-            <FaLinkedin size={28} />
+            <FaLinkedin size={28} aria-hidden="true" />
           </a>
           <a
             href="https://github.com/lgadrien"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition duration-300"
+            aria-label="Voir mon profil GitHub"
           >
-            <FaGithub size={28} />
+            <FaGithub size={28} aria-hidden="true" />
           </a>
           <a
             href="mailto:adrien.leguen.p@gmail.com"
             className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition duration-300"
+            aria-label="M'envoyer un email"
           >
-            <FaEnvelope size={28} />
+            <FaEnvelope size={28} aria-hidden="true" />
           </a>
         </div>
         <a
-          href="src\Components\Infos\CV Adrien Le Guen.pdf"
-          download
+          href="/src/Components/Infos/CV_Adrien_Le_Guen.pdf"
+          download="CV_Adrien_Le_Guen.pdf"
           className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 mt-4"
+          aria-label="Télécharger le CV d'Adrien Le Guen au format PDF"
         >
-          <FaDownload className="mr-2 inline" /> Télécharger mon CV
+          <FaDownload className="mr-2 inline" aria-hidden="true" /> Télécharger mon CV
         </a>
       </div>
       <style>{`
