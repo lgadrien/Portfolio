@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import {
   DiCss3,
   DiDocker,
@@ -16,20 +17,33 @@ import {
   SiTailwindcss,
   SiMongodb,
   SiPandas,
+  SiDataiku,
+  SiStreamlit,
+  SiPowerbi,
 } from "react-icons/si";
 import { FaFigma } from "react-icons/fa";
 
-const TechCard = ({ href, Icon, color, name }) => (
+const TechCard = ({ href, Icon, color, name, darkMode }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
     title={name}
-    className="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-300 dark:border-gray-700 hover:border-blue-500"
+    className={`flex flex-col items-center p-6 ${
+      darkMode ? "bg-custom-dark" : "bg-white"
+    } rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border ${
+      darkMode ? "border-gray-800" : "border-gray-200"
+    } hover:border-custom-purple-light group transform hover:-translate-y-2`}
     aria-label={`En savoir plus sur ${name}`}
   >
-    <Icon color={color} size={40} aria-hidden="true" />
-    <p className="text-sm font-medium mt-3 text-gray-800 dark:text-white">
+    <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+      <Icon color={color} size={48} aria-hidden="true" />
+    </div>
+    <p
+      className={`text-sm font-semibold mt-4 ${
+        darkMode ? "text-white" : "text-custom-purple-dark"
+      } group-hover:text-custom-purple-light transition-colors duration-300`}
+    >
       {name}
     </p>
   </a>
@@ -123,6 +137,27 @@ const technologies = [
     name: "MySQL",
     type: "Data",
   },
+  {
+    href: "https://www.dataiku.com/",
+    Icon: SiDataiku,
+    color: "#2AB1AC",
+    name: "Dataiku",
+    type: "Data",
+  },
+  {
+    href: "https://streamlit.io/",
+    Icon: SiStreamlit,
+    color: "#FF4B4B",
+    name: "Streamlit",
+    type: "Data",
+  },
+  {
+    href: "https://powerbi.microsoft.com/",
+    Icon: SiPowerbi,
+    color: "#F2C811",
+    name: "Power BI",
+    type: "Data",
+  },
 
   // Design
   {
@@ -151,6 +186,7 @@ const technologies = [
 const categories = ["Tout", "Web", "Data", "Design"];
 
 const TechSkills = () => {
+  const { darkMode } = useContext(ThemeContext);
   const [filter, setFilter] = useState("Tout");
 
   const filteredTechnologies = useMemo(
@@ -162,22 +198,35 @@ const TechSkills = () => {
   );
 
   return (
-    <div id="compétences" className="pt-40 px-4 py-16 mx-auto w-full max-w-5xl">
+    <div id="compétences" className="pt-40 px-4 py-16 mx-auto w-full max-w-6xl">
       {/* Titre aligné au centre */}
-      <h3 className="text-3xl font-extrabold text-center mb-8 dark:text-gray-200">
-        Technologies que j'utilise
+      <h3 className="text-4xl font-extrabold text-center mb-4 animate-fadeInUp">
+        <span
+          className={`${
+            darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+          } font-bold`}
+        >
+          Technologies que j'utilise
+        </span>
       </h3>
+      <p className="text-center text-gray-600 dark:text-gray-400 mb-12 animate-fadeInUp delay-100">
+        Mon stack technique et outils favoris
+      </p>
 
       {/* Boutons de filtrage centrés */}
-      <div className="flex flex-wrap justify-center mb-8 gap-4">
+      <div className="flex flex-wrap justify-center mb-12 gap-4 animate-fadeInUp delay-200">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setFilter(category)}
-            className={`px-6 py-2 rounded-full font-semibold text-sm transition ${
+            className={`px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
               filter === category
-                ? "bg-blue-500 text-white shadow-lg"
-                : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white"
+                ? darkMode
+                  ? "bg-custom-purple-light text-custom-black shadow-lg"
+                  : "bg-custom-purple-dark text-white shadow-lg"
+                : darkMode
+                ? "bg-custom-dark text-gray-300 hover:bg-custom-purple-light hover:text-custom-black"
+                : "bg-white text-custom-purple-dark border border-custom-purple-dark hover:bg-custom-purple-dark hover:text-white"
             }`}
           >
             {category}
@@ -186,15 +235,21 @@ const TechSkills = () => {
       </div>
 
       {/* Cartes technologiques */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {filteredTechnologies.map((tech) => (
-          <TechCard
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {filteredTechnologies.map((tech, index) => (
+          <div
             key={tech.name}
-            href={tech.href}
-            Icon={tech.Icon}
-            color={tech.color}
-            name={tech.name}
-          />
+            className="animate-scaleIn"
+            style={{ animationDelay: `${index * 0.05}s` }}
+          >
+            <TechCard
+              href={tech.href}
+              Icon={tech.Icon}
+              color={tech.color}
+              name={tech.name}
+              darkMode={darkMode}
+            />
+          </div>
         ))}
       </div>
     </div>

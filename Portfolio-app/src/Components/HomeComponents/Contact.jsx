@@ -3,7 +3,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { FaUser, FaEnvelope, FaRegCommentDots } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -96,21 +96,33 @@ const ContactForm = () => {
 
   return (
     <div
-      className={`w-full py-12 mx-auto max-w-3xl transition-colors duration-300 ${
-        darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
-      }`}
       id="contact"
+      className={`w-full py-12 pb-60 mx-auto max-w-3xl px-4 transition-colors duration-300 ${
+        darkMode
+          ? "bg-custom-black text-white"
+          : "bg-custom-beige text-custom-purple-dark"
+      }`}
     >
       <ToastContainer />
-      <h2 className="text-3xl font-bold mb-6 text-center dark:text-gray-200">
-        Contactez-moi
+      <h2 className="text-4xl font-bold mb-4 text-center animate-fadeInUp">
+        <span
+          className={`${
+            darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+          } font-bold`}
+        >
+          Contactez-moi
+        </span>
       </h2>
-      <p className="mb-8 text-center text-lg dark:text-gray-300">
+      <p className="mb-10 text-center text-lg dark:text-gray-300 animate-fadeInUp delay-100">
         Vous avez une question ou souhaitez collaborer ? Remplissez le
         formulaire ci-dessous.
       </p>
-      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-        <div className="relative">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6 animate-fadeInUp delay-200"
+        noValidate
+      >
+        <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="name" className="sr-only">
             Votre nom
           </label>
@@ -129,27 +141,29 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 ${
               errors.name
                 ? "border-2 border-red-500 focus:ring-red-500"
-                : "focus:ring-blue-500"
+                : darkMode
+                ? "focus:ring-custom-purple-light focus:ring-offset-2"
+                : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-gray-700 text-white placeholder-gray-400"
-                : "bg-gray-100 text-black placeholder-gray-500"
+                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.name && (
             <p
               id="name-error"
-              className="text-red-500 text-sm mt-1 ml-4"
+              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
               role="alert"
             >
               {errors.name}
             </p>
           )}
         </div>
-        <div className="relative">
+        <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="email" className="sr-only">
             Votre email
           </label>
@@ -168,27 +182,29 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className={`w-full pl-12 pr-4 py-3 rounded-full focus:outline-none focus:ring-2 ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 ${
               errors.email
                 ? "border-2 border-red-500 focus:ring-red-500"
-                : "focus:ring-blue-500"
+                : darkMode
+                ? "focus:ring-custom-purple-light focus:ring-offset-2"
+                : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-gray-700 text-white placeholder-gray-400"
-                : "bg-gray-100 text-black placeholder-gray-500"
+                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.email && (
             <p
               id="email-error"
-              className="text-red-500 text-sm mt-1 ml-4"
+              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
               role="alert"
             >
               {errors.email}
             </p>
           )}
         </div>
-        <div className="relative">
+        <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="message" className="sr-only">
             Votre message
           </label>
@@ -199,7 +215,7 @@ const ContactForm = () => {
           <textarea
             id="message"
             name="message"
-            rows="5"
+            rows="6"
             required
             value={formData.message}
             onChange={handleChange}
@@ -207,20 +223,22 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className={`w-full pl-12 pr-4 py-3 rounded-2xl focus:outline-none focus:ring-2 resize-none ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 resize-none transition-all duration-300 ${
               errors.message
                 ? "border-2 border-red-500 focus:ring-red-500"
-                : "focus:ring-blue-500"
+                : darkMode
+                ? "focus:ring-custom-purple-light focus:ring-offset-2"
+                : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-gray-700 text-white placeholder-gray-400"
-                : "bg-gray-100 text-black placeholder-gray-500"
+                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           ></textarea>
           {errors.message && (
             <p
               id="message-error"
-              className="text-red-500 text-sm mt-1 ml-4"
+              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
               role="alert"
             >
               {errors.message}
@@ -230,14 +248,38 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-3 rounded-full transition duration-300 font-semibold ${
+          className={`w-full py-4 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg transform hover:scale-105 ${
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+              : darkMode
+              ? "bg-custom-purple-light text-custom-black hover:bg-white"
+              : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
           }`}
           aria-label={isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
         >
-          {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+          {isSubmitting ? (
+            <span className="flex items-center justify-center gap-2">
+              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  fill="none"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Envoi en cours...
+            </span>
+          ) : (
+            "Envoyer le message"
+          )}
         </button>
       </form>
     </div>

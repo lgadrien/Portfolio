@@ -10,13 +10,19 @@ const NavBar = () => {
   const handleScrollTo = (id) => {
     setIsOpen(false);
     setTimeout(() => {
-      if (id === "présentation") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        const section = document.getElementById(id);
-        if (section) section.scrollIntoView({ behavior: "smooth" });
+      const section = document.getElementById(id);
+      if (section) {
+        const headerHeight = 80;
+        const sectionTop =
+          section.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = sectionTop - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
       }
-    }, 0);
+    }, 100);
   };
 
   useEffect(() => {
@@ -28,7 +34,7 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-colors duration-500 ease-in-out ${
-        darkMode ? "bg-gray-900" : "bg-white"
+        darkMode ? "bg-custom-black" : "bg-custom-beige"
       } shadow-md navbar-wrapper`}
       role="navigation"
       aria-label="Navigation principale"
@@ -38,8 +44,8 @@ const NavBar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded p-1`}
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -55,8 +61,8 @@ const NavBar = () => {
           <Link
             to="/"
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } text-xl font-semibold hover:text-gray-500 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } text-xl font-semibold hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
             aria-label="Retour à l'accueil - Adrien Le Guen"
           >
             ADRIEN LE GUEN
@@ -69,8 +75,8 @@ const NavBar = () => {
           <button
             onClick={() => handleScrollTo("présentation")}
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } px-3 py-2 hover:text-gray-500 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 rounded`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Présentation"
           >
             Présentation
@@ -78,8 +84,8 @@ const NavBar = () => {
           <button
             onClick={() => handleScrollTo("projets")}
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } px-3 py-2 hover:text-gray-500 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 rounded`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Projets"
           >
             Projets
@@ -87,8 +93,8 @@ const NavBar = () => {
           <button
             onClick={() => handleScrollTo("contact")}
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } px-3 py-2 hover:text-gray-500 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 rounded`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Contact"
           >
             Contact
@@ -98,8 +104,8 @@ const NavBar = () => {
           <button
             onClick={toggleDarkMode}
             className={`${
-              darkMode ? "text-white" : "text-black"
-            } focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1`}
+              darkMode ? "text-white" : "text-custom-purple-dark"
+            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded p-1`}
             aria-label={
               darkMode ? "Activer le mode clair" : "Activer le mode sombre"
             }
@@ -117,7 +123,7 @@ const NavBar = () => {
         <div
           id="mobile-menu"
           className={`md:hidden ${
-            darkMode ? "bg-gray-900" : "bg-white"
+            darkMode ? "bg-custom-black" : "bg-custom-beige"
           } px-6 pb-4`}
           role="menu"
         >
@@ -125,8 +131,8 @@ const NavBar = () => {
             <Link
               to="/"
               className={`${
-                darkMode ? "text-white" : "text-black"
-              } text-xl font-semibold hover:text-gray-500 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2`}
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-xl font-semibold hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
               onClick={() => setIsOpen(false)}
               aria-label="Retour à l'accueil - Adrien Le Guen"
             >
@@ -137,8 +143,10 @@ const NavBar = () => {
             <button
               onClick={() => handleScrollTo("présentation")}
               className={`${
-                darkMode ? "text-white" : "text-black"
-              } text-left py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-left py-2 px-3 rounded ${
+                darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
+              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Présentation"
             >
@@ -147,8 +155,10 @@ const NavBar = () => {
             <button
               onClick={() => handleScrollTo("projets")}
               className={`${
-                darkMode ? "text-white" : "text-black"
-              } text-left py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-left py-2 px-3 rounded ${
+                darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
+              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Projets"
             >
@@ -157,8 +167,10 @@ const NavBar = () => {
             <button
               onClick={() => handleScrollTo("contact")}
               className={`${
-                darkMode ? "text-white" : "text-black"
-              } text-left py-2 px-3 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                darkMode ? "text-white" : "text-custom-purple-dark"
+              } text-left py-2 px-3 rounded ${
+                darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
+              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Contact"
             >
