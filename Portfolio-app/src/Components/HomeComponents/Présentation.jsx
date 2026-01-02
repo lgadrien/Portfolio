@@ -35,10 +35,10 @@ const Présentation = () => {
       className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-12 mx-auto max-w-7xl transition-colors duration-300 ${
         darkMode ? "dark:text-white text-gray-900" : "text-gray-900"
       }`}
-      style={{ paddingTop: "calc(10vh + 2rem)" }} // Padding-top ajusté
+      style={{ paddingTop: "calc(10vh + 2rem)" }}
     >
       {/* Image de profil en haut pour mobile */}
-      <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0">
+      <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0 animate-fadeIn">
         <Tilt
           className="w-48 h-48 lg:w-64 lg:h-64"
           tiltMaxAngleX={20}
@@ -53,7 +53,7 @@ const Présentation = () => {
             overflow: "hidden",
           }}
         >
-          <div className="relative w-full h-full rounded-full shadow-xl overflow-hidden">
+          <div className="relative w-full h-full rounded-full shadow-2xl overflow-hidden ring-4 ring-custom-purple-light ring-opacity-70">
             <img
               src={ProfilePic}
               alt="Photo de profil d'Adrien Le Guen, développeur full-stack"
@@ -65,86 +65,127 @@ const Présentation = () => {
       </div>
       {/* Texte de présentation */}
       <div className="flex flex-col justify-center w-full lg:w-1/2 lg:order-1 order-2 space-y-6 text-center lg:text-left">
-        <div className="flex items-center justify-center lg:justify-start space-x-3">
+        <div className="flex items-center justify-center lg:justify-start space-x-3 animate-slideInLeft">
           <h1 className="text-3xl lg:text-5xl font-extrabold whitespace-nowrap">
-            Bonjour, je suis <span className="text-blue-500">Adrien</span>
+            Bonjour, je suis{" "}
+            <span
+              className={`${
+                darkMode
+                  ? "text-custom-purple-light"
+                  : "text-custom-purple-dark"
+              } font-bold`}
+            >
+              Adrien
+            </span>
           </h1>
           <span className="wave text-3xl lg:text-5xl" aria-label="wave">
             👋
           </span>
         </div>
-        <p className="text-lg lg:text-xl leading-relaxed">
+        <p className="text-lg lg:text-xl leading-relaxed animate-slideInLeft delay-100">
           Développeur{" "}
-          <span className="text-blue-500 font-semibold">full-stack</span>, et{" "}
-          <span className="text-blue-500 font-semibold">data analyst</span>,
-          passionné par le code, les nouvelles technologies,
+          <span
+            className={`${
+              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            } font-semibold`}
+          >
+            full-stack
+          </span>
+          , et{" "}
+          <span
+            className={`${
+              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            } font-semibold`}
+          >
+            data analyst
+          </span>
+          , passionné par le code, les nouvelles technologies,
           l&apos;entrepreneuriat et la finance.
         </p>
-        <ul className="space-y-3 text-lg">
-          <li>
+        <ul className="space-y-3 text-lg animate-slideInLeft delay-200">
+          <li className="hover:translate-x-2 transition-transform duration-300">
             🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
             <strong>2028</strong>.
           </li>
-          <li>
+          <li className="hover:translate-x-2 transition-transform duration-300">
             📅 Âge actuel : <strong>{age} ans</strong>.
           </li>
-          <li>
+          <li className="hover:translate-x-2 transition-transform duration-300">
             💻 Découvrez mes projets sur{" "}
             <a
               href="https://github.com/lgadrien"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
+              className={`${
+                darkMode
+                  ? "text-custom-purple-light"
+                  : "text-custom-purple-dark"
+              } hover:underline font-semibold`}
             >
               GitHub
             </a>
             .
           </li>
-          <li>
+          <li className="hover:translate-x-2 transition-transform duration-300">
             ✉️ Contactez-moi via{" "}
             <a
               href="mailto:adrien.leguen.p@gmail.com"
-              className="text-blue-500 hover:underline"
+              className={`${
+                darkMode
+                  ? "text-custom-purple-light"
+                  : "text-custom-purple-dark"
+              } hover:underline font-semibold`}
             >
               mon email
             </a>
             .
           </li>
         </ul>
-        <div className="flex justify-center lg:justify-start space-x-6">
+        <div className="flex justify-center lg:justify-start space-x-6 animate-slideInLeft delay-300">
           <a
-            href="https://www.linkedin.com/in/adrien-le-guen-a544b62a9/"
+            href="https://www.linkedin.com/in/adrien-le-guen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 transition duration-300"
+            className={`${
+              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
             aria-label="Voir mon profil LinkedIn"
           >
-            <FaLinkedin size={28} aria-hidden="true" />
+            <FaLinkedin size={32} aria-hidden="true" />
           </a>
           <a
             href="https://github.com/lgadrien"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition duration-300"
+            className={`${
+              darkMode ? "text-gray-300" : "text-light-accent"
+            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
             aria-label="Voir mon profil GitHub"
           >
-            <FaGithub size={28} aria-hidden="true" />
+            <FaGithub size={32} aria-hidden="true" />
           </a>
           <a
             href="mailto:adrien.leguen.p@gmail.com"
-            className="text-gray-800 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition duration-300"
+            className={`${
+              darkMode ? "text-gray-300" : "text-light-accent"
+            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
             aria-label="M'envoyer un email"
           >
-            <FaEnvelope size={28} aria-hidden="true" />
+            <FaEnvelope size={32} aria-hidden="true" />
           </a>
         </div>
         <a
           href="/src/Components/Infos/CV_Adrien_Le_Guen.pdf"
           download="CV_Adrien_Le_Guen.pdf"
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 mt-4"
+          className={`inline-block ${
+            darkMode
+              ? "bg-custom-purple-light text-custom-black hover:bg-white"
+              : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
+          } font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl mt-4 animate-slideInLeft delay-400`}
           aria-label="Télécharger le CV d'Adrien Le Guen au format PDF"
         >
-          <FaDownload className="mr-2 inline" aria-hidden="true" /> Télécharger mon CV
+          <FaDownload className="mr-2 inline" aria-hidden="true" /> Télécharger
+          mon CV
         </a>
       </div>
       <style>{`

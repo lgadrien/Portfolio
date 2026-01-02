@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -9,17 +9,23 @@ const Footer = () => {
   return (
     <footer
       className={`border-t py-6 ${
-        darkMode ? 'bg-gray-900 text-gray-300 border-gray-700' : 'bg-white text-gray-800 border-gray-200'
+        darkMode
+          ? "bg-custom-black text-gray-300 border-gray-800"
+          : "bg-custom-beige text-custom-purple-dark border-gray-300"
       }`}
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <p className="text-sm">© {currentYear} Adrien Le Guen. Tous droits réservés.</p>
+        <p className="text-sm">
+          © {currentYear} Adrien Le Guen. Tous droits réservés.
+        </p>
         <div className="flex space-x-6">
           <a
-            href="https://www.linkedin.com/in/adrien-le-guen-a544b62a9/"
+            href="https://www.linkedin.com/in/adrien-le-guen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 transition-colors duration-300"
+            className={`${
+              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            } hover:text-custom-purple-light transition-colors duration-300`}
             title="LinkedIn"
           >
             <FaLinkedin size={20} />
@@ -28,14 +34,18 @@ const Footer = () => {
             href="https://github.com/lgadrien"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-600 hover:text-black'} transition-colors duration-300`}
+            className={`${
+              darkMode ? "text-gray-400" : "text-light-accent"
+            } hover:text-custom-purple-light transition-colors duration-300`}
             title="GitHub"
           >
             <FaGithub size={20} />
           </a>
           <a
             href="mailto:adrien.leguen.p@gmail.com"
-            className={`${darkMode ? 'text-gray-300 hover:text-gray-400' : 'text-gray-800 hover:text-gray-600'} transition-colors duration-300`}
+            className={`${
+              darkMode ? "text-gray-300" : "text-custom-purple-dark"
+            } hover:text-custom-purple-light transition-colors duration-300`}
             title="E-mail"
           >
             <FaEnvelope size={20} />
