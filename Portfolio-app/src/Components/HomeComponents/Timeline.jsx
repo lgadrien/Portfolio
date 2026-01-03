@@ -34,7 +34,7 @@ const Timeline = () => {
       title: "Stage Data Analyst - BNP Paribas",
       titleEn: "Data Analyst Internship - BNP Paribas",
       description:
-        "Stage de 6 mois au sein de l'équipe SWIFT en tant que Data Analyste. Analyse et traitement de données financières, création de tableaux de bord et reporting.",
+        "Stage de 6 mois au sein de l'équipe SWIFT en tant que Data Analyst. Analyse et traitement de données financières, création de tableaux de bord et reporting.",
       descriptionEn:
         "6-month internship within the SWIFT team as a Data Analyst. Financial data analysis and processing, dashboard creation and reporting.",
       icon: <FaBriefcase />,
@@ -223,7 +223,7 @@ const Timeline = () => {
     >
       <div
         id="timeline"
-        className="max-w-6xl mx-auto px-4 relative before:absolute before:left-1/2 before:top-32 before:bottom-8 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-purple-500/40 before:via-gray-400/30 before:to-purple-500/40 hidden md:block"
+        className="max-w-6xl mx-auto px-4 relative before:absolute before:left-1/2 before:top-32 before:bottom-8 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-purple-500/40 before:via-gray-400/30 before:to-purple-500/40"
       >
         <h2
           className={`text-5xl font-bold text-center mb-4 ${
