@@ -8,9 +8,9 @@ module.exports = {
         serif: ["Merriweather", "serif"],
       },
       colors: {
-        // Dark Mode - Electric Slate
-        "dark-bg": "#0A0A0A", // Fond principal (Noir Profond)
-        "dark-surface": "#171717", // Surface (Cartes/Menus)
+        // Dark Mode - Discord-like Gray
+        "dark-bg": "#313338", // Fond principal (Gris Discord)
+        "dark-surface": "#2B2D31", // Surface (Cartes/Menus, légèrement plus sombre)
         "dark-accent": "#8B5CF6", // Accent (Violet Électrique)
         "dark-text": "#F3F4F6", // Texte principal (Blanc cassé)
 
@@ -22,9 +22,9 @@ module.exports = {
         "light-text": "#1E293B", // Texte principal (Gris Anthracite)
         "light-text-secondary": "#64748B", // Texte secondaire (Gris ardoise)
 
-        // Anciens noms conservés pour compatibilité
-        "custom-black": "#0A0A0A",
-        "custom-dark": "#171717",
+        // Anciens noms conservés pour compatibilité (alignés sur le gris Discord)
+        "custom-black": "#313338",
+        "custom-dark": "#2B2D31",
         "custom-beige": "#FFFFFF",
         "custom-purple-light": "#8B5CF6",
         "custom-purple-dark": "#7C3AED",

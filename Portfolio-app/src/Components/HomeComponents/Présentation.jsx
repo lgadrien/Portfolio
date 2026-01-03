@@ -38,7 +38,7 @@ const Présentation = () => {
       }`}
     >
       {/* Image de profil en haut pour mobile */}
-      <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0 animate-fadeIn">
+      <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0">
         <Tilt
           className="w-48 h-48 lg:w-64 lg:h-64"
           tiltMaxAngleX={20}
@@ -145,8 +145,8 @@ const Présentation = () => {
               </>
             ) : (
               <>
-                🎓 Student at <strong>Epitech Paris</strong> class of{" "}
-                <strong>2028</strong> preparing for a{" "}
+                🎓 Student at <strong>Epitech Paris</strong>, class of{" "}
+                <strong>2028</strong>, preparing for a{" "}
                 <strong>Master of Science Business & Technology Manager</strong>
                 .
               </>
@@ -159,7 +159,7 @@ const Présentation = () => {
               </>
             ) : (
               <>
-                📅 Current age: <strong>{age} years old</strong>.
+                📅 Current age : <strong>{age} years old</strong>.
               </>
             )}
           </li>
