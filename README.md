@@ -65,10 +65,14 @@ npm install
 
 ### 3. Configurer les variables d'environnement
 
+Dans le dossier `Portfolio-app`, copiez le fichier d'exemple puis complétez les valeurs :
+
 ```bash
+cd Portfolio-app
 cp .env.example .env
-# Remplir les variables dans .env
 ```
+
+Les variables attendues (EmailJS + token GitHub optionnel pour les stats) sont documentées dans `Portfolio-app/.env.example`.
 
 ### 4. Lancer le serveur de développement
 
@@ -82,8 +86,8 @@ Le site sera accessible à `http://localhost:5173`
 
 ## 📚 Documentation
 
-- [🔒 Guide de Sécurité](./SECURITY.md) - Configuration des variables d'environnement
-- [📊 Fonctionnalités SEO](./SEO_FEATURES.md) - Optimisations SEO et métadonnées
+- [🔒 Guide de Sécurité](./Portfolio-app/docs/SECURITY.md) - Configuration des variables d'environnement et bonnes pratiques
+- [📊 Fonctionnalités SEO](./Portfolio-app/docs/SEO_FEATURES.md) - Optimisations SEO et métadonnées
 
 ---
 
