@@ -44,12 +44,39 @@ const Stats = () => {
   useEffect(() => {
     const fetchGithubStats = async () => {
       try {
-        const response = await fetch(`/api/github-stats?username=${username}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch GitHub stats");
-        }
+        let userData;
+        let reposData;
 
-        const { user: userData, repos: reposData } = await response.json();
+        if (import.meta.env.DEV) {
+          // En développement local : appel direct à l'API GitHub (pas de token)
+          const userResponse = await fetch(
+            `https://api.github.com/users/${username}`
+          );
+          const reposResponse = await fetch(
+            `https://api.github.com/users/${username}/repos?per_page=100`
+          );
+
+          if (!userResponse.ok || !reposResponse.ok) {
+            throw new Error("Failed to fetch GitHub stats from GitHub API");
+          }
+
+          userData = await userResponse.json();
+          reposData = await reposResponse.json();
+        } else {
+          // En production : passer par la fonction serverless sur Vercel
+          const response = await fetch(
+            `/api/github-stats?username=${username}`
+          );
+          if (!response.ok) {
+            throw new Error(
+              `Failed to fetch GitHub stats from serverless API: ${response.status}`
+            );
+          }
+
+          const data = await response.json();
+          userData = data.user;
+          reposData = data.repos;
+        }
 
         const totalStars = reposData.reduce(
           (acc, repo) => acc + repo.stargazers_count,
