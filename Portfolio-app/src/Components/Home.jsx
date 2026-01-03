@@ -15,28 +15,16 @@ const Home = () => {
         darkMode ? "bg-custom-black" : "bg-custom-beige"
       } transition-colors duration-300`}
     >
-      <div
-        id="présentation"
-        className="min-h-screen flex items-center justify-center pt-28 pb-8"
-      >
+      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
         <Présentation />
       </div>
-      <div
-        id="techskills"
-        className="min-h-screen flex items-center justify-center pt-28 pb-8"
-      >
+      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
         <TechSkills />
       </div>
-      <div
-        id="timeline"
-        className="min-h-screen flex items-center justify-center pt-28 pb-8"
-      >
+      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
         <Timeline />
       </div>
-      <div
-        id="contact"
-        className="min-h-screen flex items-center justify-center pt-28 pb-8"
-      >
+      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
         <Contact />
       </div>
     </div>
