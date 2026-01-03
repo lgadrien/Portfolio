@@ -205,7 +205,7 @@ const TechSkills = () => {
   );
 
   return (
-    <div id="compétences" className="pt-40 px-4 py-16 mx-auto w-full max-w-6xl">
+    <div id="compétences" className="px-4 py-20 mx-auto w-full max-w-6xl">
       {/* Titre aligné au centre */}
       <h3 className="text-4xl font-extrabold text-center mb-4 animate-fadeInUp">
         <span

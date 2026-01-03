@@ -33,10 +33,9 @@ const Présentation = () => {
   return (
     <div
       id="présentation"
-      className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-12 mx-auto max-w-7xl transition-colors duration-300 ${
+      className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-20 mx-auto max-w-7xl transition-colors duration-300 ${
         darkMode ? "dark:text-white text-gray-900" : "text-gray-900"
       }`}
-      style={{ paddingTop: "calc(10vh + 2rem)" }}
     >
       {/* Image de profil en haut pour mobile */}
       <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0 animate-fadeIn">
