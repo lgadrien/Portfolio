@@ -24,7 +24,7 @@ const Timeline = () => {
       descriptionEn:
         "Computer science training with a specialization in full-stack web development and data analysis.",
       icon: <FaGraduationCap />,
-      color: "bg-purple-600",
+      color: "bg-custom-purple-light",
       tags: ["Epitech", "Full-Stack", "Data"],
       tagsEn: ["Epitech", "Full-Stack", "Data"],
     },
@@ -38,7 +38,7 @@ const Timeline = () => {
       descriptionEn:
         "6-month internship within the SWIFT team as a Data Analyst. Financial data analysis and processing, dashboard creation and reporting.",
       icon: <FaBriefcase />,
-      color: "bg-blue-600",
+      color: "bg-custom-purple-dark",
       tags: ["Data Analysis", "SWIFT", "Finance"],
       tagsEn: ["Data Analysis", "SWIFT", "Finance"],
     },
@@ -52,7 +52,7 @@ const Timeline = () => {
       descriptionEn:
         "Actively seeking an apprenticeship in data and artificial intelligence to continue my training and apply my skills.",
       icon: <FaSearch />,
-      color: "bg-green-500",
+      color: "bg-custom-purple-light",
       tags: ["Data Science", "IA", "Alternance"],
       tagsEn: ["Data Science", "AI", "Apprenticeship"],
     },
@@ -71,9 +71,9 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-gray-900/70 border-gray-700/80"
-                    : "bg-white/80 border-gray-200/80"
-                } border rounded-2xl p-6 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
+                    ? "bg-custom-dark border-gray-800"
+                    : "bg-white border-gray-200"
+                } border rounded-2xl p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex justify-end items-center mb-3">
                   <span
@@ -100,20 +100,6 @@ const Timeline = () => {
                 >
                   {isEnglish ? item.descriptionEn : item.description}
                 </p>
-                <div className="mt-4 flex flex-wrap justify-end gap-2">
-                  {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
-                    <span
-                      key={tag}
-                      className={`text-xs px-2 py-1 rounded-full border ${
-                        darkMode
-                          ? "border-gray-600 text-gray-300 bg-gray-800/70"
-                          : "border-gray-200 text-gray-700 bg-white/80"
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -162,9 +148,9 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-gray-900/70 border-gray-700/80"
-                    : "bg-white/80 border-gray-200/80"
-                } border rounded-2xl p-6 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
+                    ? "bg-custom-dark border-gray-800"
+                    : "bg-white border-gray-200"
+                } border rounded-2xl p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex items-center mb-3">
                   <span
@@ -191,20 +177,6 @@ const Timeline = () => {
                 >
                   {isEnglish ? item.descriptionEn : item.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
-                    <span
-                      key={tag}
-                      className={`text-xs px-2 py-1 rounded-full border ${
-                        darkMode
-                          ? "border-gray-600 text-gray-300 bg-gray-800/70"
-                          : "border-gray-200 text-gray-700 bg-white/80"
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </>
@@ -216,9 +188,7 @@ const Timeline = () => {
   return (
     <div
       className={`w-full pt-20 pb-24 ${
-        darkMode
-          ? "bg-gradient-to-b from-custom-black via-gray-900 to-custom-black"
-          : "bg-gradient-to-b from-custom-beige via-white to-custom-beige"
+        darkMode ? "bg-dark-bg" : "bg-custom-beige"
       }`}
     >
       <div
@@ -277,9 +247,9 @@ const Timeline = () => {
                   <div
                     className={`${
                       darkMode
-                        ? "bg-gray-900/70 border-gray-700/80"
-                        : "bg-white/80 border-gray-200/80"
-                    } border rounded-2xl p-4 shadow-lg backdrop-blur-sm`}
+                        ? "bg-custom-dark border-gray-800"
+                        : "bg-white border-gray-200"
+                    } border rounded-2xl p-4 shadow-lg`}
                   >
                     <div className="mb-3">
                       <span
@@ -306,20 +276,6 @@ const Timeline = () => {
                     >
                       {isEnglish ? item.descriptionEn : item.description}
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
-                        <span
-                          key={tag}
-                          className={`text-xs px-2 py-1 rounded-full border ${
-                            darkMode
-                              ? "border-gray-600 text-gray-300 bg-gray-800/70"
-                              : "border-gray-200 text-gray-700 bg-white/80"
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
