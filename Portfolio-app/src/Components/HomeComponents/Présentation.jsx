@@ -94,8 +94,8 @@ const Présentation = () => {
                 } font-semibold`}
               >
                 full-stack
-              </span>
-              , et{" "}
+              </span>{" "}
+              et{" "}
               <span
                 className={`${
                   darkMode
@@ -139,12 +139,16 @@ const Présentation = () => {
             {language === "fr" ? (
               <>
                 🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
-                <strong>2028</strong>.
+                <strong>2028</strong>, je prépare le{" "}
+                <strong>Master of Science Business & Technology Manager</strong>
+                .
               </>
             ) : (
               <>
-                🎓 Student at <strong>Epitech Paris</strong>, class of{" "}
-                <strong>2028</strong>.
+                🎓 Student at <strong>Epitech Paris</strong> class of{" "}
+                <strong>2028</strong> preparing for a{" "}
+                <strong>Master of Science Business & Technology Manager</strong>
+                .
               </>
             )}
           </li>
