@@ -19,12 +19,12 @@ Ce projet utilise des variables d'environnement pour sécuriser les informations
 
 ### Variables requises
 
-| Variable                   | Description                    | Où la trouver                          |
-| -------------------------- | ------------------------------ | -------------------------------------- |
-| `VITE_EMAILJS_SERVICE_ID`  | ID du service EmailJS          | Dashboard EmailJS > Email Services     |
-| `VITE_EMAILJS_TEMPLATE_ID` | ID du template email           | Dashboard EmailJS > Email Templates    |
-| `VITE_EMAILJS_PUBLIC_KEY`  | Clé publique (User ID)         | Dashboard EmailJS > Account > API Keys |
-| `VITE_GITHUB_TOKEN`        | Token GitHub (optionnel)       | GitHub Settings > Developer settings   |
+| Variable                   | Description              | Où la trouver                          |
+| -------------------------- | ------------------------ | -------------------------------------- |
+| `VITE_EMAILJS_SERVICE_ID`  | ID du service EmailJS    | Dashboard EmailJS > Email Services     |
+| `VITE_EMAILJS_TEMPLATE_ID` | ID du template email     | Dashboard EmailJS > Email Templates    |
+| `VITE_EMAILJS_PUBLIC_KEY`  | Clé publique (User ID)   | Dashboard EmailJS > Account > API Keys |
+| `VITE_GITHUB_TOKEN`        | Token GitHub (optionnel) | GitHub Settings > Developer settings   |
 
 ### ⚠️ Important
 
@@ -42,7 +42,7 @@ Pour vérifier que les variables sont bien chargées :
 ```javascript
 console.log("Configuration vérifiée:", {
   emailjs: import.meta.env.VITE_EMAILJS_SERVICE_ID ? "✓" : "✗",
-  github: import.meta.env.VITE_GITHUB_TOKEN ? "✓" : "✗"
+  github: import.meta.env.VITE_GITHUB_TOKEN ? "✓" : "✗",
 });
 ```
 

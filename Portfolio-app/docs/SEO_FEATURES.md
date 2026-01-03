@@ -18,6 +18,7 @@
 - ✅ `og:type` - Type de contenu (website)
 
 Cela améliore considérablement :
+
 - 📱 Aperçu LinkedIn
 - 🐦 Aperçu Twitter
 - 💬 Aperçu Discord
@@ -48,6 +49,7 @@ Cela améliore considérablement :
 ```
 
 Permet à Google de mieux comprendre :
+
 - 👤 Qui vous êtes
 - 🔗 Vos profils sociaux
 - 💼 Votre fonction
@@ -64,6 +66,7 @@ Permet à Google de mieux comprendre :
 ### 6. Fichiers SEO
 
 #### robots.txt
+
 ```
 User-agent: *
 Allow: /
@@ -75,6 +78,7 @@ Sitemap: https://portfolio-lgadriens-projects.vercel.app/sitemap.xml
 - Pointe vers le sitemap
 
 #### sitemap.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -166,17 +170,20 @@ Portfolio-app/
 ## 🔧 Modifications Effectuées
 
 ### index.html
+
 - Schema.org structured data ajouté
 - Meta tags SEO optimisés
 - Canonical URL définie
 - Open Graph et Twitter Card tags
 
 ### Stats.jsx
+
 - Palette de couleurs sémantique appliquée
 - Support du token GitHub API
 - Affichage responsive
 
 ### checkEnv.js
+
 - Validation des variables d'environnement
 - Avertissement pour token GitHub optionnel
 
@@ -185,20 +192,24 @@ Portfolio-app/
 ## 🧪 Outils de Vérification
 
 ### Google Search Console
+
 - 🔗 [Google Search Console](https://search.google.com/search-console/)
 - Soumettez votre sitemap
 - Vérifiez l'indexation
 
 ### Google Rich Results Test
+
 - 🔗 [Rich Results Test](https://search.google.com/test/rich-results)
 - Testez votre structured data
 - Vérifiez les rich snippets
 
 ### OpenGraph Preview
+
 - 🔗 [OpenGraph Preview](https://www.opengraphpreview.com/)
 - Vérifiez comment votre site s'affiche sur les réseaux
 
 ### Responsive Design Test
+
 - 🔗 [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly)
 - Vérifiez la compatibilité mobile
 
