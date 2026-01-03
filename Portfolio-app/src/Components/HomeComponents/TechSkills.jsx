@@ -205,9 +205,12 @@ const TechSkills = () => {
   );
 
   return (
-    <div id="compétences" className="px-4 py-20 mx-auto w-full max-w-6xl">
+    <div className="px-4 py-20 mx-auto w-full max-w-6xl">
       {/* Titre aligné au centre */}
-      <h3 className="text-4xl font-extrabold text-center mb-4 animate-fadeInUp">
+      <h3
+        id="techskills"
+        className="text-4xl font-extrabold text-center mb-4 animate-fadeInUp"
+      >
         <span
           className={`${
             darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"

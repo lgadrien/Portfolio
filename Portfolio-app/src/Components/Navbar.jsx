@@ -14,14 +14,29 @@ const NavBar = () => {
   const handleScrollTo = (sectionId) => {
     setIsOpen(false);
 
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
     // Si nous ne sommes pas sur la page d'accueil, naviguer d'abord
     if (location.pathname !== "/") {
       navigate("/");
       setTimeout(() => {
-        scrollToSection(sectionId);
+        if (sectionId === "présentation") {
+          scrollToTop();
+        } else {
+          scrollToSection(sectionId);
+        }
       }, 300);
     } else {
-      scrollToSection(sectionId);
+      if (sectionId === "présentation") {
+        scrollToTop();
+      } else {
+        scrollToSection(sectionId);
+      }
     }
   };
 
@@ -31,8 +46,12 @@ const NavBar = () => {
       const sectionTop =
         section.getBoundingClientRect().top + window.pageYOffset;
 
+      const navbar = document.querySelector(".navbar-wrapper");
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const offset = navbarHeight + 16; // petit marge sous la navbar
+
       window.scrollTo({
-        top: sectionTop,
+        top: sectionTop - offset,
         behavior: "smooth",
       });
     }
