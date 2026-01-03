@@ -2,7 +2,7 @@
 // Expects a `username` query parameter and uses an optional GITHUB_TOKEN
 // environment variable on the server side to increase rate limits.
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Safer extraction of the `username` query parameter (req.query may be undefined)
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   const username = url.searchParams.get("username");
@@ -62,4 +62,4 @@ module.exports = async (req, res) => {
     console.error("Error in /api/github-stats:", error);
     res.status(500).json({ error: "Internal server error" });
   }
-};
+}
