@@ -3,9 +3,9 @@
 // environment variable on the server side to increase rate limits.
 
 module.exports = async (req, res) => {
-  const {
-    query: { username },
-  } = req;
+  // Safer extraction of the `username` query parameter (req.query may be undefined)
+  const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  const username = url.searchParams.get("username");
 
   if (!username) {
     res.status(400).json({ error: "Missing 'username' query parameter" });
@@ -53,6 +53,9 @@ module.exports = async (req, res) => {
 
     // Optionally add some basic caching on the response
     res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
+
+    // Basic CORS header for potential cross-origin usage
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
     res.status(200).json({ user, repos });
   } catch (error) {
