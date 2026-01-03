@@ -10,7 +10,7 @@ const translations = {
       skills: "Compétences",
       projects: "Projets",
       timeline: "Parcours",
-      stats: "Stats",
+      stats: "Stats & Projets",
       contact: "Contact",
     },
     home: {
@@ -74,7 +74,7 @@ const translations = {
       },
     },
     presentation: {
-      greeting: "Salut ! Je suis",
+      greeting: "Bonjour, je suis",
       name: "Adrien Le Guen",
       role: "Développeur Full-Stack & Data Analyst",
       description:
@@ -98,7 +98,7 @@ const translations = {
       skills: "Skills",
       projects: "Projects",
       timeline: "Journey",
-      stats: "Stats",
+      stats: "Stats & Projects",
       contact: "Contact",
     },
     home: {

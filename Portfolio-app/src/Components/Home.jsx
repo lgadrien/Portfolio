@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import "../App.css";
 import Présentation from "./HomeComponents/Présentation";
-import Projets from "./HomeComponents/Projets";
 import TechSkills from "./HomeComponents/TechSkills";
 import Timeline from "./HomeComponents/Timeline";
 import Contact from "./HomeComponents/Contact";
@@ -16,21 +15,30 @@ const Home = () => {
         darkMode ? "bg-custom-black" : "bg-custom-beige"
       } transition-colors duration-300`}
     >
-      <section id="présentation" className="pt-20 pb-24">
+      <div
+        id="présentation"
+        className="min-h-screen flex items-center justify-center pt-28 pb-8"
+      >
         <Présentation />
-      </section>
-      <section id="tech-skills" className="pt-20 pb-24">
+      </div>
+      <div
+        id="techskills"
+        className="min-h-screen flex items-center justify-center pt-28 pb-8"
+      >
         <TechSkills />
-      </section>
-      <section id="projets" className="pt-20 pb-24">
-        <Projets />
-      </section>
-      <section id="timeline" className="pt-20 pb-24">
+      </div>
+      <div
+        id="timeline"
+        className="min-h-screen flex items-center justify-center pt-28 pb-8"
+      >
         <Timeline />
-      </section>
-      <section id="contact" className="pt-20 pb-24">
+      </div>
+      <div
+        id="contact"
+        className="min-h-screen flex items-center justify-center pt-28 pb-8"
+      >
         <Contact />
-      </section>
+      </div>
     </div>
   );
 };

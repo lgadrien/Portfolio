@@ -99,7 +99,7 @@ const ContactForm = () => {
   return (
     <div
       id="contact"
-      className={`w-full py-12 pb-60 mx-auto max-w-3xl px-4 transition-colors duration-300 ${
+      className={`w-full py-20 mx-auto max-w-3xl px-4 transition-colors duration-300 ${
         darkMode
           ? "bg-custom-black text-white"
           : "bg-custom-beige text-custom-purple-dark"

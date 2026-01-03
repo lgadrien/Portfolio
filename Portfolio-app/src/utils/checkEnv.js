@@ -19,6 +19,13 @@ const checkEnvVariables = () => {
     return false;
   }
 
+  // Warning pour le token GitHub (optionnel mais recommandé)
+  if (!import.meta.env.VITE_GITHUB_TOKEN) {
+    console.warn(
+      "⚠️ VITE_GITHUB_TOKEN manquant : Les requêtes GitHub seront limitées (60/h)."
+    );
+  }
+
   if (import.meta.env.DEV) {
     console.log("✅ Variables d'environnement configurées");
   }
