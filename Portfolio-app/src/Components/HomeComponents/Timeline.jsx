@@ -63,17 +63,17 @@ const Timeline = () => {
     const isEnglish = language === "en";
 
     return (
-      <div className="flex items-start w-full mb-0 relative">
+      <div className="flex items-start w-full mb-0 relative group">
         {isLeft ? (
           <>
             {/* Left side - Content */}
-            <div className="w-5/12 text-right pr-8 pb-8">
+            <div className="w-5/12 text-right pr-8 pb-12">
               <div
                 className={`${
                   darkMode
-                    ? "bg-gray-800 border-gray-700"
-                    : "bg-white border-gray-300"
-                } border rounded-xl p-6 shadow-sm`}
+                    ? "bg-gray-900/70 border-gray-700/80"
+                    : "bg-white/80 border-gray-200/80"
+                } border rounded-2xl p-6 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex justify-end items-center mb-3">
                   <span
@@ -100,13 +100,27 @@ const Timeline = () => {
                 >
                   {isEnglish ? item.descriptionEn : item.description}
                 </p>
+                <div className="mt-4 flex flex-wrap justify-end gap-2">
+                  {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
+                    <span
+                      key={tag}
+                      className={`text-xs px-2 py-1 rounded-full border ${
+                        darkMode
+                          ? "border-gray-600 text-gray-300 bg-gray-800/70"
+                          : "border-gray-200 text-gray-700 bg-white/80"
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Center - Icon */}
-            <div className="w-2/12 flex flex-col items-center pb-8">
+            <div className="w-2/12 flex flex-col items-center pb-12">
               <div
-                className={`${item.color} rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl shadow-md`}
+                className={`${item.color} rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl shadow-lg ring-4 ring-white/10`}
               >
                 {item.icon}
               </div>
@@ -120,17 +134,17 @@ const Timeline = () => {
             </div>
 
             {/* Right side - Empty */}
-            <div className="w-5/12 pb-8"></div>
+            <div className="w-5/12 pb-12"></div>
           </>
         ) : (
           <>
             {/* Left side - Empty */}
-            <div className="w-5/12 pb-8"></div>
+            <div className="w-5/12 pb-12"></div>
 
             {/* Center - Icon */}
-            <div className="w-2/12 flex flex-col items-center pb-8">
+            <div className="w-2/12 flex flex-col items-center pb-12">
               <div
-                className={`${item.color} rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl shadow-md`}
+                className={`${item.color} rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl shadow-lg ring-4 ring-white/10`}
               >
                 {item.icon}
               </div>
@@ -144,13 +158,13 @@ const Timeline = () => {
             </div>
 
             {/* Right side - Content */}
-            <div className="w-5/12 text-left pl-8 pb-8">
+            <div className="w-5/12 text-left pl-8 pb-12">
               <div
                 className={`${
                   darkMode
-                    ? "bg-gray-800 border-gray-700"
-                    : "bg-white border-gray-300"
-                } border rounded-xl p-6 shadow-sm`}
+                    ? "bg-gray-900/70 border-gray-700/80"
+                    : "bg-white/80 border-gray-200/80"
+                } border rounded-2xl p-6 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex items-center mb-3">
                   <span
@@ -177,6 +191,20 @@ const Timeline = () => {
                 >
                   {isEnglish ? item.descriptionEn : item.description}
                 </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
+                    <span
+                      key={tag}
+                      className={`text-xs px-2 py-1 rounded-full border ${
+                        darkMode
+                          ? "border-gray-600 text-gray-300 bg-gray-800/70"
+                          : "border-gray-200 text-gray-700 bg-white/80"
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </>
@@ -187,11 +215,16 @@ const Timeline = () => {
 
   return (
     <div
-      className={`w-full pt-16 pb-20 ${
-        darkMode ? "bg-custom-black" : "bg-custom-beige"
+      className={`w-full pt-20 pb-24 ${
+        darkMode
+          ? "bg-gradient-to-b from-custom-black via-gray-900 to-custom-black"
+          : "bg-gradient-to-b from-custom-beige via-white to-custom-beige"
       }`}
     >
-      <div id="timeline" className="max-w-6xl mx-auto px-4">
+      <div
+        id="timeline"
+        className="max-w-6xl mx-auto px-4 relative before:absolute before:left-1/2 before:top-32 before:bottom-8 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-purple-500/40 before:via-gray-400/30 before:to-purple-500/40 hidden md:block"
+      >
         <h2
           className={`text-5xl font-bold text-center mb-4 ${
             darkMode ? "text-white" : "text-custom-black"
@@ -214,7 +247,7 @@ const Timeline = () => {
         </p>
 
         {/* Timeline for desktop */}
-        <div className="hidden md:block">
+        <div className="hidden md:block relative z-10">
           {timelineData.map((item, index) => (
             <TimelineItem key={index} item={item} index={index} />
           ))}
@@ -244,9 +277,9 @@ const Timeline = () => {
                   <div
                     className={`${
                       darkMode
-                        ? "bg-gray-800 border-gray-700"
-                        : "bg-white border-gray-300"
-                    } border rounded-xl p-4 shadow-sm`}
+                        ? "bg-gray-900/70 border-gray-700/80"
+                        : "bg-white/80 border-gray-200/80"
+                    } border rounded-2xl p-4 shadow-lg backdrop-blur-sm`}
                   >
                     <div className="mb-3">
                       <span
@@ -273,6 +306,20 @@ const Timeline = () => {
                     >
                       {isEnglish ? item.descriptionEn : item.description}
                     </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {(isEnglish ? item.tagsEn : item.tags).map((tag) => (
+                        <span
+                          key={tag}
+                          className={`text-xs px-2 py-1 rounded-full border ${
+                            darkMode
+                              ? "border-gray-600 text-gray-300 bg-gray-800/70"
+                              : "border-gray-200 text-gray-700 bg-white/80"
+                          }`}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
