@@ -44,21 +44,12 @@ const Stats = () => {
   useEffect(() => {
     const fetchGithubStats = async () => {
       try {
-        const headers = import.meta.env.VITE_GITHUB_TOKEN
-          ? { Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}` }
-          : {};
+        const response = await fetch(`/api/github-stats?username=${username}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch GitHub stats");
+        }
 
-        const userResponse = await fetch(
-          `https://api.github.com/users/${username}`,
-          { headers }
-        );
-        const userData = await userResponse.json();
-
-        const reposResponse = await fetch(
-          `https://api.github.com/users/${username}/repos?per_page=100`,
-          { headers }
-        );
-        const reposData = await reposResponse.json();
+        const { user: userData, repos: reposData } = await response.json();
 
         const totalStars = reposData.reduce(
           (acc, repo) => acc + repo.stargazers_count,
