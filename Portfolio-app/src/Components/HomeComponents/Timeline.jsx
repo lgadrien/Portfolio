@@ -31,7 +31,7 @@ const Timeline = () => {
     {
       year: "Janvier 2025 - Juillet 2025",
       yearEn: "January 2025 - July 2025",
-      title: "Stage Data Analyste - BNP Paribas",
+      title: "Stage Data Analyst - BNP Paribas",
       titleEn: "Data Analyst Internship - BNP Paribas",
       description:
         "Stage de 6 mois au sein de l'équipe SWIFT en tant que Data Analyste. Analyse et traitement de données financières, création de tableaux de bord et reporting.",
