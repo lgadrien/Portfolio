@@ -119,17 +119,14 @@ const Stats = () => {
             .sort((a, b) => b.stargazers_count - a.stargazers_count)
             .slice(0, 6),
           recentRepos,
-          allRepos: reposData,
           yearsActive,
           reposWithDescription,
           totalWatchers,
           averageStarsPerRepo: (totalStars / reposData.length).toFixed(1),
           bio: userData.bio,
           location: userData.location,
-          company: userData.company
-            .sort((a, b) => b.stargazers_count - a.stargazers_count)
-            .slice(0, 6),
           allRepos: reposData,
+          company: userData.company,
         });
         setLoading(false);
       } catch (error) {
