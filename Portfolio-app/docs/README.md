@@ -51,23 +51,27 @@ Ce dépôt contient le code source de mon portfolio personnel. Il met en avant :
 Pour exécuter ce projet en local, suivez ces étapes :
 
 ### 1. Cloner le dépôt
+
 ```bash
 git clone https://github.com/lgadrien/Portfolio.git
 cd Portfolio/Portfolio-app
 ```
 
 ### 2. Installer les dépendances
+
 ```bash
 npm install
 ```
 
 ### 3. Configurer les variables d'environnement
+
 ```bash
 cp .env.example .env
 # Remplir les variables dans .env
 ```
 
 ### 4. Lancer le serveur de développement
+
 ```bash
 npm run dev
 ```
@@ -134,6 +138,7 @@ Ce projet est déployé sur **Vercel**. Pour déployer vos propres changements :
 2. Vercel redéploiera automatiquement
 
 Pour configurer les variables d'environnement en production :
+
 - Aller sur [Vercel Dashboard](https://vercel.com)
 - Sélectionner le projet
 - Aller dans Settings > Environment Variables
@@ -144,6 +149,7 @@ Pour configurer les variables d'environnement en production :
 ## 🤝 Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
+
 - Signaler des bugs
 - Proposer des améliorations
 - Créer des pull requests
