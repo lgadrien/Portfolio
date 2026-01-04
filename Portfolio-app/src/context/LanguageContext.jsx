@@ -126,7 +126,7 @@ const translations = {
       subtitle: "Key steps of my journey",
     },
     stats: {
-      title: "Statistics & Metrics",
+      title: "Statistics & GitHub Projects",
       subtitle: "My GitHub statistics and project evolution",
       publicRepos: "Public repos",
       totalStars: "Total stars",
