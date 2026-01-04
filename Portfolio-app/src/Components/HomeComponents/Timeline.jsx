@@ -48,7 +48,7 @@ const Timeline = () => {
       title: "À la recherche d'une alternance",
       titleEn: "Looking for an apprenticeship",
       description:
-        "Recherche active d'une alternance dans la data et l'intelligence artificielle pour poursuivre ma formation et mettre en pratique mes compétences.",
+        "Recherche active d'une alternance dans la data et l'intelligence artificielle dans le cadre de ma formation et mettre en pratique mes compétences.",
       descriptionEn:
         "Actively seeking an apprenticeship in data and artificial intelligence to continue my training and apply my skills.",
       icon: <FaSearch />,
