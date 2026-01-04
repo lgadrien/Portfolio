@@ -99,14 +99,14 @@ const ContactForm = () => {
   return (
     <div
       id="contact"
-      className={`w-full py-20 mx-auto max-w-3xl px-4 transition-colors duration-300 ${
+      className={`w-full py-20 mx-auto max-w-3xl px-4 ${
         darkMode
           ? "bg-custom-black text-white"
           : "bg-custom-beige text-custom-purple-dark"
       }`}
     >
       <ToastContainer />
-      <h2 className="text-4xl font-bold mb-4 text-center animate-fadeInUp">
+      <h2 className="text-4xl font-bold mb-4 text-center">
         <span
           className={`${
             darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
@@ -115,14 +115,10 @@ const ContactForm = () => {
           {t.contact.title}
         </span>
       </h2>
-      <p className="mb-10 text-center text-lg dark:text-gray-300 animate-fadeInUp delay-100">
+      <p className="mb-10 text-center text-lg dark:text-gray-300">
         {t.contact.subtitle}
       </p>
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-6 animate-fadeInUp delay-200"
-        noValidate
-      >
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="relative transform transition-all duration-300 hover:scale-105">
           <label htmlFor="name" className="sr-only">
             {t.contact.form.name}
@@ -157,7 +153,7 @@ const ContactForm = () => {
           {errors.name && (
             <p
               id="name-error"
-              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
+              className="text-red-500 text-sm mt-1 ml-4"
               role="alert"
             >
               {errors.name}
@@ -198,7 +194,7 @@ const ContactForm = () => {
           {errors.email && (
             <p
               id="email-error"
-              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
+              className="text-red-500 text-sm mt-1 ml-4"
               role="alert"
             >
               {errors.email}
@@ -239,7 +235,7 @@ const ContactForm = () => {
           {errors.message && (
             <p
               id="message-error"
-              className="text-red-500 text-sm mt-1 ml-4 animate-fadeIn"
+              className="text-red-500 text-sm mt-1 ml-4"
               role="alert"
             >
               {errors.message}

@@ -253,7 +253,7 @@ const Projects = () => {
                 <h3
                   className={`text-xl font-bold mb-3 ${
                     darkMode ? "text-white" : "text-custom-purple-dark"
-                  } group-hover:text-custom-purple-light transition-colors duration-300`}
+                  } group-hover:text-custom-purple-light`}
                 >
                   {project.title}
                 </h3>
@@ -426,23 +426,7 @@ const Projects = () => {
         </div>
       )}
 
-      {/* Animation CSS */}
-      <style>{`
-        .animate-fadeIn {
-          animation: fadeInScale 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeInScale {
-          0% {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-      `}</style>
+      {/* Animation CSS supprimée : on utilise les classes globales d'animation */}
     </div>
   );
 };

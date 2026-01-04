@@ -15,18 +15,18 @@ const translations = {
     },
     home: {
       greeting: "Bonjour ! Je suis",
-      subtitle: "Développeur Full-Stack & Data Analyst",
+      subtitle: "Étudiant Epitech – Full-Stack & Data",
       description:
-        "Étudiant passionné à Epitech Paris, je crée des applications web modernes et analyse des données pour résoudre des problèmes complexes.",
+        "Étudiant passionné à Epitech Paris, je construis des projets web et data concrets autour de la tech, de la finance et de l'entrepreneuriat.",
       downloadCV: "Télécharger mon CV",
     },
     skills: {
       title: "Mes Compétences Techniques",
-      subtitle: "Technologies que je maîtrise",
+      subtitle: "Les technos que j'utilise au quotidien",
     },
     projects: {
       title: "Mes Projets",
-      subtitle: "Découvrez mes réalisations",
+      subtitle: "Une sélection de projets persos et scolaires",
       all: "Tous",
       finished: "Fini",
       inProgress: "En cours",
@@ -35,7 +35,7 @@ const translations = {
     },
     timeline: {
       title: "Mon Parcours",
-      subtitle: "De mes débuts à aujourd'hui",
+      subtitle: "Les étapes qui ont marqué mon parcours",
     },
     stats: {
       title: "Statistiques & Métriques",
@@ -103,18 +103,18 @@ const translations = {
     },
     home: {
       greeting: "Hi! I'm",
-      subtitle: "Full-Stack Developer & Data Analyst",
+      subtitle: "Epitech student – Full-Stack & Data",
       description:
-        "Passionate student at Epitech Paris, I create modern web applications and analyze data to solve complex problems.",
+        "Passionate student at Epitech Paris, I build concrete web and data projects around tech, finance and entrepreneurship.",
       downloadCV: "Download my CV",
     },
     skills: {
       title: "My Technical Skills",
-      subtitle: "Technologies I master",
+      subtitle: "Technologies I use every day",
     },
     projects: {
       title: "My Projects",
-      subtitle: "Discover my work",
+      subtitle: "A selection of personal and school projects",
       all: "All",
       finished: "Finished",
       inProgress: "In Progress",
@@ -123,7 +123,7 @@ const translations = {
     },
     timeline: {
       title: "My Journey",
-      subtitle: "From my beginnings to today",
+      subtitle: "Key steps of my journey",
     },
     stats: {
       title: "Statistics & Metrics",

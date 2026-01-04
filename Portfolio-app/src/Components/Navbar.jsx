@@ -65,7 +65,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 transition-colors duration-500 ease-in-out ${
+      className={`fixed w-full top-0 z-50 ${
         darkMode ? "bg-custom-black" : "bg-custom-beige"
       } shadow-md navbar-wrapper`}
       role="navigation"
@@ -108,7 +108,7 @@ const NavBar = () => {
             onClick={() => handleScrollTo("présentation")}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Présentation"
           >
             {t.nav.presentation}
@@ -117,7 +117,7 @@ const NavBar = () => {
             onClick={() => handleScrollTo("techskills")}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Compétences"
           >
             {t.nav.skills || "Compétences"}
@@ -126,7 +126,7 @@ const NavBar = () => {
             onClick={() => handleScrollTo("timeline")}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Parcours"
           >
             {t.nav.timeline}
@@ -136,7 +136,7 @@ const NavBar = () => {
             onClick={() => setIsOpen(false)}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la page Stats"
           >
             {t.nav.stats || "Stats & Projets"}
@@ -145,7 +145,7 @@ const NavBar = () => {
             onClick={() => handleScrollTo("contact")}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
+            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
             aria-label="Aller à la section Contact"
           >
             {t.nav.contact}
@@ -158,7 +158,7 @@ const NavBar = () => {
               darkMode
                 ? "bg-gray-800 hover:bg-gray-700 text-white"
                 : "bg-gray-100 hover:bg-gray-200 text-custom-purple-dark"
-            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded-lg px-3 py-2 font-semibold transition-all duration-300 flex items-center gap-2 hover:scale-105 transform`}
+            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded-lg px-3 py-2 font-semibold flex items-center gap-2 hover:scale-105 transform hover:transition-transform hover:duration-200`}
             aria-label={`Changer la langue en ${
               language === "fr" ? "English" : "Français"
             }`}
@@ -202,7 +202,7 @@ const NavBar = () => {
               to="/"
               className={`${
                 darkMode ? "text-white" : "text-custom-purple-dark"
-              } text-xl font-semibold hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
+              } text-xl font-semibold hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
               onClick={() => setIsOpen(false)}
               aria-label="Retour à l'accueil - Adrien Le Guen"
             >
@@ -216,7 +216,7 @@ const NavBar = () => {
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-left py-2 px-3 rounded ${
                 darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
-              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              } focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Présentation"
             >
@@ -228,7 +228,7 @@ const NavBar = () => {
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-left py-2 px-3 rounded ${
                 darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
-              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              } focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Compétences"
             >
@@ -240,7 +240,7 @@ const NavBar = () => {
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-left py-2 px-3 rounded ${
                 darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
-              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              } focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Parcours"
             >
@@ -253,7 +253,7 @@ const NavBar = () => {
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-left py-2 px-3 rounded ${
                 darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
-              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              } focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la page Stats"
             >
@@ -265,7 +265,7 @@ const NavBar = () => {
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-left py-2 px-3 rounded ${
                 darkMode ? "hover:bg-custom-dark" : "hover:bg-light-surface"
-              } transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
+              } focus:outline-none focus:ring-2 focus:ring-custom-purple-light`}
               role="menuitem"
               aria-label="Aller à la section Contact"
             >
@@ -277,7 +277,7 @@ const NavBar = () => {
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700 text-white"
                   : "bg-gray-100 hover:bg-gray-200 text-custom-purple-dark"
-              } text-left py-2 px-3 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-custom-purple-light flex items-center gap-2`}
+              } text-left py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-purple-light flex items-center gap-2`}
               role="menuitem"
               aria-label={`Changer la langue en ${
                 language === "fr" ? "English" : "Français"

@@ -27,7 +27,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light transition-colors duration-300`}
+            } hover:text-custom-purple-light`}
             title="LinkedIn"
           >
             <FaLinkedin size={20} />
@@ -38,7 +38,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-gray-400" : "text-light-accent"
-            } hover:text-custom-purple-light transition-colors duration-300`}
+            } hover:text-custom-purple-light`}
             title="GitHub"
           >
             <FaGithub size={20} />
@@ -47,7 +47,7 @@ const Footer = () => {
             href="mailto:adrien.leguen.p@gmail.com"
             className={`${
               darkMode ? "text-gray-300" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light transition-colors duration-300`}
+            } hover:text-custom-purple-light`}
             title="E-mail"
           >
             <FaEnvelope size={20} />

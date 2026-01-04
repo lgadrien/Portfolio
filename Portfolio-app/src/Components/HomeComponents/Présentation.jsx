@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -18,10 +18,63 @@ const calculateAge = (birthDate) => {
   return age;
 };
 
+const useScrollReveal = () => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
+
+  return { ref, isVisible };
+};
+
 const Présentation = () => {
   const { darkMode } = useContext(ThemeContext);
   const { t, language } = useContext(LanguageContext);
   const [age, setAge] = useState(calculateAge("2005-03-07"));
+  const [heroReady, setHeroReady] = useState(false);
+
+  const heroTitle = useScrollReveal();
+  const heroSubtitle = useScrollReveal();
+  const heroList = useScrollReveal();
+  const heroSocial = useScrollReveal();
+  const heroCta = useScrollReveal();
+  const profileBlock = useScrollReveal();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -30,15 +83,28 @@ const Présentation = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHeroReady(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       id="présentation"
-      className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-20 mx-auto max-w-7xl transition-colors duration-300 ${
+      className={`flex flex-col lg:flex-row items-center justify-between px-4 lg:px-16 py-20 mx-auto max-w-7xl ${
         darkMode ? "dark:text-white text-gray-900" : "text-gray-900"
       }`}
     >
       {/* Image de profil en haut pour mobile */}
-      <div className="flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0">
+      <div
+        ref={profileBlock.ref}
+        className={`flex items-center justify-center w-full lg:w-1/2 lg:order-2 order-1 mb-6 lg:mb-0 reveal ${
+          profileBlock.isVisible ? "reveal-visible" : ""
+        }`}
+        style={{ transitionDelay: "120ms" }}
+      >
         <Tilt
           className="w-48 h-48 lg:w-64 lg:h-64"
           tiltMaxAngleX={20}
@@ -65,7 +131,13 @@ const Présentation = () => {
       </div>
       {/* Texte de présentation */}
       <div className="flex flex-col justify-center w-full lg:w-1/2 lg:order-1 order-2 space-y-6 text-center lg:text-left">
-        <div className="flex items-center justify-center lg:justify-start space-x-3 animate-slideInLeft">
+        <div
+          ref={heroTitle.ref}
+          className={`flex items-center justify-center lg:justify-start space-x-3 hero-sequence ${
+            heroReady && heroTitle.isVisible ? "hero-sequence-visible" : ""
+          }`}
+          style={{ transitionDelay: heroReady ? "0ms" : undefined }}
+        >
           <h1 className="text-3xl lg:text-5xl font-extrabold whitespace-nowrap">
             {t.presentation.greeting}{" "}
             <span
@@ -78,14 +150,20 @@ const Présentation = () => {
               Adrien
             </span>
           </h1>
-          <span className="wave text-3xl lg:text-5xl" aria-label="wave">
+          <span className="text-3xl lg:text-5xl" aria-label="wave">
             👋
           </span>
         </div>
-        <p className="text-lg lg:text-xl leading-relaxed animate-slideInLeft delay-100">
+        <p
+          ref={heroSubtitle.ref}
+          className={`text-lg lg:text-xl leading-relaxed hero-sequence ${
+            heroReady && heroSubtitle.isVisible ? "hero-sequence-visible" : ""
+          }`}
+          style={{ transitionDelay: heroReady ? "120ms" : undefined }}
+        >
           {language === "fr" ? (
             <>
-              Développeur{" "}
+              Je suis développeur{" "}
               <span
                 className={`${
                   darkMode
@@ -106,10 +184,13 @@ const Présentation = () => {
                 data analyst
               </span>
               , passionné par le code, les nouvelles technologies,
-              l&apos;entrepreneuriat et la finance.
+              l&apos;entrepreneuriat et la finance. J&apos;aime transformer des
+              idées (ou des datasets un peu chaotiques) en projets concrets et
+              utiles.
             </>
           ) : (
             <>
+              I&apos;m a{" "}
               <span
                 className={`${
                   darkMode
@@ -117,7 +198,7 @@ const Présentation = () => {
                     : "text-custom-purple-dark"
                 } font-semibold`}
               >
-                Full-stack
+                full-stack
               </span>{" "}
               developer and{" "}
               <span
@@ -130,12 +211,23 @@ const Présentation = () => {
                 data analyst
               </span>
               , passionate about code, new technologies, entrepreneurship and
-              finance.
+              finance. I enjoy turning raw ideas (or messy datasets) into
+              concrete, useful projects.
             </>
           )}
         </p>
-        <ul className="space-y-3 text-lg animate-slideInLeft delay-200">
-          <li className="hover:translate-x-2 transition-transform duration-300">
+        <ul ref={heroList.ref} className="space-y-3 text-lg">
+          <li
+            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "0ms" : undefined,
+            }}
+          >
             {language === "fr" ? (
               <>
                 🎓 Étudiant à <strong>Epitech Paris</strong>, promotion{" "}
@@ -152,7 +244,41 @@ const Présentation = () => {
               </>
             )}
           </li>
-          <li className="hover:translate-x-2 transition-transform duration-300">
+          <li
+            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "80ms" : undefined,
+            }}
+          >
+            {language === "fr" ? (
+              <>
+                🚀 En 2026, je recherche une alternance en data / IA pour
+                continuer à monter en compétences et travailler sur des projets
+                concrets.
+              </>
+            ) : (
+              <>
+                🚀 In 2026, I&apos;m looking for an apprenticeship in data / AI
+                to keep learning and work on real-world projects.
+              </>
+            )}
+          </li>
+          <li
+            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "160ms" : undefined,
+            }}
+          >
             {language === "fr" ? (
               <>
                 📅 Âge actuel : <strong>{age} ans</strong>.
@@ -163,7 +289,17 @@ const Présentation = () => {
               </>
             )}
           </li>
-          <li className="hover:translate-x-2 transition-transform duration-300">
+          <li
+            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "240ms" : undefined,
+            }}
+          >
             {language === "fr" ? (
               <>💻 Découvrez mes projets sur </>
             ) : (
@@ -177,13 +313,23 @@ const Présentation = () => {
                 darkMode
                   ? "text-custom-purple-light"
                   : "text-custom-purple-dark"
-              } hover:underline font-semibold`}
+              } link-underline font-semibold`}
             >
               GitHub
             </a>
             .
           </li>
-          <li className="hover:translate-x-2 transition-transform duration-300">
+          <li
+            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "320ms" : undefined,
+            }}
+          >
             {language === "fr" ? (
               <>✉️ Contactez-moi via </>
             ) : (
@@ -195,21 +341,27 @@ const Présentation = () => {
                 darkMode
                   ? "text-custom-purple-light"
                   : "text-custom-purple-dark"
-              } hover:underline font-semibold`}
+              } link-underline font-semibold`}
             >
               {language === "fr" ? "mon email" : "my email"}
             </a>
             .
           </li>
         </ul>
-        <div className="flex justify-center lg:justify-start space-x-6 animate-slideInLeft delay-300">
+        <div
+          ref={heroSocial.ref}
+          className={`flex justify-center lg:justify-start space-x-6 hero-sequence ${
+            heroReady && heroSocial.isVisible ? "hero-sequence-visible" : ""
+          }`}
+          style={{ transitionDelay: heroReady ? "320ms" : undefined }}
+        >
           <a
             href="https://www.linkedin.com/in/adrien-le-guen/"
             target="_blank"
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
+            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="Voir mon profil LinkedIn"
           >
             <FaLinkedin size={32} aria-hidden="true" />
@@ -220,7 +372,7 @@ const Présentation = () => {
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-gray-300" : "text-light-accent"
-            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
+            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="Voir mon profil GitHub"
           >
             <FaGithub size={32} aria-hidden="true" />
@@ -229,42 +381,30 @@ const Présentation = () => {
             href="mailto:adrien.leguen.p@gmail.com"
             className={`${
               darkMode ? "text-gray-300" : "text-light-accent"
-            } hover:text-custom-purple-light transition-all duration-300 hover:scale-125 transform`}
+            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="M'envoyer un email"
           >
             <FaEnvelope size={32} aria-hidden="true" />
           </a>
         </div>
         <a
+          ref={heroCta.ref}
           href="/CV_Adrien_Le_Guen.pdf"
           download="CV_Adrien_Le_Guen.pdf"
-          className={`inline-block ${
+          className={`inline-block transform-gpu ${
             darkMode
               ? "bg-custom-purple-light text-custom-black hover:bg-white"
               : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
-          } font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl mt-4 animate-slideInLeft delay-400`}
+          } font-semibold py-3 px-8 rounded-lg shadow-lg transition-[transform,box-shadow,background-color,color] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03] hover:shadow-2xl mt-4 hero-sequence ${
+            heroReady && heroCta.isVisible ? "hero-sequence-visible" : ""
+          }`}
+          style={{ transitionDelay: heroReady ? "420ms" : undefined }}
           aria-label="Télécharger le CV d'Adrien Le Guen au format PDF"
         >
           <FaDownload className="mr-2 inline" aria-hidden="true" />{" "}
           {t.home.downloadCV}
         </a>
       </div>
-      <style>{`
-        @keyframes waveAnimation {
-          0% { transform: rotate(0deg); }
-          10% { transform: rotate(14deg); }
-          20% { transform: rotate(-8deg); }
-          30% { transform: rotate(14deg); }
-          40% { transform: rotate(-4deg); }
-          50% { transform: rotate(10deg); }
-          60% { transform: 0deg; }
-          100% { transform: 0deg; }
-        }
-        .wave {
-          animation: waveAnimation 2s infinite;
-          transform-origin: 70% 70%;
-        }
-      `}</style>
     </div>
   );
 };
