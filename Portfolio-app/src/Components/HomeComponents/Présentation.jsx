@@ -218,7 +218,7 @@ const Présentation = () => {
         </p>
         <ul ref={heroList.ref} className="space-y-3 text-lg">
           <li
-            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               heroReady && heroList.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-3"
@@ -245,7 +245,7 @@ const Présentation = () => {
             )}
           </li>
           <li
-            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               heroReady && heroList.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-3"
@@ -269,7 +269,7 @@ const Présentation = () => {
             )}
           </li>
           <li
-            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               heroReady && heroList.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-3"
@@ -290,7 +290,7 @@ const Présentation = () => {
             )}
           </li>
           <li
-            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               heroReady && heroList.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-3"
@@ -320,7 +320,7 @@ const Présentation = () => {
             .
           </li>
           <li
-            className={`transform-gpu transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
               heroReady && heroList.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-3"
@@ -395,7 +395,7 @@ const Présentation = () => {
             darkMode
               ? "bg-custom-purple-light text-custom-black hover:bg-white"
               : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
-          } font-semibold py-3 px-8 rounded-lg shadow-lg transition-[transform,box-shadow,background-color,color] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03] hover:shadow-2xl mt-4 hero-sequence ${
+          } font-semibold py-3 px-8 rounded-lg shadow-lg transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03] hover:shadow-2xl mt-4 hero-sequence ${
             heroReady && heroCta.isVisible ? "hero-sequence-visible" : ""
           }`}
           style={{ transitionDelay: heroReady ? "420ms" : undefined }}
