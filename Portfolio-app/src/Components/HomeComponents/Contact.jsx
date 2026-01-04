@@ -5,6 +5,7 @@ import { FaUser, FaEnvelope, FaRegCommentDots } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
+import logger from "../../utils/logger";
 
 const ContactForm = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -50,7 +51,7 @@ const ContactForm = () => {
     event.preventDefault();
 
     if (!validateForm()) {
-      toast.error("Veuillez corriger les erreurs du formulaire", {
+      toast.error(t.contact.form.errorMessage, {
         position: "top-right",
         autoClose: 3000,
         theme: darkMode ? "dark" : "light",
