@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import App from "./App";
 import ThemeProvider from "./context/ThemeContext";
 import LanguageProvider from "./context/LanguageContext";
+import ErrorBoundary from "./Components/ErrorBoundary";
 import checkEnvVariables from "./utils/checkEnv";
 import "./index.css";
 
@@ -13,11 +14,13 @@ checkEnvVariables();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <LanguageProvider>
-        <App />
-        <Analytics />
-      </LanguageProvider>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <LanguageProvider>
+          <App />
+          <Analytics />
+        </LanguageProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
