@@ -43,7 +43,7 @@ const TechCard = ({ href, Icon, color, name, darkMode }) => (
     <p
       className={`text-sm font-semibold mt-4 ${
         darkMode ? "text-white" : "text-custom-purple-dark"
-      } group-hover:text-custom-purple-light transition-colors duration-300`}
+      } group-hover:text-custom-purple-light`}
     >
       {name}
     </p>

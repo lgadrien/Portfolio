@@ -10,11 +10,7 @@ const Home = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div
-      className={`${
-        darkMode ? "bg-custom-black" : "bg-custom-beige"
-      } transition-colors duration-300`}
-    >
+    <div className={`${darkMode ? "bg-custom-black" : "bg-custom-beige"}`}>
       <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
         <Présentation />
       </div>

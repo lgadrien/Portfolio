@@ -10,13 +10,26 @@ const ThemeProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    // Ajouter la classe d'animation
+    document.documentElement.classList.add("theme-transitioning");
+
     if (darkMode) {
       document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
+      document.body.classList.remove("dark");
     }
+
+    // Retirer la classe d'animation après 400ms
+    const timer = setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 400);
+
     // Stocker le thème dans localStorage pour la persistance
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
+    return () => clearTimeout(timer);
   }, [darkMode]);
 
   const toggleDarkMode = () => {

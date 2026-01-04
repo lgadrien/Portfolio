@@ -5,7 +5,6 @@
 html,
 body,
 #root {
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   scroll-behavior: smooth;
 }
 
@@ -83,24 +82,25 @@ body.menu-open {
   }
 }
 
+/* Animations d'apparition de base */
 .animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-scaleIn {
-  animation: scaleIn 0.6s ease-out forwards;
+  animation: scaleIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-slideInLeft {
-  animation: slideInLeft 0.8s ease-out forwards;
+  animation: slideInLeft 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-slideInRight {
-  animation: slideInRight 0.8s ease-out forwards;
+  animation: slideInRight 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* Délais d'animation */
@@ -139,7 +139,7 @@ body.menu-open {
 
 .gradient-animate {
   background-size: 200% 200%;
-  animation: gradient 8s ease infinite;
+  animation: gradient 8s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 /* Glassmorphism */
@@ -153,4 +153,75 @@ body.menu-open {
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll reveal premium (fade + léger translate-y) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 700ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero sequencing helper */
+.hero-sequence {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 700ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.hero-sequence-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Soulignement animé pour liens */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 260ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  width: 100%;
+}
+
+/* Accessibilité : réduire les animations complexes */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .hero-sequence {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

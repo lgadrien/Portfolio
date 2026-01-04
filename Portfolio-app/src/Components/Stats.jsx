@@ -564,9 +564,7 @@ const Stats = () => {
                         <h3
                           className={`text-xl font-bold group-hover:${
                             darkMode ? "text-dark-accent" : "text-light-accent"
-                          } transition-colors ${
-                            darkMode ? "text-dark-text" : "text-light-text"
-                          }`}
+                          } ${darkMode ? "text-dark-text" : "text-light-text"}`}
                         >
                           {repo.name}
                         </h3>
@@ -687,9 +685,7 @@ const Stats = () => {
                       <h3
                         className={`text-lg font-bold mb-2 group-hover:${
                           darkMode ? "text-dark-accent" : "text-light-accent"
-                        } transition-colors ${
-                          darkMode ? "text-dark-text" : "text-light-text"
-                        }`}
+                        } ${darkMode ? "text-dark-text" : "text-light-text"}`}
                       >
                         {repo.name}
                       </h3>
