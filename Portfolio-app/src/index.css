@@ -6,10 +6,29 @@
   --theme-transition: all 0.15s ease-in-out;
 }
 
-/* Transition synchronisée pour les couleurs de base */
+/* Transition synchronisée uniquement pour les backgrounds et bordures */
 * {
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pas de transition sur les couleurs de texte - changement instantané */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+li,
+div,
+button,
+input,
+textarea {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

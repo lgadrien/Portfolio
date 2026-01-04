@@ -1,3 +1,5 @@
+import logger from "./logger";
+
 // Vérification des variables d'environnement au démarrage
 const checkEnvVariables = () => {
   const requiredEnvVars = {
@@ -11,24 +13,22 @@ const checkEnvVariables = () => {
     .map(([key]) => key);
 
   if (missingVars.length > 0) {
-    console.error(
+    logger.error(
       "❌ Variables d'environnement manquantes:",
       missingVars.join(", ")
     );
-    console.error("📝 Consultez le fichier .env.example pour la configuration");
+    logger.error("📝 Consultez le fichier .env.example pour la configuration");
     return false;
   }
 
   // Warning pour le token GitHub (optionnel mais recommandé)
   if (!import.meta.env.VITE_GITHUB_TOKEN) {
-    console.warn(
+    logger.warn(
       "⚠️ VITE_GITHUB_TOKEN manquant : Les requêtes GitHub seront limitées (60/h)."
     );
   }
 
-  if (import.meta.env.DEV) {
-    console.log("✅ Variables d'environnement configurées");
-  }
+  logger.success("Variables d'environnement configurées");
 
   return true;
 };

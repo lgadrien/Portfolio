@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useMemo } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 
@@ -147,15 +147,16 @@ const Projects = () => {
     return projectStatus;
   };
 
-  const filteredProjects =
-    sortStatus === t.projects.all ||
-    sortStatus === "Tous" ||
-    sortStatus === "All"
+  const filteredProjects = useMemo(() => {
+    return sortStatus === t.projects.all ||
+      sortStatus === "Tous" ||
+      sortStatus === "All"
       ? projectData
       : projectData.filter((project) => {
           const translatedStatus = getStatusInCurrentLanguage(project.status);
           return translatedStatus === sortStatus;
         });
+  }, [sortStatus, t.projects.all, language]);
 
   return (
     <div id="projets" className="w-full mx-auto max-w-6xl px-4">

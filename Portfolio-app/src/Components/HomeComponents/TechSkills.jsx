@@ -1,4 +1,4 @@
-import { useState, useMemo, useContext } from "react";
+import { useState, useMemo, useContext, memo } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 import {
@@ -24,7 +24,8 @@ import {
 } from "react-icons/si";
 import { FaFigma } from "react-icons/fa";
 
-const TechCard = ({ href, Icon, color, name, darkMode }) => (
+// Mémoïsé pour éviter les re-renders inutiles
+const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
   <a
     href={href}
     target="_blank"
@@ -48,7 +49,7 @@ const TechCard = ({ href, Icon, color, name, darkMode }) => (
       {name}
     </p>
   </a>
-);
+));
 
 const technologies = [
   // Web

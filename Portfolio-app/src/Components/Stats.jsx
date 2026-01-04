@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { LanguageContext } from "../context/LanguageContext";
+import logger from "../utils/logger";
 import {
   FaGithub,
   FaStar,
@@ -157,10 +158,7 @@ const Stats = () => {
         });
         setLoading(false);
       } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des stats GitHub:",
-          error
-        );
+        logger.error("Erreur lors de la récupération des stats GitHub:", error);
         setLoading(false);
       }
     };

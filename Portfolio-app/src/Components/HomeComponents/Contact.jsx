@@ -69,9 +69,7 @@ const ContactForm = () => {
       )
       .then(
         (result) => {
-          if (import.meta.env.DEV) {
-            console.log("Email envoyé avec succès:", result.text);
-          }
+          logger.success("Email envoyé avec succès:", result.text);
           toast.success(t.contact.form.successMessage, {
             position: "top-right",
             autoClose: 3000,
@@ -81,9 +79,7 @@ const ContactForm = () => {
           event.target.reset();
         },
         (error) => {
-          if (import.meta.env.DEV) {
-            console.error("Erreur lors de l'envoi de l'email:", error.text);
-          }
+          logger.error("Erreur lors de l'envoi de l'email:", error.text);
           toast.error(t.contact.form.errorMessage, {
             position: "top-right",
             autoClose: 3000,
