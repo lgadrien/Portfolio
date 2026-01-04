@@ -17,7 +17,7 @@ Ce dépôt contient le code source de mon portfolio personnel. Il met en avant :
 - Les technologies que j'utilise.
 - Mes expériences professionnelles et académiques.
 
-👉 **Lien vers le portfolio en ligne : [Mon Portfolio](https://portfolio-lgadriens-projects.vercel.app)**
+👉 **Lien vers le portfolio en ligne : [Mon Portfolio](https://portfolio-adrienlg.vercel.app/)**
 
 ---
 
