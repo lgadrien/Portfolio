@@ -230,7 +230,7 @@ const Stats = () => {
           }`}
         >
           <span className={darkMode ? "text-dark-accent" : "text-light-accent"}>
-            {t?.stats?.title || "Statistiques & Métriques"}
+            {t?.stats?.title || "Statistiques & Projets GitHub"}
           </span>
         </h1>
         <p
