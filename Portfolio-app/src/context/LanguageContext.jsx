@@ -38,7 +38,7 @@ const translations = {
       subtitle: "Les étapes qui ont marqué mon parcours",
     },
     stats: {
-      title: "Statistiques & Métriques",
+      title: "Statistiques & Projets GitHub",
       subtitle: "Mes statistiques GitHub et l'évolution de mes projets",
       publicRepos: "Dépôts publics",
       totalStars: "Stars totales",
