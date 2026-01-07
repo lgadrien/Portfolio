@@ -65,21 +65,24 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed w-full top-0 z-50 ${
-        darkMode
-          ? "bg-custom-black/80 border-white/10"
-          : "bg-custom-beige/80 border-black/5"
-      } backdrop-blur-md shadow-sm border-b navbar-wrapper transition-colors duration-300`}
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${"py-4"}`}
       role="navigation"
       aria-label="Navigation principale"
     >
-      <div className="flex justify-between items-center py-4 px-6 md:px-20">
+      <div
+        className={`mx-4 md:mx-auto max-w-7xl rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300 ${
+          darkMode
+            ? "bg-custom-black/70 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
+            : "bg-white/70 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]"
+        } backdrop-blur-xl`}
+      >
+        {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`${
               darkMode ? "text-white" : "text-custom-purple-dark"
-            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded p-1`}
+            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded-lg p-2 hover:bg-white/10 transition-colors`}
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -91,105 +94,95 @@ const NavBar = () => {
             )}
           </button>
         </div>
-        <div className="hidden md:flex items-center">
+
+        {/* Logo / Name */}
+        <div className="flex items-center">
           <Link
             to="/"
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } text-xl font-semibold hover:text-custom-purple-light transition-colors duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
+            className={`text-xl font-bold tracking-tight transition-all duration-300 hover:scale-105 ${
+              darkMode
+                ? "text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400"
+                : "text-transparent bg-clip-text bg-gradient-to-r from-custom-purple-dark to-purple-600"
+            }`}
             aria-label="Retour à l'accueil - Adrien Le Guen"
           >
             ADRIEN LE GUEN
           </Link>
         </div>
+
+        {/* Desktop Navigation */}
         <nav
-          className="hidden md:flex ml-auto space-x-6"
+          className="hidden md:flex ml-auto items-center space-x-1"
           aria-label="Menu principal"
         >
-          <button
-            onClick={() => handleScrollTo("présentation")}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
-            aria-label="Aller à la section Présentation"
-          >
-            {t.nav.presentation}
-          </button>
-          <button
-            onClick={() => handleScrollTo("techskills")}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
-            aria-label="Aller à la section Compétences"
-          >
-            {t.nav.skills || "Compétences"}
-          </button>
-          <button
-            onClick={() => handleScrollTo("timeline")}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
-            aria-label="Aller à la section Parcours"
-          >
-            {t.nav.timeline}
-          </button>
+          {["présentation", "techskills", "timeline", "contact"].map(
+            (section) => (
+              <button
+                key={section}
+                onClick={() => handleScrollTo(section)}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group ${
+                  darkMode
+                    ? "text-gray-300 hover:text-white hover:bg-white/10"
+                    : "text-gray-700 hover:text-custom-purple-dark hover:bg-purple-500/10"
+                }`}
+              >
+                {section === "techskills"
+                  ? t.nav.skills || "Compétences"
+                  : t.nav[section]}
+              </button>
+            )
+          )}
+
           <Link
             to="/stats"
-            onClick={() => setIsOpen(false)}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
-            aria-label="Aller à la page Stats"
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group ml-1 ${
+              darkMode
+                ? "text-gray-300 hover:text-white hover:bg-white/10"
+                : "text-gray-700 hover:text-custom-purple-dark hover:bg-purple-500/10"
+            }`}
           >
             {t.nav.stats || "Stats & Projets"}
           </Link>
-          <button
-            onClick={() => handleScrollTo("contact")}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } px-3 py-2 hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded`}
-            aria-label="Aller à la section Contact"
-          >
-            {t.nav.contact}
-          </button>
-        </nav>
-        <div className="flex items-center ml-6 space-x-3">
-          <button
-            onClick={toggleLanguage}
-            className={`${
-              darkMode
-                ? "bg-gray-800 hover:bg-gray-700 text-white"
-                : "bg-gray-100 hover:bg-gray-200 text-custom-purple-dark"
-            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded-lg px-3 py-2 font-semibold flex items-center gap-2 hover:scale-105 transform hover:transition-transform hover:duration-200`}
-            aria-label={`Changer la langue en ${
-              language === "fr" ? "English" : "Français"
+
+          {/* Separator */}
+          <div
+            className={`h-6 w-px mx-4 ${
+              darkMode ? "bg-white/20" : "bg-black/10"
             }`}
-            title={
-              language === "fr" ? "Switch to English" : "Passer en français"
-            }
-          >
-            <span className="text-lg">{language === "fr" ? "🇫🇷" : "🇬🇧"}</span>
-            <span className="text-sm font-bold">
-              {language === "fr" ? "FR" : "EN"}
-            </span>
-          </button>
-          <button
-            onClick={toggleDarkMode}
-            className={`${
-              darkMode ? "text-white" : "text-custom-purple-dark"
-            } focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded p-1`}
-            aria-label={
-              darkMode ? "Activer le mode clair" : "Activer le mode sombre"
-            }
-            aria-pressed={darkMode}
-          >
-            {darkMode ? (
-              <FaSun size={24} aria-hidden="true" />
-            ) : (
-              <FaMoon size={24} aria-hidden="true" />
-            )}
-          </button>
-        </div>
+          ></div>
+
+          {/* Actions (Lang + Theme) */}
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={toggleLanguage}
+              className={`p-2 rounded-xl transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-white/5 hover:bg-white/10 text-white border border-white/5"
+                  : "bg-black/5 hover:bg-black/10 text-custom-purple-dark border border-black/5"
+              }`}
+              title={
+                language === "fr" ? "Switch to English" : "Passer en français"
+              }
+            >
+              <span className="text-lg leading-none">
+                {language === "fr" ? "🇫🇷" : "🇬🇧"}
+              </span>
+            </button>
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-xl transition-all duration-300 hover:scale-110 hover:rotate-12 ${
+                darkMode
+                  ? "text-yellow-400 bg-white/5 hover:bg-white/10 border border-white/5"
+                  : "text-purple-600 bg-black/5 hover:bg-black/10 border border-black/5"
+              }`}
+              aria-label={
+                darkMode ? "Activer le mode clair" : "Activer le mode sombre"
+              }
+            >
+              {darkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+            </button>
+          </div>
+        </nav>
       </div>
       {isOpen && (
         <div
