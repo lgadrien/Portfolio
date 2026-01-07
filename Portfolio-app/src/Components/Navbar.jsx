@@ -66,8 +66,10 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed w-full top-0 z-50 ${
-        darkMode ? "bg-custom-black" : "bg-custom-beige"
-      } shadow-md navbar-wrapper`}
+        darkMode
+          ? "bg-custom-black/80 border-white/10"
+          : "bg-custom-beige/80 border-black/5"
+      } backdrop-blur-md shadow-sm border-b navbar-wrapper transition-colors duration-300`}
       role="navigation"
       aria-label="Navigation principale"
     >
