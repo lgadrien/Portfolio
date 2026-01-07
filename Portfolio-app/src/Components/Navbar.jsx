@@ -99,7 +99,11 @@ const NavBar = () => {
         <div className="flex items-center">
           <Link
             to="/"
-            className={`text-xl font-bold tracking-tight transition-all duration-300 hover:scale-105 ${
+            onClick={(e) => {
+              e.preventDefault();
+              handleScrollTo("présentation");
+            }}
+            className={`text-xl font-bold tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer ${
               darkMode
                 ? "text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400"
                 : "text-transparent bg-clip-text bg-gradient-to-r from-custom-purple-dark to-purple-600"
@@ -198,7 +202,10 @@ const NavBar = () => {
               className={`${
                 darkMode ? "text-white" : "text-custom-purple-dark"
               } text-xl font-semibold hover:text-custom-purple-light focus:outline-none focus:ring-2 focus:ring-custom-purple-light rounded px-2`}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleScrollTo("présentation");
+              }}
               aria-label="Retour à l'accueil - Adrien Le Guen"
             >
               ADRIEN LE GUEN
