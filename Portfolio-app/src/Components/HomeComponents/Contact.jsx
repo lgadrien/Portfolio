@@ -96,10 +96,8 @@ const ContactForm = () => {
   return (
     <div
       id="contact"
-      className={`w-full py-20 mx-auto max-w-3xl px-4 ${
-        darkMode
-          ? "bg-custom-black text-white"
-          : "bg-custom-beige text-custom-purple-dark"
+      className={`w-full py-20 mx-auto max-w-3xl px-4 bg-transparent text-center ${
+        darkMode ? "text-white" : "text-custom-purple-dark"
       }`}
     >
       <ToastContainer />
@@ -135,7 +133,7 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 backdrop-blur-md ${
               errors.name
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
@@ -143,8 +141,8 @@ const ContactForm = () => {
                 : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.name && (
@@ -176,7 +174,7 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 transition-all duration-300 backdrop-blur-md ${
               errors.email
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
@@ -184,8 +182,8 @@ const ContactForm = () => {
                 : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.email && (
@@ -217,7 +215,7 @@ const ContactForm = () => {
             aria-required="true"
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 resize-none transition-all duration-300 ${
+            className={`w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 resize-none transition-all duration-300 backdrop-blur-md ${
               errors.message
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
@@ -225,8 +223,8 @@ const ContactForm = () => {
                 : "focus:ring-custom-purple-dark focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           ></textarea>
           {errors.message && (

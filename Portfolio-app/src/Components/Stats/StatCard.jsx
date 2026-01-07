@@ -8,9 +8,9 @@ const StatCard = ({ icon, title, value, color }) => {
     <div
       className={`${
         darkMode
-          ? "bg-dark-surface border-gray-800"
-          : "bg-light-surface border-gray-200"
-      } border-2 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1`}
+          ? "bg-dark-surface/60 border-gray-800"
+          : "bg-light-surface/60 border-gray-200"
+      } backdrop-blur-md border-2 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1`}
     >
       <div className={`flex items-center justify-between mb-4`}>
         <div className={`${color} text-4xl`}>{icon}</div>

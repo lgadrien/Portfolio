@@ -32,8 +32,8 @@ const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
     rel="noopener noreferrer"
     title={name}
     className={`flex flex-col items-center p-6 ${
-      darkMode ? "bg-custom-dark" : "bg-white"
-    } rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border ${
+      darkMode ? "bg-custom-dark/60" : "bg-white/60"
+    } backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border ${
       darkMode ? "border-gray-800" : "border-gray-200"
     } hover:border-custom-purple-light group transform hover:-translate-y-2`}
     aria-label={`En savoir plus sur ${name}`}

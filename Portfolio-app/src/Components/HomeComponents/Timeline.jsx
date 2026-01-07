@@ -71,9 +71,9 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-custom-dark border-gray-800"
-                    : "bg-white border-gray-200"
-                } border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
+                    ? "bg-custom-dark/60 border-gray-800"
+                    : "bg-white/60 border-gray-200"
+                } backdrop-blur-md border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex justify-end items-center mb-2 lg:mb-3">
                   <span
@@ -148,9 +148,9 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-custom-dark border-gray-800"
-                    : "bg-white border-gray-200"
-                } border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
+                    ? "bg-custom-dark/60 border-gray-800"
+                    : "bg-white/60 border-gray-200"
+                } backdrop-blur-md border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
                 <div className="flex items-center mb-2 lg:mb-3">
                   <span
@@ -186,11 +186,7 @@ const Timeline = () => {
   };
 
   return (
-    <div
-      className={`w-full pt-12 md:pt-20 pb-16 md:pb-24 ${
-        darkMode ? "bg-dark-bg" : "bg-custom-beige"
-      }`}
-    >
+    <div className="w-full pt-12 md:pt-20 pb-16 md:pb-24 bg-transparent">
       <div
         id="timeline"
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative before:absolute before:left-1/2 before:top-32 before:bottom-8 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-purple-500/40 before:via-gray-400/30 before:to-purple-500/40 before:hidden before:lg:block"
@@ -247,9 +243,9 @@ const Timeline = () => {
                   <div
                     className={`${
                       darkMode
-                        ? "bg-custom-dark border-gray-800"
-                        : "bg-white border-gray-200"
-                    } border rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}
+                        ? "bg-custom-dark/60 border-gray-800"
+                        : "bg-white/60 border-gray-200"
+                    } backdrop-blur-md border rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}
                   >
                     <div className="mb-2 sm:mb-3">
                       <span
