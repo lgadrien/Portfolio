@@ -11,16 +11,16 @@ const Home = () => {
 
   return (
     <div className={`${darkMode ? "bg-custom-black" : "bg-custom-beige"}`}>
-      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
+      <div className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8">
         <Présentation />
       </div>
-      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
+      <div className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8">
         <TechSkills />
       </div>
-      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
+      <div className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8">
         <Timeline />
       </div>
-      <div className="min-h-screen flex items-center justify-center pt-28 pb-8">
+      <div className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8">
         <Contact />
       </div>
     </div>
