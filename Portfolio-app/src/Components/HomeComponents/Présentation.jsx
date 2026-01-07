@@ -281,6 +281,53 @@ const Présentation = () => {
           >
             {language === "fr" ? (
               <>
+                🏢 Fondateur de l&apos;agence{" "}
+                <a
+                  href="https://polen-data.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${
+                    darkMode
+                      ? "text-custom-purple-light"
+                      : "text-custom-purple-dark"
+                  } link-underline font-semibold`}
+                >
+                  Polen Data
+                </a>
+                .
+              </>
+            ) : (
+              <>
+                🏢 Founder of{" "}
+                <a
+                  href="https://polen-data.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${
+                    darkMode
+                      ? "text-custom-purple-light"
+                      : "text-custom-purple-dark"
+                  } link-underline font-semibold`}
+                >
+                  Polen Data
+                </a>{" "}
+                agency.
+              </>
+            )}
+          </li>
+          <li
+            className={`transform-gpu transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+              heroReady && heroList.isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+            style={{
+              transitionDelay:
+                heroReady && heroList.isVisible ? "240ms" : undefined,
+            }}
+          >
+            {language === "fr" ? (
+              <>
                 📅 Âge actuel : <strong>{age} ans</strong>.
               </>
             ) : (
@@ -297,7 +344,7 @@ const Présentation = () => {
             }`}
             style={{
               transitionDelay:
-                heroReady && heroList.isVisible ? "240ms" : undefined,
+                heroReady && heroList.isVisible ? "320ms" : undefined,
             }}
           >
             {language === "fr" ? (
@@ -327,7 +374,7 @@ const Présentation = () => {
             }`}
             style={{
               transitionDelay:
-                heroReady && heroList.isVisible ? "320ms" : undefined,
+                heroReady && heroList.isVisible ? "400ms" : undefined,
             }}
           >
             {language === "fr" ? (
@@ -350,10 +397,10 @@ const Présentation = () => {
         </ul>
         <div
           ref={heroSocial.ref}
-          className={`flex justify-center lg:justify-start space-x-6 hero-sequence ${
+          className={`flex items-center justify-center lg:justify-start space-x-6 hero-sequence ${
             heroReady && heroSocial.isVisible ? "hero-sequence-visible" : ""
           }`}
-          style={{ transitionDelay: heroReady ? "320ms" : undefined }}
+          style={{ transitionDelay: heroReady ? "400ms" : undefined }}
         >
           <a
             href="https://www.linkedin.com/in/adrien-le-guen/"
@@ -377,6 +424,7 @@ const Présentation = () => {
           >
             <FaGithub size={32} aria-hidden="true" />
           </a>
+
           <a
             href="mailto:adrien.leguen.p@gmail.com"
             className={`${
@@ -398,7 +446,7 @@ const Présentation = () => {
           } font-semibold py-3 px-8 rounded-lg shadow-lg transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03] hover:shadow-2xl mt-4 hero-sequence ${
             heroReady && heroCta.isVisible ? "hero-sequence-visible" : ""
           }`}
-          style={{ transitionDelay: heroReady ? "420ms" : undefined }}
+          style={{ transitionDelay: heroReady ? "500ms" : undefined }}
           aria-label="Télécharger le CV d'Adrien Le Guen au format PDF"
         >
           <FaDownload className="mr-2 inline" aria-hidden="true" />{" "}
