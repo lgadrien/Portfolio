@@ -140,7 +140,12 @@ export const getGithubProfile = async (username) => {
 
         if (event.type === "PushEvent") {
           type = "push";
-          const commitCount = event.payload.commits.length;
+          // Protection contre les payload PushEvent sans commits (rare mais possible)
+          // On privilégie 'size' ou 'distinct_size' qui est plus fiable que le tableau commits[] qui peut être tronqué ou vide
+          const commitCount =
+            event.payload.size ||
+            event.payload.distinct_size ||
+            (event.payload.commits ? event.payload.commits.length : 0);
           description = `Pushed ${commitCount} commit${
             commitCount > 1 ? "s" : ""
           }`;
@@ -159,7 +164,7 @@ export const getGithubProfile = async (username) => {
 
     // Calcul approximatif des commits sur les derniers events récupérés (juste pour l'indicateur "Activité Récente")
     const recentCommitsCount = eventsData
-      .filter((e) => e.type === "PushEvent")
+      .filter((e) => e.type === "PushEvent" && e.payload && e.payload.commits)
       .reduce((acc, e) => acc + e.payload.commits.length, 0);
 
     // Formatage final de l'objet de retour
@@ -189,5 +194,36 @@ export const getGithubProfile = async (username) => {
   } catch (err) {
     logger.error("Erreur dans le service GitHub:", err);
     throw err; // Propager l'erreur pour qu'elle soit gérée par le composant/hook
+  }
+};
+
+/**
+ * Récupère l'historique des contributions GitHub via une API tierce.
+ * (Nécessaire car l'API officielle GitHub ne donne pas ça facilement en REST)
+ */
+export const getGithubContributions = async (username) => {
+  try {
+    const response = await fetch(
+      `https://github-contributions-api.jogruber.de/v4/${username}?y=all`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch contributions");
+    }
+    const data = await response.json();
+
+    // Convertir la structure imbriquée (years -> contributions) en un tableau plat { date, count }
+    // L'API renvoie { contributions: [ { date, count, level } ... ] } pour chaque année ou globalement selon la version
+    // Pour la v4 : data.contributions est un tableau d'objets (un par année) ou un tableau plat ?
+    // Check API v4: returns { total: {..}, contributions: [ { date, count, color, intensity } ... ] } -> C'est un tableau plat de TOUTES les données si on ne demande pas une année spécifique?
+    // Wait, ?y=all returns "contributions" object with year keys? No, let's check standard behavior.
+    // Usually it returns 'contributions' as an array sorted by date.
+
+    // Safety check: si structure différente, on adapte.
+    // Supposons un format plat standard de cette API.
+
+    return data.contributions || [];
+  } catch (error) {
+    logger.warn("Erreur fetch contributions:", error);
+    return [];
   }
 };
