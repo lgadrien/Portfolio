@@ -7,7 +7,6 @@ import RepoList from "../Components/Stats/RepoList";
 import ProfileInfo from "../Components/Stats/ProfileInfo";
 import MetricsGrid from "../Components/Stats/MetricsGrid";
 import ContributionGraph from "../Components/Stats/ContributionGraph";
-import ActivityFeed from "../Components/Stats/ActivityFeed";
 import {
   FaGithub,
   FaStar,
@@ -117,13 +116,8 @@ const Stats = () => {
         {/* Contribution Calendar */}
         <ContributionGraph username="lgadrien" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Langages */}
-          <LanguageChart topLanguages={githubStats.topLanguages} />
-
-          {/* Activity Feed */}
-          <ActivityFeed activity={githubStats.recentActivity} />
-        </div>
+        {/* Langages les plus utilisés */}
+        <LanguageChart topLanguages={githubStats.topLanguages} />
 
         {/* Filtre de projets */}
 
