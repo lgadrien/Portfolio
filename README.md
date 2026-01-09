@@ -8,170 +8,106 @@
   <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white" alt="Vercel">
 </p>
 
-<h3 align="center">Portfolio moderne et responsive - Full-Stack & Data Analyst</h3>
+<h3 align="center">Portfolio - Full-Stack & Data Analyst</h3>
 
 <p align="center">
-  <a href="https://portfolio-lgadriens-projects.vercel.app">🌐 Voir la démo en ligne</a> •
-  <a href="#-installation">📦 Installation</a> •
-  <a href="#-fonctionnalités">✨ Fonctionnalités</a> •
-  <a href="#-architecture">🏗️ Architecture</a>
+  <a href="https://portfolio-lgadriens-projects.vercel.app">🌐 Voir le site en live</a> •
+  <a href="#-comment-lancer-le-projet">📦 Tester en local</a> •
+  <a href="#-mon-approche">🧠 Mon Approche</a>
 </p>
 
 ---
 
-## 🌟 Aperçu
+## 👋 Salut, moi c'est Adrien !
 
-Portfolio personnel présentant mes projets, compétences techniques, parcours et statistiques GitHub avancées. Développé avec une **Clean Architecture** sous React et Tailwind CSS, il offre une expérience utilisateur premium avec **Glassmorphism**, animations fluides et visualisation de données interactive.
+Bienvenue sur le repository de mon **Portfolio**. Plus qu'une simple vitrine, j'ai conçu ce projet comme un véritable terrain de jeu pour démontrer mes compétences en **Clean Architecture**, en **UI Design** et en **Intégration d'API**.
 
-### 🎯 Points Forts
-
-- ✅ **Architecture Pro** : Séparation stricte (UI / Business Logic / Data).
-- ✅ **Design Premium** : UI Glassmorphism, Animations Framer Motion, Dark Mode natif.
-- ✅ **Dashboard GitHub** : Statistiques en temps réel avec graphiques interactifs (Recharts).
-- ✅ **Bilingue** : Support complet FR/EN (i18n).
-- ✅ **Performance** : Lazy loading, Code splitting, et optimisations SEO.
-- ✅ **Accessibilité** : Respect des normes ARIA et navigation clavier.
+Actuellement étudiant à **Epitech** et passionné par la Data et l'IA, j'ai voulu créer une application qui reflète mon exigence technique : code propre, performant et maintenable.
 
 ---
 
-## 🛠️ Technologies
+## 💡 Mon Approche
+
+Je ne voulais pas d'un simple site statique. J'ai construit ce portfolio comme une vraie **Single Page Application (SPA)** professionnelle.
+
+### Objectifs du projet :
+
+1.  **Expérience Utilisateur Premium** : Utilisation du _Glassmorphism_, d'animations fluides (Framer Motion) et d'un Dark Mode natif soigné.
+2.  **Architecture Scalable** : Séparation stricte entre la vue (UI), la logique (Hooks) et les données (Services).
+3.  **Data Driven** : Une page "Stats" connectée en temps réel à l'API GitHub pour visualiser concrètement mon activité (commits, langages, contributions).
+
+---
+
+## 🛠️ Ma Stack Technique
+
+Voici les outils que j'ai choisis pour construire ce projet :
 
 ### Frontend Core
 
-- **[React 18.3.1](https://reactjs.org/)** - Bibliothèque UI moderne
-- **[Vite 5.1.0](https://vitejs.dev/)** - Build tool next-gen
-- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Styling utility-first
-- **[Recharts](https://recharts.org/)** - Visualisation de données (Graphiques)
-- **[Framer Motion](https://www.framer.com/motion/)** - Moteur d'animations
+- **React 18** : Pour sa robustesse et son écosystème.
+- **Vite** : Pour un environnement de développement ultra-rapide.
+- **Tailwind CSS** : Pour un styling rapide, maintenable et un Dark Mode facile à gérer.
 
-### Architecture & State
+### Data & Visualisation
 
-- **Custom Hooks** - Abstraction de la logique (ex: `useGithubStats`)
-- **Context API** - Gestion d'état global (Theme, Language)
-- **React Router 6** - Navigation client-side
-- **Services Pattern** - Couche API découplée (ex: `githubService.js`)
+- **Recharts** : Pour les graphiques interactifs (ma page Stats).
+- **GitHub API + Vercel Serverless** : Pour récupérer et sécuriser mes données en temps réel.
 
-### Services & APIs
+### Architecture
 
-- **[EmailJS](https://www.emailjs.com/)** - Envoi d'emails sans backend
-- **[GitHub API](https://docs.github.com/en/rest)** - Données de profil et repositories
-- **[Vercel Serverless](https://vercel.com/docs/functions)** - Fonctions backend pour l'API proxy
-- **[Vercel Analytics](https://vercel.com/analytics)** - Suivi de trafic respectueux de la vie privée
+- **Services Pattern** : Toute la logique API est isolée dans `services/githubService.js`.
+- **Custom Hooks** : Pour gérer la logique complexe (ex: `useGithubStats`).
+- **Context API** : Pour gérer le thème et la langue (FR/EN) globalement.
 
 ---
 
-## ✨ Fonctionnalités
+## 🚀 Fonctionnalités Clés
 
-### 🎨 UI/UX & Design
-
-- **Glassmorphism** - Effets de flou et transparence modernes.
-- **Micro-interactions** - Feedbacks visuels au survol et au clic.
-- **Transitions de Page** - Animations douces entre les routes.
-- **Smooth Scroll** - Navigation fluide avec ancre précise.
-
-### 📊 Dashboard GitHub
-
-- **Vue d'ensemble** - KPIs (Stars, Forks, Followers).
-- **Contribution Graph** - Graphique d'activité interactif avec filtres temporels (7J, 1M, ..., Max).
-- **Analyse de Code** - Répartition des langages par popularité.
-- **Top Projets** - Showcase automatique des meilleurs repos.
-
-### ⚡ Performance & SEO
-
-- **Lazy loading** - Chargement différé des routes lourdes (Stats).
-- **Code splitting** - Séparation automatique des bundles.
-- **SEO Technique** - Meta tags dynamiques, Open Graph, JSON-LD.
-- **Lighthouse Score** - Optimisé pour atteindre 90-100 partout.
+- ✨ **Interface Responsive & Fluide** : Animations d'entrée, smooth scroll et micto-interactions.
+- 📊 **Tableau de Bord GitHub** :
+  - **Contribution Graph** interactif (comme sur GitHub).
+  - **Analyse des Langages** que j'utilise le plus.
+  - **KPIs en temps réel** (Stars, Forks, Projets).
+- 🌍 **Internationalisation** : Site entièrement bilingue Français 🇫🇷 / Anglais 🇬🇧.
+- 📧 **Contact Direct** : Formulaire fonctionnel connecté via EmailJS.
 
 ---
 
-## 🏗️ Architecture du Projet
+## � Comment lancer le projet ?
 
-Le projet suit les principes de la **Clean Architecture** adaptée au frontend :
+Si vous êtes curieux de voir le code tourner sur votre machine :
 
-```
-Portfolio-app/
-├── src/
-│   ├── components/        # 🧱 Composants UI Réutilisables (Stateless focus)
-│   │   ├── Stats/         # Sous-composants spécifiques au dashboard
-│   │   ├── HomeComponents/# Sections de la page d'accueil
-│   │   └── ...
-│   ├── pages/             # 📄 Vues principales routées (Home, Stats)
-│   ├── services/          # 🧠 Logique Métier & API (Agnostique de React)
-│   │   └── githubService.js # Gestion des appels GitHub
-│   ├── hooks/             # 🎣 Custom Hooks (Lien entre UI et Services)
-│   │   ├── useGithubStats.js
-│   │   └── useScrollToSection.js
-│   ├── context/           # 🌐 État Global (Theme, Langue)
-│   └── utils/             # 🛠️ Utilitaires (Logger, Formatters)
-├── api/                   # ☁️ Vercel Serverless Functions
-├── public/                # 📦 Assets statiques
-└── ...
-```
+1.  **Clonez le repo** :
 
----
+    ```bash
+    git clone https://github.com/lgadrien/Portfolio.git
+    cd Portfolio/Portfolio-app
+    ```
 
-## 📦 Installation
+2.  **Installez les dépendances** :
 
-### 1. Cloner le dépôt
+    ```bash
+    npm install
+    ```
 
-```bash
-git clone https://github.com/lgadrien/Portfolio.git
-cd Portfolio/Portfolio-app
-```
-
-### 2. Installer les dépendances
-
-```bash
-npm install
-```
-
-### 3. Configurer l'environnement
-
-Créer un fichier `.env` à la racine :
-
-```env
-VITE_EMAILJS_SERVICE_ID=votre_service_id
-VITE_EMAILJS_TEMPLATE_ID=votre_template_id
-VITE_EMAILJS_PUBLIC_KEY=votre_public_key
-# Optionnel pour le dev local
-VITE_GITHUB_TOKEN=votre_token_github
-```
-
-### 4. Lancer le serveur
-
-```bash
-npm run dev
-```
+3.  **Lancez le serveur de dev** :
+    ```bash
+    npm run dev
+    ```
+    Rendez-vous sur `http://localhost:5173` !
 
 ---
 
-## 🤝 Contribution
+## 🤝 Restons en contact
 
-Les contributions sont les bienvenues !
-Si vous souhaitez améliorer le design ou ajouter des features :
+Je suis toujours ouvert aux discussions sur la Tech, la Data ou pour une opportunité d'alternance.
 
-1. **Fork** le projet
-2. Créer une **branche** (`git checkout -b feature/NewDesign`)
-3. **Commit** les changements
-4. **Push** et ouvrir une **Pull Request**
-
----
-
-## 📧 Contact
-
-**Adrien Le Guen** - Développeur Full-Stack & Data Analyst
-
-- 🌐 Portfolio : [portfolio-lgadriens-projects.vercel.app](https://portfolio-lgadriens-projects.vercel.app)
-- 💼 LinkedIn : [linkedin.com/in/adrien-le-guen](https://www.linkedin.com/in/adrien-le-guen)
-- 🐙 GitHub : [@lgadrien](https://github.com/lgadrien)
+- 🌐 **Mon site** : [portfolio-lgadriens-projects.vercel.app](https://portfolio-lgadriens-projects.vercel.app)
+- 💼 **LinkedIn** : [Adrien Le Guen](https://www.linkedin.com/in/adrien-le-guen)
+- 🐙 **GitHub** : [@lgadrien](https://github.com/lgadrien)
 
 ---
 
 <div align="center">
-
-**⭐ Si ce projet vous plaît, laissez une étoile ! ⭐**
-
-_Dernière mise à jour : 9 Janvier 2026_
-
+  <i>Si ce projet vous inspire ou que vous trouvez le code propre, n'hésitez pas à laisser une petite ⭐ !</i>
 </div>
