@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
 import { useGithubStats } from "../hooks/useGithubStats";
-import StatCard from "./Stats/StatCard";
-import LanguageChart from "./Stats/LanguageChart";
-import RepoList from "./Stats/RepoList";
-import ProfileInfo from "./Stats/ProfileInfo";
-import MetricsGrid from "./Stats/MetricsGrid";
+import StatCard from "../Components/Stats/StatCard";
+import LanguageChart from "../Components/Stats/LanguageChart";
+import RepoList from "../Components/Stats/RepoList";
+import ProfileInfo from "../Components/Stats/ProfileInfo";
+import MetricsGrid from "../Components/Stats/MetricsGrid";
 import {
   FaGithub,
   FaStar,
@@ -43,7 +43,7 @@ const Stats = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-light-bg dark:bg-dark-bg pt-24 pb-12 px-4 flex flex-col justify-center items-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-custom-purple-light mb-4"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-dark-accent mb-4"></div>
         <p className="text-lg text-light-text-secondary dark:text-gray-400">
           {t?.stats?.loading || "Chargement..."}
         </p>

@@ -24,7 +24,7 @@ const Timeline = () => {
       descriptionEn:
         "Computer science training with a specialization in full-stack web development and data analysis.",
       icon: <FaGraduationCap />,
-      color: "bg-custom-purple-light",
+      color: "bg-dark-accent",
       tags: ["Epitech", "Full-Stack", "Data"],
       tagsEn: ["Epitech", "Full-Stack", "Data"],
     },
@@ -38,7 +38,7 @@ const Timeline = () => {
       descriptionEn:
         "6-month internship within the SWIFT team as a Data Analyst. Financial data analysis and processing, dashboard creation and reporting.",
       icon: <FaBriefcase />,
-      color: "bg-custom-purple-dark",
+      color: "bg-light-accent",
       tags: ["Data Analysis", "SWIFT", "Finance"],
       tagsEn: ["Data Analysis", "SWIFT", "Finance"],
     },
@@ -52,7 +52,7 @@ const Timeline = () => {
       descriptionEn:
         "Actively seeking an apprenticeship in data and artificial intelligence to continue my training and apply my skills.",
       icon: <FaSearch />,
-      color: "bg-custom-purple-light",
+      color: "bg-dark-accent",
       tags: ["Data Science", "IA", "Alternance"],
       tagsEn: ["Data Science", "AI", "Apprenticeship"],
     },
@@ -71,7 +71,7 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-custom-dark/60 border-gray-800"
+                    ? "bg-dark-surface/60 border-gray-800"
                     : "bg-white/60 border-gray-200"
                 } backdrop-blur-md border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
@@ -88,7 +88,7 @@ const Timeline = () => {
                 </div>
                 <h3
                   className={`text-base lg:text-xl font-bold mb-2 lg:mb-3 ${
-                    darkMode ? "text-white" : "text-custom-black"
+                    darkMode ? "text-white" : "text-dark-bg"
                   } tracking-tight`}
                 >
                   {isEnglish ? item.titleEn : item.title}
@@ -148,7 +148,7 @@ const Timeline = () => {
               <div
                 className={`${
                   darkMode
-                    ? "bg-custom-dark/60 border-gray-800"
+                    ? "bg-dark-surface/60 border-gray-800"
                     : "bg-white/60 border-gray-200"
                 } backdrop-blur-md border rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl`}
               >
@@ -165,7 +165,7 @@ const Timeline = () => {
                 </div>
                 <h3
                   className={`text-base lg:text-xl font-bold mb-2 lg:mb-3 ${
-                    darkMode ? "text-white" : "text-custom-black"
+                    darkMode ? "text-white" : "text-dark-bg"
                   } tracking-tight`}
                 >
                   {isEnglish ? item.titleEn : item.title}
@@ -193,12 +193,12 @@ const Timeline = () => {
       >
         <h2
           className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4 ${
-            darkMode ? "text-white" : "text-custom-black"
+            darkMode ? "text-white" : "text-dark-bg"
           }`}
         >
           <span
             className={
-              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+              darkMode ? "text-dark-accent" : "text-light-accent"
             }
           >
             {t?.timeline?.title || "Mon Parcours"}
@@ -243,7 +243,7 @@ const Timeline = () => {
                   <div
                     className={`${
                       darkMode
-                        ? "bg-custom-dark/60 border-gray-800"
+                        ? "bg-dark-surface/60 border-gray-800"
                         : "bg-white/60 border-gray-200"
                     } backdrop-blur-md border rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}
                   >
@@ -260,7 +260,7 @@ const Timeline = () => {
                     </div>
                     <h3
                       className={`text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 ${
-                        darkMode ? "text-white" : "text-custom-black"
+                        darkMode ? "text-white" : "text-dark-bg"
                       } tracking-tight`}
                     >
                       {isEnglish ? item.titleEn : item.title}

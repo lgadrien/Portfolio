@@ -32,10 +32,10 @@ const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
     rel="noopener noreferrer"
     title={name}
     className={`flex flex-col items-center p-6 ${
-      darkMode ? "bg-custom-dark/60" : "bg-white/60"
+      darkMode ? "bg-dark-surface/60" : "bg-white/60"
     } backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border ${
       darkMode ? "border-gray-800" : "border-gray-200"
-    } hover:border-custom-purple-light group transform hover:-translate-y-2`}
+    } hover:border-dark-accent group transform hover:-translate-y-2`}
     aria-label={`En savoir plus sur ${name}`}
   >
     <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -43,8 +43,8 @@ const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
     </div>
     <p
       className={`text-sm font-semibold mt-4 ${
-        darkMode ? "text-white" : "text-custom-purple-dark"
-      } group-hover:text-custom-purple-light`}
+        darkMode ? "text-white" : "text-light-accent"
+      } group-hover:text-dark-accent`}
     >
       {name}
     </p>
@@ -214,7 +214,7 @@ const TechSkills = () => {
       >
         <span
           className={`${
-            darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            darkMode ? "text-dark-accent" : "text-light-accent"
           } font-bold`}
         >
           {t.skills.title}
@@ -233,11 +233,11 @@ const TechSkills = () => {
             className={`px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
               filter === category
                 ? darkMode
-                  ? "bg-custom-purple-light text-custom-black shadow-lg"
-                  : "bg-custom-purple-dark text-white shadow-lg"
+                  ? "bg-dark-accent text-dark-bg shadow-lg"
+                  : "bg-light-accent text-white shadow-lg"
                 : darkMode
-                ? "bg-custom-dark text-gray-300 hover:bg-custom-purple-light hover:text-custom-black"
-                : "bg-white text-custom-purple-dark border border-custom-purple-dark hover:bg-custom-purple-dark hover:text-white"
+                ? "bg-dark-surface text-gray-300 hover:bg-dark-accent hover:text-dark-bg"
+                : "bg-white text-light-accent border border-light-accent hover:bg-light-accent hover:text-white"
             }`}
           >
             {category}

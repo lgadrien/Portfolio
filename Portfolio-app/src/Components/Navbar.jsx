@@ -26,7 +26,7 @@ const NavBar = () => {
       role="navigation"
       aria-label="Navigation principale"
     >
-      <div className="mx-4 md:mx-auto max-w-7xl rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300 bg-white/70 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:bg-custom-black/70 dark:border-white/10 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl">
+      <div className="mx-4 md:mx-auto max-w-7xl rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300 bg-white/70 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:bg-dark-bg/70 dark:border-white/10 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl">
         {/* Logo / Name */}
         <div className="flex items-center">
           <Link
@@ -35,7 +35,7 @@ const NavBar = () => {
               e.preventDefault();
               handleNavigation("présentation");
             }}
-            className="text-xl font-bold tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-custom-purple-dark to-purple-600 dark:from-white dark:to-gray-400"
+            className="text-xl font-bold tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-light-accent to-purple-600 dark:from-white dark:to-gray-400"
             aria-label="Retour à l'accueil - Adrien Le Guen"
           >
             ADRIEN LE GUEN
@@ -52,7 +52,7 @@ const NavBar = () => {
               <button
                 key={section}
                 onClick={() => handleNavigation(section)}
-                className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group text-gray-700 hover:text-custom-purple-dark hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
+                className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group text-gray-700 hover:text-light-accent hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
               >
                 {section === "techskills"
                   ? t.nav.skills || "Compétences"
@@ -63,7 +63,7 @@ const NavBar = () => {
 
           <Link
             to="/stats"
-            className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group ml-1 text-gray-700 hover:text-custom-purple-dark hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
+            className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group ml-1 text-gray-700 hover:text-light-accent hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
           >
             {t.nav.stats || "Stats & Projets"}
           </Link>
@@ -76,7 +76,7 @@ const NavBar = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={toggleLanguage}
-            className="p-2 rounded-xl transition-all duration-300 hover:scale-105 bg-black/5 hover:bg-black/10 text-custom-purple-dark border border-black/5 dark:bg-white/5 dark:hover:bg-white/10 dark:text-white dark:border-white/5"
+            className="p-2 rounded-xl transition-all duration-300 hover:scale-105 bg-black/5 hover:bg-black/10 text-light-accent border border-black/5 dark:bg-white/5 dark:hover:bg-white/10 dark:text-white dark:border-white/5"
             title={
               language === "fr" ? "Switch to English" : "Passer en français"
             }

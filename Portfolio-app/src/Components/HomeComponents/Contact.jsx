@@ -97,14 +97,14 @@ const ContactForm = () => {
     <div
       id="contact"
       className={`w-full py-20 mx-auto max-w-3xl px-4 bg-transparent text-center ${
-        darkMode ? "text-white" : "text-custom-purple-dark"
+        darkMode ? "text-white" : "text-light-accent"
       }`}
     >
       <ToastContainer />
       <h2 className="text-4xl font-bold mb-4 text-center">
         <span
           className={`${
-            darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
+            darkMode ? "text-dark-accent" : "text-light-accent"
           } font-bold`}
         >
           {t.contact.title}
@@ -137,12 +137,12 @@ const ContactForm = () => {
               errors.name
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
-                ? "focus:ring-custom-purple-light focus:ring-offset-2"
-                : "focus:ring-custom-purple-dark focus:ring-offset-2"
+                ? "focus:ring-dark-accent focus:ring-offset-2"
+                : "focus:ring-light-accent focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-dark-surface/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.name && (
@@ -178,12 +178,12 @@ const ContactForm = () => {
               errors.email
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
-                ? "focus:ring-custom-purple-light focus:ring-offset-2"
-                : "focus:ring-custom-purple-dark focus:ring-offset-2"
+                ? "focus:ring-dark-accent focus:ring-offset-2"
+                : "focus:ring-light-accent focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-dark-surface/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
           {errors.email && (
@@ -219,12 +219,12 @@ const ContactForm = () => {
               errors.message
                 ? "border-2 border-red-500 focus:ring-red-500"
                 : darkMode
-                ? "focus:ring-custom-purple-light focus:ring-offset-2"
-                : "focus:ring-custom-purple-dark focus:ring-offset-2"
+                ? "focus:ring-dark-accent focus:ring-offset-2"
+                : "focus:ring-light-accent focus:ring-offset-2"
             } ${
               darkMode
-                ? "bg-custom-dark/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
-                : "bg-white/60 text-custom-purple-dark placeholder-gray-500 shadow-md border border-gray-300"
+                ? "bg-dark-surface/60 text-white placeholder-gray-400 shadow-lg border border-gray-800"
+                : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           ></textarea>
           {errors.message && (
@@ -244,8 +244,8 @@ const ContactForm = () => {
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"
               : darkMode
-              ? "bg-custom-purple-light text-custom-black hover:bg-white"
-              : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
+              ? "bg-dark-accent text-dark-bg hover:bg-white"
+              : "bg-light-accent text-white hover:bg-dark-accent"
           }`}
           aria-label={
             isSubmitting ? t.contact.form.sending : t.contact.form.send

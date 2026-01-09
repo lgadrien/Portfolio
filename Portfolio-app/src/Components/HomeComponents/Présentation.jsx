@@ -119,7 +119,7 @@ const Présentation = () => {
             overflow: "hidden",
           }}
         >
-          <div className="relative w-full h-full rounded-full shadow-2xl overflow-hidden ring-4 ring-custom-purple-light ring-opacity-70">
+          <div className="relative w-full h-full rounded-full shadow-2xl overflow-hidden ring-4 ring-dark-accent ring-opacity-70">
             <img
               src="/img/PP.png"
               alt="Photo de profil d'Adrien Le Guen, développeur full-stack"
@@ -143,8 +143,8 @@ const Présentation = () => {
             <span
               className={`${
                 darkMode
-                  ? "text-custom-purple-light"
-                  : "text-custom-purple-dark"
+                  ? "text-dark-accent"
+                  : "text-light-accent"
               } font-bold`}
             >
               Adrien
@@ -167,8 +167,8 @@ const Présentation = () => {
               <span
                 className={`${
                   darkMode
-                    ? "text-custom-purple-light"
-                    : "text-custom-purple-dark"
+                    ? "text-dark-accent"
+                    : "text-light-accent"
                 } font-semibold`}
               >
                 full-stack
@@ -177,8 +177,8 @@ const Présentation = () => {
               <span
                 className={`${
                   darkMode
-                    ? "text-custom-purple-light"
-                    : "text-custom-purple-dark"
+                    ? "text-dark-accent"
+                    : "text-light-accent"
                 } font-semibold`}
               >
                 data analyst
@@ -194,8 +194,8 @@ const Présentation = () => {
               <span
                 className={`${
                   darkMode
-                    ? "text-custom-purple-light"
-                    : "text-custom-purple-dark"
+                    ? "text-dark-accent"
+                    : "text-light-accent"
                 } font-semibold`}
               >
                 full-stack
@@ -204,8 +204,8 @@ const Présentation = () => {
               <span
                 className={`${
                   darkMode
-                    ? "text-custom-purple-light"
-                    : "text-custom-purple-dark"
+                    ? "text-dark-accent"
+                    : "text-light-accent"
                 } font-semibold`}
               >
                 data analyst
@@ -288,8 +288,8 @@ const Présentation = () => {
                   rel="noopener noreferrer"
                   className={`${
                     darkMode
-                      ? "text-custom-purple-light"
-                      : "text-custom-purple-dark"
+                      ? "text-dark-accent"
+                      : "text-light-accent"
                   } link-underline font-semibold`}
                 >
                   Polen Data
@@ -305,8 +305,8 @@ const Présentation = () => {
                   rel="noopener noreferrer"
                   className={`${
                     darkMode
-                      ? "text-custom-purple-light"
-                      : "text-custom-purple-dark"
+                      ? "text-dark-accent"
+                      : "text-light-accent"
                   } link-underline font-semibold`}
                 >
                   Polen Data
@@ -358,8 +358,8 @@ const Présentation = () => {
               rel="noopener noreferrer"
               className={`${
                 darkMode
-                  ? "text-custom-purple-light"
-                  : "text-custom-purple-dark"
+                  ? "text-dark-accent"
+                  : "text-light-accent"
               } link-underline font-semibold`}
             >
               GitHub
@@ -386,8 +386,8 @@ const Présentation = () => {
               href="mailto:adrien.leguen.p@gmail.com"
               className={`${
                 darkMode
-                  ? "text-custom-purple-light"
-                  : "text-custom-purple-dark"
+                  ? "text-dark-accent"
+                  : "text-light-accent"
               } link-underline font-semibold`}
             >
               {language === "fr" ? "mon email" : "my email"}
@@ -407,8 +407,8 @@ const Présentation = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`${
-              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
+              darkMode ? "text-dark-accent" : "text-light-accent"
+            } hover:text-dark-accent transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="Voir mon profil LinkedIn"
           >
             <FaLinkedin size={32} aria-hidden="true" />
@@ -419,7 +419,7 @@ const Présentation = () => {
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-gray-300" : "text-light-accent"
-            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
+            } hover:text-dark-accent transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="Voir mon profil GitHub"
           >
             <FaGithub size={32} aria-hidden="true" />
@@ -429,7 +429,7 @@ const Présentation = () => {
             href="mailto:adrien.leguen.p@gmail.com"
             className={`${
               darkMode ? "text-gray-300" : "text-light-accent"
-            } hover:text-custom-purple-light transition-transform duration-300 transform-gpu hover:scale-110`}
+            } hover:text-dark-accent transition-transform duration-300 transform-gpu hover:scale-110`}
             aria-label="M'envoyer un email"
           >
             <FaEnvelope size={32} aria-hidden="true" />
@@ -441,8 +441,8 @@ const Présentation = () => {
           download="CV_Adrien_Le_Guen.pdf"
           className={`inline-block transform-gpu ${
             darkMode
-              ? "bg-custom-purple-light text-custom-black hover:bg-white"
-              : "bg-custom-purple-dark text-white hover:bg-custom-purple-light"
+              ? "bg-dark-accent text-dark-bg hover:bg-white"
+              : "bg-light-accent text-white hover:bg-dark-accent"
           } font-semibold py-3 px-8 rounded-lg shadow-lg transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.03] hover:shadow-2xl mt-4 hero-sequence ${
             heroReady && heroCta.isVisible ? "hero-sequence-visible" : ""
           }`}
