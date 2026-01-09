@@ -6,6 +6,8 @@ import LanguageChart from "../Components/Stats/LanguageChart";
 import RepoList from "../Components/Stats/RepoList";
 import ProfileInfo from "../Components/Stats/ProfileInfo";
 import MetricsGrid from "../Components/Stats/MetricsGrid";
+import ContributionGraph from "../Components/Stats/ContributionGraph";
+import ActivityFeed from "../Components/Stats/ActivityFeed";
 import {
   FaGithub,
   FaStar,
@@ -84,32 +86,46 @@ const Stats = () => {
             title={t?.stats?.publicRepos || "Dépôts publics"}
             value={githubStats.publicRepos}
             color="text-blue-500"
+            delay={0.1}
           />
           <StatCard
             icon={<FaStar />}
             title={t?.stats?.totalStars || "Stars totales"}
             value={githubStats.totalStars}
             color="text-yellow-500"
+            delay={0.2}
           />
           <StatCard
             icon={<FaUsers />}
             title={t?.stats?.followers || "Followers"}
             value={githubStats.followers}
             color="text-green-500"
+            delay={0.3}
           />
           <StatCard
             icon={<FaEye />}
             title={language === "fr" ? "Watchers" : "Watchers"}
             value={githubStats.totalWatchers}
             color="text-cyan-500"
+            delay={0.4}
           />
         </div>
 
         {/* Advanced Metrics */}
         <MetricsGrid stats={githubStats} />
 
-        {/* Langages les plus utilisés */}
-        <LanguageChart topLanguages={githubStats.topLanguages} />
+        {/* Contribution Calendar */}
+        <ContributionGraph username="lgadrien" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Langages */}
+          <LanguageChart topLanguages={githubStats.topLanguages} />
+
+          {/* Activity Feed */}
+          <ActivityFeed activity={githubStats.recentActivity} />
+        </div>
+
+        {/* Filtre de projets */}
 
         {/* Filtre de projets */}
         <RepoList

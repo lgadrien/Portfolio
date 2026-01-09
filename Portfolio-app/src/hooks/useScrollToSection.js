@@ -2,21 +2,26 @@ import { useCallback } from "react";
 
 export const useScrollToSection = () => {
   const scrollToSection = useCallback((sectionId) => {
-    if (sectionId === "présentation" || !sectionId) {
+    if (!sectionId) return;
+
+    if (sectionId === "présentation") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
     const section = document.getElementById(sectionId);
     if (section) {
+      // On récupère la navbar pour calculer sa hauteur réelle
       const navbar = document.querySelector('nav[role="navigation"]');
-      const navbarHeight = navbar ? navbar.offsetHeight : 0;
-      // Ajout d'une marge de sécurité de 16px comme dans le code original
-      const offset = navbarHeight + 16;
+      const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 80;
 
+      // On calcule la position absolue de l'élément par rapport au document
       const elementPosition =
-        section.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
+        section.getBoundingClientRect().top + window.scrollY;
+
+      // Position finale = Position élément - Hauteur Navbar
+      // Note : On retire la "marge de sécurité" arbitraire qui créait le trou
+      const offsetPosition = elementPosition - navbarHeight;
 
       window.scrollTo({
         top: offsetPosition,

@@ -206,7 +206,7 @@ const TechSkills = () => {
   );
 
   return (
-    <div className="px-4 py-20 mx-auto w-full max-w-6xl">
+    <div className="px-4 py-4 mx-auto w-full max-w-6xl">
       {/* Titre aligné au centre */}
       <h3
         id="techskills"

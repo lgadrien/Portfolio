@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 import { FaCode } from "react-icons/fa";
@@ -9,75 +10,91 @@ const LanguageChart = ({ topLanguages }) => {
 
   const getLanguageColor = (lang) => {
     const colors = {
-      JavaScript: "bg-yellow-400",
-      TypeScript: "bg-blue-500",
-      Python: "bg-blue-600",
-      Java: "bg-red-500",
-      HTML: "bg-orange-500",
-      CSS: "bg-blue-400",
-      React: "bg-cyan-400",
-      "C++": "bg-pink-500",
-      C: "bg-gray-600",
-      PHP: "bg-purple-500",
+      JavaScript: "#F7DF1E",
+      TypeScript: "#3178C6",
+      Python: "#3776AB",
+      Java: "#E34F26",
+      HTML: "#E34F26",
+      CSS: "#1572B6",
+      React: "#61DAFB",
+      "C++": "#F34B7D",
+      C: "#555555",
+      PHP: "#777BB4",
     };
-    return colors[lang] || "bg-gray-500";
+    return colors[lang] || "#888888";
   };
 
   return (
-    <div className="mb-12">
-      <h2
-        className={`text-3xl font-bold mb-6 ${
-          darkMode ? "text-dark-text" : "text-light-text"
-        }`}
-      >
-        <FaCode className="inline mr-3 text-dark-accent" />
-        {language === "fr"
-          ? "Langages les plus utilisés"
-          : "Most used languages"}
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-        {topLanguages.map((lang, index) => (
-          <div
-            key={index}
-            className={`${
-              darkMode
-                ? "bg-dark-surface border-gray-800"
-                : "bg-light-surface border-gray-200"
-            } border-2 rounded-xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105`}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <span
-                className={`text-lg font-bold ${
-                  darkMode ? "text-dark-text" : "text-light-text"
-                }`}
-              >
-                {lang.language}
-              </span>
-              <span
-                className={`text-sm font-semibold ${
-                  darkMode ? "text-gray-400" : "text-light-text-secondary"
-                }`}
-              >
-                {lang.percentage}%
-              </span>
-            </div>
-            <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className={`absolute h-full ${getLanguageColor(
-                  lang.language
-                )} transition-all duration-1000`}
-                style={{ width: `${lang.percentage}%` }}
-              ></div>
-            </div>
-            <div
-              className={`mt-2 text-sm ${
-                darkMode ? "text-gray-400" : "text-light-text-secondary"
-              }`}
+    <div className="mb-16">
+      <div className="flex items-center gap-3 mb-8">
+        <div className="p-2 bg-dark-accent/10 rounded-lg">
+          <FaCode className="text-2xl text-dark-accent" />
+        </div>
+        <h2
+          className={`text-2xl font-bold ${
+            darkMode ? "text-dark-text" : "text-light-text"
+          }`}
+        >
+          {language === "fr" ? "Top Langages" : "Top Languages"}
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {topLanguages.map((lang, index) => {
+          const color = getLanguageColor(lang.language);
+
+          return (
+            <motion.div
+              key={lang.language}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative overflow-hidden ${
+                darkMode
+                  ? "bg-dark-surface/40 border-white/5"
+                  : "bg-light-surface/60 border-gray-200"
+              } backdrop-blur-md border rounded-xl p-5 group hover:border-dark-accent/30 transition-colors duration-300`}
             >
-              {lang.count} {language === "fr" ? "projets" : "projects"}
-            </div>
-          </div>
-        ))}
+              <div className="flex justify-between items-end mb-3 relative z-10">
+                <span
+                  className={`text-lg font-bold ${
+                    darkMode ? "text-dark-text" : "text-light-text"
+                  }`}
+                >
+                  {lang.language}
+                </span>
+                <span
+                  className={`text-2xl font-black ${
+                    darkMode ? "text-white" : "text-gray-800"
+                  } opacity-80`}
+                >
+                  {lang.percentage}%
+                </span>
+              </div>
+
+              {/* Progress Bar Container */}
+              <div className="h-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${lang.percentage}%` }}
+                  transition={{
+                    duration: 1,
+                    delay: 0.5 + index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className="h-full rounded-full"
+                  style={{ backgroundColor: color }}
+                />
+              </div>
+
+              {/* Background Glow */}
+              <div
+                className="absolute -right-6 -bottom-6 w-24 h-24 rounded-full opacity-10 blur-2xl transition-transform duration-500 group-hover:scale-150"
+                style={{ backgroundColor: color }}
+              ></div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
