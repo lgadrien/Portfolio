@@ -186,7 +186,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="w-full pt-12 md:pt-20 pb-16 md:pb-24 bg-transparent">
+    <div className="w-full pt-4 md:pt-4 pb-16 md:pb-24 bg-transparent">
       <div
         id="timeline"
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative before:absolute before:left-1/2 before:top-32 before:bottom-8 before:-translate-x-1/2 before:w-px before:bg-gradient-to-b before:from-purple-500/40 before:via-gray-400/30 before:to-purple-500/40 before:hidden before:lg:block"
@@ -196,11 +196,7 @@ const Timeline = () => {
             darkMode ? "text-white" : "text-dark-bg"
           }`}
         >
-          <span
-            className={
-              darkMode ? "text-dark-accent" : "text-light-accent"
-            }
-          >
+          <span className={darkMode ? "text-dark-accent" : "text-light-accent"}>
             {t?.timeline?.title || "Mon Parcours"}
           </span>
         </h2>

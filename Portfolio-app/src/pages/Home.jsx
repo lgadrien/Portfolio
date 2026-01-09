@@ -31,25 +31,25 @@ const Home = () => {
       <div className="relative z-10">
         <div
           id="présentation"
-          className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8"
+          className="min-h-fit lg:min-h-screen flex items-center justify-center pt-32 pb-8"
         >
           <Présentation />
         </div>
         <div
           id="techskills"
-          className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8"
+          className="min-h-fit lg:min-h-screen flex items-start justify-center pt-4 pb-8"
         >
           <TechSkills />
         </div>
         <div
           id="timeline"
-          className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8"
+          className="min-h-fit lg:min-h-screen flex items-start justify-center pt-4 pb-8"
         >
           <Timeline />
         </div>
         <div
           id="contact"
-          className="min-h-fit lg:min-h-screen flex items-center justify-center pt-28 pb-8"
+          className="min-h-fit lg:min-h-screen flex items-start justify-center pt-4 pb-8"
         >
           <Contact />
         </div>

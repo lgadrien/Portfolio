@@ -98,6 +98,70 @@ export const getGithubProfile = async (username) => {
       .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       .slice(0, 6);
 
+    // --- Fetch Events (Activité Récente) ---
+    // On fetch les événements en parallèle si possible, sinon on le rajoute à la suite
+    let eventsData = [];
+    try {
+      let eventsResponse;
+      if (import.meta.env.DEV) {
+        eventsResponse = await fetch(
+          `https://api.github.com/users/${username}/events?per_page=100`
+        );
+      } else {
+        // En prod, on suppose que l'API serverless gère aussi les events ou on appelle l'API publique (rate limit public est souvent suffisant pour les events)
+        // Pour simplifier ici et ne pas toucher au serverless qu'on ne voit pas, on tente l'appel direct pour les events qui sont publics.
+        eventsResponse = await fetch(
+          `https://api.github.com/users/${username}/events?per_page=100`
+        );
+      }
+
+      if (eventsResponse.ok) {
+        eventsData = await eventsResponse.json();
+      }
+    } catch (e) {
+      logger.warn("Impossible de récupérer les events GitHub", e);
+    }
+
+    // --- Traitement des Événements ---
+    const recentActivity = eventsData
+      .filter(
+        (event) =>
+          event.type === "PushEvent" ||
+          event.type === "CreateEvent" ||
+          event.type === "WatchEvent"
+      )
+      .slice(0, 10)
+      .map((event) => {
+        let type = "unknown";
+        let description = "";
+        let date = event.created_at;
+        let repoName = event.repo.name.replace(`${username}/`, ""); // Nom court
+        let repoUrl = `https://github.com/${event.repo.name}`;
+
+        if (event.type === "PushEvent") {
+          type = "push";
+          const commitCount = event.payload.commits.length;
+          description = `Pushed ${commitCount} commit${
+            commitCount > 1 ? "s" : ""
+          }`;
+        } else if (event.type === "CreateEvent") {
+          type = "create";
+          description = `Created ${event.payload.ref_type} ${
+            event.payload.ref || ""
+          }`;
+        } else if (event.type === "WatchEvent") {
+          type = "star";
+          description = "Starred this repository";
+        }
+
+        return { id: event.id, type, description, date, repoName, repoUrl };
+      });
+
+    // Calcul approximatif des commits sur les derniers events récupérés (juste pour l'indicateur "Activité Récente")
+    const recentCommitsCount = eventsData
+      .filter((e) => e.type === "PushEvent")
+      .reduce((acc, e) => acc + e.payload.commits.length, 0);
+
     // Formatage final de l'objet de retour
     return {
       publicRepos: userData.public_repos,
@@ -111,6 +175,8 @@ export const getGithubProfile = async (username) => {
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .slice(0, 6),
       recentRepos,
+      recentActivity, // Nouvelle donnée
+      recentCommitsCount, // Nouvelle donnée
       yearsActive,
       reposWithDescription,
       totalWatchers,
