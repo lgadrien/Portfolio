@@ -14,82 +14,104 @@
   <a href="https://portfolio-lgadriens-projects.vercel.app">🌐 Voir la démo en ligne</a> •
   <a href="#-installation">📦 Installation</a> •
   <a href="#-fonctionnalités">✨ Fonctionnalités</a> •
-  <a href="#-documentation">📚 Documentation</a>
+  <a href="#-architecture">🏗️ Architecture</a>
 </p>
 
 ---
 
 ## 🌟 Aperçu
 
-Portfolio personnel présentant mes projets, compétences techniques, parcours et statistiques GitHub. Développé avec React et Tailwind CSS, il offre une expérience utilisateur fluide avec support du mode sombre et internationalisation FR/EN.
+Portfolio personnel présentant mes projets, compétences techniques, parcours et statistiques GitHub avancées. Développé avec une **Clean Architecture** sous React et Tailwind CSS, il offre une expérience utilisateur premium avec **Glassmorphism**, animations fluides et visualisation de données interactive.
 
 ### 🎯 Points Forts
 
-- ✅ Design responsive et moderne
-- ✅ Mode sombre/clair avec persistance
-- ✅ Bilingue FR/EN
-- ✅ Statistiques GitHub en temps réel
-- ✅ Formulaire de contact fonctionnel
-- ✅ SEO optimisé (Open Graph, Schema.org)
-- ✅ Performance optimale (lazy loading, code splitting)
-- ✅ Accessible (ARIA, navigation clavier)
+- ✅ **Architecture Pro** : Séparation stricte (UI / Business Logic / Data).
+- ✅ **Design Premium** : UI Glassmorphism, Animations Framer Motion, Dark Mode natif.
+- ✅ **Dashboard GitHub** : Statistiques en temps réel avec graphiques interactifs (Recharts).
+- ✅ **Bilingue** : Support complet FR/EN (i18n).
+- ✅ **Performance** : Lazy loading, Code splitting, et optimisations SEO.
+- ✅ **Accessibilité** : Respect des normes ARIA et navigation clavier.
 
 ---
 
 ## 🛠️ Technologies
 
-### Frontend
+### Frontend Core
 
 - **[React 18.3.1](https://reactjs.org/)** - Bibliothèque UI moderne
-- **[Vite 5.1.0](https://vitejs.dev/)** - Build tool ultra-rapide
-- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[React Router 6.22](https://reactrouter.com/)** - Routing client-side
-- **[Framer Motion](https://www.framer.com/motion/)** - Animations React
+- **[Vite 5.1.0](https://vitejs.dev/)** - Build tool next-gen
+- **[Tailwind CSS 3.4.1](https://tailwindcss.com/)** - Styling utility-first
+- **[Recharts](https://recharts.org/)** - Visualisation de données (Graphiques)
+- **[Framer Motion](https://www.framer.com/motion/)** - Moteur d'animations
+
+### Architecture & State
+
+- **Custom Hooks** - Abstraction de la logique (ex: `useGithubStats`)
+- **Context API** - Gestion d'état global (Theme, Language)
+- **React Router 6** - Navigation client-side
+- **Services Pattern** - Couche API découplée (ex: `githubService.js`)
 
 ### Services & APIs
 
-- **[EmailJS](https://www.emailjs.com/)** - Envoi d'emails
-- **[GitHub API](https://docs.github.com/en/rest)** - Statistiques et projets
-- **[Vercel Analytics](https://vercel.com/analytics)** - Suivi des performances
+- **[EmailJS](https://www.emailjs.com/)** - Envoi d'emails sans backend
+- **[GitHub API](https://docs.github.com/en/rest)** - Données de profil et repositories
+- **[Vercel Serverless](https://vercel.com/docs/functions)** - Fonctions backend pour l'API proxy
+- **[Vercel Analytics](https://vercel.com/analytics)** - Suivi de trafic respectueux de la vie privée
 
 ---
 
 ## ✨ Fonctionnalités
 
-### 🎨 Interface
+### 🎨 UI/UX & Design
 
-- **Design responsive** - Mobile-first, s'adapte à tous les écrans
-- **Mode sombre/clair** - Toggle avec persistance localStorage
-- **Animations fluides** - Transitions et effets Framer Motion
-- **Navigation intuitive** - Smooth scroll entre sections
+- **Glassmorphism** - Effets de flou et transparence modernes.
+- **Micro-interactions** - Feedbacks visuels au survol et au clic.
+- **Transitions de Page** - Animations douces entre les routes.
+- **Smooth Scroll** - Navigation fluide avec ancre précise.
 
-### 🌍 Contenu
+### 📊 Dashboard GitHub
 
-- **Présentation** - Biographie et introduction
-- **Compétences techniques** - Technologies avec liens documentation
-- **Timeline** - Parcours académique et professionnel
-- **Projets** - Portfolio avec filtres par statut
-- **Statistiques GitHub** - Métriques en temps réel (repos, stars, langages)
-- **Formulaire de contact** - EmailJS avec validation complète
+- **Vue d'ensemble** - KPIs (Stars, Forks, Followers).
+- **Contribution Graph** - Graphique d'activité interactif avec filtres temporels (7J, 1M, ..., Max).
+- **Analyse de Code** - Répartition des langages par popularité.
+- **Top Projets** - Showcase automatique des meilleurs repos.
 
 ### ⚡ Performance & SEO
 
-- **Lazy loading** - Chargement différé des routes
-- **Code splitting** - Optimisation du bundle
-- **Meta tags complets** - Open Graph, Twitter Cards
-- **Schema.org** - Données structurées JSON-LD
-- **Sitemap & robots.txt** - Indexation optimisée
+- **Lazy loading** - Chargement différé des routes lourdes (Stats).
+- **Code splitting** - Séparation automatique des bundles.
+- **SEO Technique** - Meta tags dynamiques, Open Graph, JSON-LD.
+- **Lighthouse Score** - Optimisé pour atteindre 90-100 partout.
 
 ---
 
-## � Installation
+## 🏗️ Architecture du Projet
 
-### Prérequis
+Le projet suit les principes de la **Clean Architecture** adaptée au frontend :
 
-- **Node.js** >= 16.x
-- **npm** >= 7.x
+```
+Portfolio-app/
+├── src/
+│   ├── components/        # 🧱 Composants UI Réutilisables (Stateless focus)
+│   │   ├── Stats/         # Sous-composants spécifiques au dashboard
+│   │   ├── HomeComponents/# Sections de la page d'accueil
+│   │   └── ...
+│   ├── pages/             # 📄 Vues principales routées (Home, Stats)
+│   ├── services/          # 🧠 Logique Métier & API (Agnostique de React)
+│   │   └── githubService.js # Gestion des appels GitHub
+│   ├── hooks/             # 🎣 Custom Hooks (Lien entre UI et Services)
+│   │   ├── useGithubStats.js
+│   │   └── useScrollToSection.js
+│   ├── context/           # 🌐 État Global (Theme, Langue)
+│   └── utils/             # 🛠️ Utilitaires (Logger, Formatters)
+├── api/                   # ☁️ Vercel Serverless Functions
+├── public/                # 📦 Assets statiques
+└── ...
+```
 
-### Étapes
+---
+
+## 📦 Installation
 
 ### 1. Cloner le dépôt
 
@@ -104,194 +126,52 @@ cd Portfolio/Portfolio-app
 npm install
 ```
 
-### 3. Configurer les variables d'environnement
+### 3. Configurer l'environnement
 
-Copier le fichier d'exemple et remplir les valeurs :
-
-```bash
-cp .env.example .env
-```
-
-**Variables requises :**
+Créer un fichier `.env` à la racine :
 
 ```env
 VITE_EMAILJS_SERVICE_ID=votre_service_id
 VITE_EMAILJS_TEMPLATE_ID=votre_template_id
 VITE_EMAILJS_PUBLIC_KEY=votre_public_key
-VITE_GITHUB_TOKEN=ghp_votre_token  # Optionnel
+# Optionnel pour le dev local
+VITE_GITHUB_TOKEN=votre_token_github
 ```
 
-> 📖 Voir [docs/SECURITY.md](./Portfolio-app/docs/SECURITY.md) pour obtenir ces credentials
-
-### 4. Lancer le serveur de développement
+### 4. Lancer le serveur
 
 ```bash
 npm run dev
 ```
 
-Le site sera accessible à `http://localhost:3000`
-
----
-
-## 🎮 Scripts Disponibles
-
-```bash
-npm run dev       # Lancer le serveur de développement
-npm run build     # Build de production optimisé
-npm run preview   # Prévisualiser le build
-npm run lint      # Vérifier le code avec ESLint
-```
-
----
-
-## 📚 Documentation
-
-- [🔒 Guide de Sécurité](./Portfolio-app/docs/SECURITY.md) - Configuration variables d'environnement
-- [⚡ Optimisations](./Portfolio-app/docs/OPTIMIZATIONS.md) - Performance et SEO
-- [📊 Fonctionnalités SEO](./Portfolio-app/docs/SEO_FEATURES.md) - Métadonnées et indexation
-
----
-
-## 📁 Structure du Projet
-
-```
-Portfolio-app/
-├── src/
-│   ├── Components/
-│   │   ├── ErrorBoundary.jsx      # 🆕 Gestion erreurs React
-│   │   ├── Home.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Stats.jsx              # Statistiques GitHub
-│   │   ├── Error/                 # Page 404
-│   │   └── HomeComponents/
-│   │       ├── Présentation.jsx
-│   │       ├── TechSkills.jsx
-│   │       ├── Projets.jsx
-│   │       ├── Timeline.jsx
-│   │       └── Contact.jsx        # Formulaire EmailJS
-│   ├── context/
-│   │   ├── ThemeContext.jsx       # Dark mode
-│   │   ├── LanguageContext.jsx    # i18n FR/EN
-│   │   └── NavigationContext.jsx
-│   ├── utils/
-│   │   ├── checkEnv.js            # Validation variables d'env
-│   │   └── logger.js              # Logger personnalisé
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── public/
-│   ├── img/
-│   ├── sitemap.xml
-│   └── robots.txt
-├── api/                           # Vercel Serverless
-│   └── github-stats.js            # Proxy API GitHub
-├── docs/
-│   ├── SECURITY.md
-│   ├── OPTIMIZATIONS.md
-│   └── SEO_FEATURES.md
-├── .env.example
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
-```
-
----
-
-## 🚀 Déploiement
-
-### Vercel (Recommandé)
-
-1. **Connecter à Vercel**
-
-   ```bash
-   npm i -g vercel
-   vercel
-   ```
-
-2. **Configurer les variables d'environnement**
-
-   - Aller dans Settings → Environment Variables
-   - Ajouter les variables depuis `.env`
-
-3. **Déployer**
-   ```bash
-   vercel --prod
-   ```
-
-### Autres Plateformes
-
-- **Netlify** - `npm run build` puis drag & drop `/dist`
-- **GitHub Pages** - Avec GitHub Actions
-- **Cloudflare Pages** - Connecter le repository
-
----
-
-## ⚡ Optimisations Implémentées
-
-### Performance
-
-- ✅ Code Splitting (vendors séparés)
-- ✅ Lazy Loading des routes
-- ✅ Minification Terser
-- ✅ Tree Shaking
-- ✅ Preconnect DNS
-- ✅ Error Boundary global
-
-### SEO
-
-- ✅ Meta tags complets
-- ✅ Open Graph & Twitter Cards
-- ✅ Schema.org JSON-LD
-- ✅ Sitemap.xml & robots.txt
-- ✅ Canonical URLs
-
-### Accessibilité
-
-- ✅ ARIA labels & roles
-- ✅ Navigation clavier
-- ✅ Focus visible
-- ✅ Validation formulaires accessibles
-
 ---
 
 ## 🤝 Contribution
 
-Les contributions sont les bienvenues ! Pour contribuer :
+Les contributions sont les bienvenues !
+Si vous souhaitez améliorer le design ou ajouter des features :
 
 1. **Fork** le projet
-2. Créer une **branche** (`git checkout -b feature/AmazingFeature`)
-3. **Commit** les changements (`git commit -m 'Add AmazingFeature'`)
-4. **Push** vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une **Pull Request**
-
----
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+2. Créer une **branche** (`git checkout -b feature/NewDesign`)
+3. **Commit** les changements
+4. **Push** et ouvrir une **Pull Request**
 
 ---
 
 ## 📧 Contact
 
-**Adrien Le Guen** - Étudiant Développeur Full-Stack & Data Analyst
+**Adrien Le Guen** - Développeur Full-Stack & Data Analyst
 
 - 🌐 Portfolio : [portfolio-lgadriens-projects.vercel.app](https://portfolio-lgadriens-projects.vercel.app)
 - 💼 LinkedIn : [linkedin.com/in/adrien-le-guen](https://www.linkedin.com/in/adrien-le-guen)
 - 🐙 GitHub : [@lgadrien](https://github.com/lgadrien)
-- 📧 Email : Formulaire de contact sur le portfolio
 
 ---
 
 <div align="center">
 
-**⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile ! ⭐**
+**⭐ Si ce projet vous plaît, laissez une étoile ! ⭐**
 
-_Développé avec ❤️ par [Adrien Le Guen](https://github.com/lgadrien)_
-
-**Dernière mise à jour :** 4 janvier 2026
+_Dernière mise à jour : 9 Janvier 2026_
 
 </div>
