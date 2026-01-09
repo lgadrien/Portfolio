@@ -12,8 +12,8 @@ const Footer = () => {
     <footer
       className={`border-t py-6 ${
         darkMode
-          ? "bg-custom-black text-gray-300 border-gray-800"
-          : "bg-custom-beige text-custom-purple-dark border-gray-300"
+          ? "bg-dark-bg text-gray-300 border-gray-800"
+          : "bg-light-bg text-light-accent border-gray-300"
       }`}
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -26,8 +26,8 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`${
-              darkMode ? "text-custom-purple-light" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light`}
+              darkMode ? "text-dark-accent" : "text-light-accent"
+            } hover:text-dark-accent`}
             title="LinkedIn"
           >
             <FaLinkedin size={20} />
@@ -38,7 +38,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className={`${
               darkMode ? "text-gray-400" : "text-light-accent"
-            } hover:text-custom-purple-light`}
+            } hover:text-dark-accent`}
             title="GitHub"
           >
             <FaGithub size={20} />
@@ -46,8 +46,8 @@ const Footer = () => {
           <a
             href="mailto:adrien.leguen.p@gmail.com"
             className={`${
-              darkMode ? "text-gray-300" : "text-custom-purple-dark"
-            } hover:text-custom-purple-light`}
+              darkMode ? "text-gray-300" : "text-light-accent"
+            } hover:text-dark-accent`}
             title="E-mail"
           >
             <FaEnvelope size={20} />

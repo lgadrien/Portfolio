@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "../App.css";
-import Présentation from "./HomeComponents/Présentation";
-import TechSkills from "./HomeComponents/TechSkills";
-import Timeline from "./HomeComponents/Timeline";
-import Contact from "./HomeComponents/Contact";
-import AnimatedBackground from "./AnimatedBackground";
+import Présentation from "../Components/HomeComponents/Présentation";
+import TechSkills from "../Components/HomeComponents/TechSkills";
+import Timeline from "../Components/HomeComponents/Timeline";
+import Contact from "../Components/HomeComponents/Contact";
+import AnimatedBackground from "../Components/AnimatedBackground";
 import { useScrollToSection } from "../hooks/useScrollToSection";
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
   }, [location.state, scrollToSection]);
 
   return (
-    <div className="min-h-screen relative bg-custom-beige dark:bg-custom-black">
+    <div className="min-h-screen relative bg-light-bg dark:bg-dark-bg">
       <AnimatedBackground />
       <div className="relative z-10">
         <div

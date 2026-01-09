@@ -34,8 +34,8 @@ const ScrollToTop = () => {
           onClick={scrollToTop}
           className={`fixed bottom-6 right-6 p-4 rounded-full shadow-lg z-50 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             darkMode
-              ? "bg-custom-purple-light text-custom-black hover:bg-white focus:ring-custom-purple-light"
-              : "bg-custom-purple-dark text-white hover:bg-custom-purple-light focus:ring-custom-purple-dark"
+              ? "bg-dark-accent text-dark-bg hover:bg-white focus:ring-dark-accent"
+              : "bg-light-accent text-white hover:bg-dark-accent focus:ring-light-accent"
           } md:hidden`}
           aria-label="Retour en haut de page"
         >
