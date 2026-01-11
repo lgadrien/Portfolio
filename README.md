@@ -109,5 +109,5 @@ Je suis toujours ouvert aux discussions sur la Tech, la Data ou pour une opportu
 ---
 
 <div align="center">
-  <i>Si ce projet vous inspire ou que vous trouvez le code propre, n'hésitez pas à laisser une petite ⭐ !</i>
+  <i>Si ce projet vous inspire ou que vous trouvez le code propre, n'hésitez pas à laisser une ⭐ !</i>
 </div>
