@@ -26,7 +26,7 @@ const Home = () => {
   }, [location.state, scrollToSection]);
 
   return (
-    <div className="min-h-screen relative bg-light-bg dark:bg-dark-bg">
+    <div className="min-h-screen w-full overflow-x-hidden relative bg-light-bg dark:bg-dark-bg">
       <AnimatedBackground />
       <div className="relative z-10">
         <div

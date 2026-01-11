@@ -133,18 +133,16 @@ const Présentation = () => {
       <div className="flex flex-col justify-center w-full lg:w-1/2 lg:order-1 order-2 space-y-6 text-center lg:text-left">
         <div
           ref={heroTitle.ref}
-          className={`flex items-center justify-center lg:justify-start space-x-3 hero-sequence ${
+          className={`flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 hero-sequence ${
             heroReady && heroTitle.isVisible ? "hero-sequence-visible" : ""
           }`}
           style={{ transitionDelay: heroReady ? "0ms" : undefined }}
         >
-          <h1 className="text-3xl lg:text-5xl font-extrabold whitespace-nowrap">
+          <h1 className="text-3xl lg:text-5xl font-extrabold lg:whitespace-nowrap text-center lg:text-left">
             {t.presentation.greeting}{" "}
             <span
               className={`${
-                darkMode
-                  ? "text-dark-accent"
-                  : "text-light-accent"
+                darkMode ? "text-dark-accent" : "text-light-accent"
               } font-bold`}
             >
               Adrien
@@ -166,9 +164,7 @@ const Présentation = () => {
               Je suis développeur{" "}
               <span
                 className={`${
-                  darkMode
-                    ? "text-dark-accent"
-                    : "text-light-accent"
+                  darkMode ? "text-dark-accent" : "text-light-accent"
                 } font-semibold`}
               >
                 full-stack
@@ -176,9 +172,7 @@ const Présentation = () => {
               et{" "}
               <span
                 className={`${
-                  darkMode
-                    ? "text-dark-accent"
-                    : "text-light-accent"
+                  darkMode ? "text-dark-accent" : "text-light-accent"
                 } font-semibold`}
               >
                 data analyst
@@ -193,9 +187,7 @@ const Présentation = () => {
               I&apos;m a{" "}
               <span
                 className={`${
-                  darkMode
-                    ? "text-dark-accent"
-                    : "text-light-accent"
+                  darkMode ? "text-dark-accent" : "text-light-accent"
                 } font-semibold`}
               >
                 full-stack
@@ -203,9 +195,7 @@ const Présentation = () => {
               developer and{" "}
               <span
                 className={`${
-                  darkMode
-                    ? "text-dark-accent"
-                    : "text-light-accent"
+                  darkMode ? "text-dark-accent" : "text-light-accent"
                 } font-semibold`}
               >
                 data analyst
@@ -287,9 +277,7 @@ const Présentation = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${
-                    darkMode
-                      ? "text-dark-accent"
-                      : "text-light-accent"
+                    darkMode ? "text-dark-accent" : "text-light-accent"
                   } link-underline font-semibold`}
                 >
                   Polen Data
@@ -304,9 +292,7 @@ const Présentation = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${
-                    darkMode
-                      ? "text-dark-accent"
-                      : "text-light-accent"
+                    darkMode ? "text-dark-accent" : "text-light-accent"
                   } link-underline font-semibold`}
                 >
                   Polen Data
@@ -357,9 +343,7 @@ const Présentation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`${
-                darkMode
-                  ? "text-dark-accent"
-                  : "text-light-accent"
+                darkMode ? "text-dark-accent" : "text-light-accent"
               } link-underline font-semibold`}
             >
               GitHub
@@ -385,9 +369,7 @@ const Présentation = () => {
             <a
               href="mailto:adrien.leguen.p@gmail.com"
               className={`${
-                darkMode
-                  ? "text-dark-accent"
-                  : "text-light-accent"
+                darkMode ? "text-dark-accent" : "text-light-accent"
               } link-underline font-semibold`}
             >
               {language === "fr" ? "mon email" : "my email"}
