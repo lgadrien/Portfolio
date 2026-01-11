@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap Location
 Sitemap: https://adrienleguen.vercel.app/sitemap.xml
+
+# Hosted Location
+Host: https://adrienleguen.vercel.app
