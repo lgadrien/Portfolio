@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://adrienleguen.vercel.app/</loc>
     <lastmod>2026-01-11</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://adrienleguen.vercel.app/img/PP.png</image:loc>
+      <image:title>Adrien Le Guen - Développeur Full-Stack</image:title>
+      <image:caption>Photo de profil d'Adrien Le Guen</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://adrienleguen.vercel.app/stats</loc>
     <lastmod>2026-01-11</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
