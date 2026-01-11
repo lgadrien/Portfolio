@@ -11,7 +11,7 @@
 <h3 align="center">Portfolio - Full-Stack & Data Analyst</h3>
 
 <p align="center">
-  <a href="https://portfolio-lgadriens-projects.vercel.app">🌐 Voir le site en live</a> •
+  <a href="https://adrienleguen.vercel.app">🌐 Voir le site en live</a> •
   <a href="#-comment-lancer-le-projet">📦 Tester en local</a> •
   <a href="#-mon-approche">🧠 Mon Approche</a>
 </p>
@@ -94,7 +94,7 @@ Si vous êtes curieux de voir le code tourner sur votre machine :
     ```bash
     npm run dev
     ```
-    Rendez-vous sur `http://localhost:5173` !
+    Rendez-vous sur `http://localhost:5173` ou `https://localhost:3000` !
 
 ---
 
@@ -102,7 +102,7 @@ Si vous êtes curieux de voir le code tourner sur votre machine :
 
 Je suis toujours ouvert aux discussions sur la Tech, la Data ou pour une opportunité d'alternance.
 
-- 🌐 **Mon site** : [portfolio-lgadriens-projects.vercel.app](https://portfolio-lgadriens-projects.vercel.app)
+- 🌐 **Mon site** : [adrienleguen.vercel.app](https://adrienleguen.vercel.app)
 - 💼 **LinkedIn** : [Adrien Le Guen](https://www.linkedin.com/in/adrien-le-guen)
 - 🐙 **GitHub** : [@lgadrien](https://github.com/lgadrien)
 
