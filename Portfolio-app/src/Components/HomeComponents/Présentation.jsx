@@ -280,7 +280,7 @@ const Présentation = () => {
                     darkMode ? "text-dark-accent" : "text-light-accent"
                   } link-underline font-semibold`}
                 >
-                  Polen Data
+                  Polen
                 </a>
                 .
               </>
@@ -295,7 +295,7 @@ const Présentation = () => {
                     darkMode ? "text-dark-accent" : "text-light-accent"
                   } link-underline font-semibold`}
                 >
-                  Polen Data
+                  Polen
                 </a>{" "}
                 agency.
               </>
