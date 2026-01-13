@@ -118,10 +118,6 @@ const ContactForm = () => {
           <label htmlFor="name" className="sr-only">
             {t.contact.form.name}
           </label>
-          <FaUser
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-          />
           <input
             type="text"
             id="name"
@@ -145,6 +141,10 @@ const ContactForm = () => {
                 : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
+          <FaUser
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none"
+            aria-hidden="true"
+          />
           {errors.name && (
             <p
               id="name-error"
@@ -159,10 +159,6 @@ const ContactForm = () => {
           <label htmlFor="email" className="sr-only">
             {t.contact.form.email}
           </label>
-          <FaEnvelope
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-          />
           <input
             type="email"
             id="email"
@@ -186,6 +182,10 @@ const ContactForm = () => {
                 : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           />
+          <FaEnvelope
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 pointer-events-none"
+            aria-hidden="true"
+          />
           {errors.email && (
             <p
               id="email-error"
@@ -200,10 +200,6 @@ const ContactForm = () => {
           <label htmlFor="message" className="sr-only">
             {t.contact.form.message}
           </label>
-          <FaRegCommentDots
-            className="absolute left-4 top-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-          />
           <textarea
             id="message"
             name="message"
@@ -227,6 +223,10 @@ const ContactForm = () => {
                 : "bg-white/60 text-light-accent placeholder-gray-500 shadow-md border border-gray-300"
             }`}
           ></textarea>
+          <FaRegCommentDots
+            className="absolute left-4 top-4 text-gray-500 dark:text-gray-400 pointer-events-none"
+            aria-hidden="true"
+          />
           {errors.message && (
             <p
               id="message-error"

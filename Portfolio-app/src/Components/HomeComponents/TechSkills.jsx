@@ -35,18 +35,22 @@ const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
     target="_blank"
     rel="noopener noreferrer"
     title={name}
-    className={`flex flex-col items-center p-6 ${
+    className={`flex flex-row sm:flex-col items-center justify-start sm:justify-center p-4 sm:p-6 ${
       darkMode ? "bg-dark-surface/60" : "bg-white/60"
     } backdrop-blur-md rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border ${
       darkMode ? "border-gray-800" : "border-gray-200"
-    } hover:border-dark-accent group transform hover:-translate-y-2`}
+    } hover:border-dark-accent group transform hover:-translate-y-2 w-full`}
     aria-label={`En savoir plus sur ${name}`}
   >
-    <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-      <Icon color={color} size={48} aria-hidden="true" />
+    <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mr-4 sm:mr-0 sm:mb-4 flex-shrink-0">
+      <Icon
+        color={color}
+        className="w-10 h-10 sm:w-12 sm:h-12"
+        aria-hidden="true"
+      />
     </div>
     <p
-      className={`text-sm font-semibold mt-4 ${
+      className={`text-base sm:text-sm font-semibold ${
         darkMode ? "text-white" : "text-light-accent"
       } group-hover:text-dark-accent`}
     >
@@ -279,7 +283,7 @@ const TechSkills = () => {
       </div>
 
       {/* Cartes technologiques */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
         {filteredTechnologies.map((tech, index) => (
           <div
             key={tech.name}
