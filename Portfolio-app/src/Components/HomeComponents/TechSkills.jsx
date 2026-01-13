@@ -2,6 +2,7 @@ import { useState, useMemo, useContext, memo } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
 import {
+  DiHtml5,
   DiCss3,
   DiDocker,
   DiPython,
@@ -12,6 +13,8 @@ import {
   DiPhotoshop,
 } from "react-icons/di";
 import {
+  SiNextdotjs,
+  SiVuedotjs,
   SiPostman,
   SiCanva,
   SiExpress,
@@ -21,6 +24,7 @@ import {
   SiDataiku,
   SiStreamlit,
   SiPowerbi,
+  SiPostgresql,
 } from "react-icons/si";
 import { FaFigma } from "react-icons/fa";
 
@@ -54,6 +58,13 @@ const TechCard = memo(({ href, Icon, color, name, darkMode }) => (
 const technologies = [
   // Web
   {
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    Icon: DiHtml5,
+    color: "#E34F26",
+    name: "HTML5",
+    type: "Web",
+  },
+  {
     href: "https://www.w3schools.com/css/",
     Icon: DiCss3,
     color: "#1572B6",
@@ -72,6 +83,20 @@ const technologies = [
     Icon: DiReact,
     color: "#61DAFB",
     name: "React",
+    type: "Web",
+  },
+  {
+    href: "https://nextjs.org/",
+    Icon: SiNextdotjs,
+    color: "#000000",
+    name: "Next.js",
+    type: "Web",
+  },
+  {
+    href: "https://vuejs.org/",
+    Icon: SiVuedotjs,
+    color: "#4FC08D",
+    name: "Vue.js",
     type: "Web",
   },
   {
@@ -95,13 +120,7 @@ const technologies = [
     name: "Tailwind CSS",
     type: "Web",
   },
-  {
-    href: "https://www.mongodb.com/",
-    Icon: SiMongodb,
-    color: "#47A248",
-    name: "MongoDB",
-    type: "Web",
-  },
+
   {
     href: "https://www.docker.com/",
     Icon: DiDocker,
@@ -137,6 +156,20 @@ const technologies = [
     Icon: DiMysql,
     color: "#4479A1",
     name: "MySQL",
+    type: "Data",
+  },
+  {
+    href: "https://www.postgresql.org/",
+    Icon: SiPostgresql,
+    color: "#336791",
+    name: "PostgreSQL",
+    type: "Data",
+  },
+  {
+    href: "https://www.mongodb.com/",
+    Icon: SiMongodb,
+    color: "#47A248",
+    name: "MongoDB",
     type: "Data",
   },
   {
