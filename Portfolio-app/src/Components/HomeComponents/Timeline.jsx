@@ -1,13 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LanguageContext } from "../../context/LanguageContext";
-import {
-  FaGraduationCap,
-  FaBriefcase,
-  FaCode,
-  FaRocket,
-  FaSearch,
-} from "react-icons/fa";
+import { FaGraduationCap, FaBriefcase, FaCode, FaRocket } from "react-icons/fa";
 
 const Timeline = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -43,18 +37,18 @@ const Timeline = () => {
       tagsEn: ["Data Analysis", "SWIFT", "Finance"],
     },
     {
-      year: "2026",
-      yearEn: "2026",
-      title: "À la recherche d'une alternance",
-      titleEn: "Looking for an apprenticeship",
+      year: "Mars 2026 - Décembre 2028",
+      yearEn: "March 2026 - December 2028",
+      title: "Alternance Data Analyst SWIFT IT - BNP Paribas",
+      titleEn: "Apprenticeship Data Analyst SWIFT IT - BNP Paribas",
       description:
-        "Recherche active d'une alternance dans la data et l'intelligence artificielle dans le cadre de ma formation afin de mettre en pratique mes compétences.",
+        "Alternance en tant que Data Analyst chez SWIFT IT dans le cadre de ma formation à Epitech. Analyse de données, développement de solutions data et mise en pratique de mes compétences dans mon alternance",
       descriptionEn:
-        "Actively seeking an apprenticeship in data and artificial intelligence to continue my training and apply my skills.",
-      icon: <FaSearch />,
+        "Apprenticeship as a Data Analyst at SWIFT IT as part of my Epitech training. Data analysis, development of data solutions and applying my skills in my Apprenticeship",
+      icon: <FaBriefcase />,
       color: "bg-dark-accent",
-      tags: ["Data Science", "IA", "Alternance"],
-      tagsEn: ["Data Science", "AI", "Apprenticeship"],
+      tags: ["Data Analyst", "SWIFT IT", "Alternance"],
+      tagsEn: ["Data Analyst", "SWIFT IT", "Apprenticeship"],
     },
   ];
 
