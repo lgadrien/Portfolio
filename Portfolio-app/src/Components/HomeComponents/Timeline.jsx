@@ -83,7 +83,7 @@ const Timeline = () => {
                 <h3
                   className={`text-base lg:text-xl font-bold mb-2 lg:mb-3 ${
                     darkMode ? "text-white" : "text-dark-bg"
-                  } tracking-tight`}
+                  } tracking-tight`} 
                 >
                   {isEnglish ? item.titleEn : item.title}
                 </h3>

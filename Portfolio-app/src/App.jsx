@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import ScrollToTop from "./Components/ScrollToTop";
 import { NavigationProvider } from "./context/NavigationContext";
 
 // Lazy loading des routes pour optimiser les performances
@@ -30,7 +29,6 @@ const App = () => {
           </Routes>
         </Suspense>
         <Footer />
-        <ScrollToTop />
       </NavigationProvider>
     </Router>
   );
