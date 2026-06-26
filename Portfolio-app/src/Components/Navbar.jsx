@@ -78,7 +78,7 @@ const NavBar = () => {
             to="/stats"
             className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group ml-1 text-gray-700 hover:text-light-accent hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
           >
-            {t.nav.stats || "Stats & Projets"}
+            {t.nav.stats || "GitHub & Réalisations"}
           </Link>
 
           {/* Separator - Only for Desktop */}
@@ -152,7 +152,7 @@ const NavBar = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-full text-left px-4 py-3 rounded-xl text-lg font-medium transition-all duration-300 text-gray-700 hover:text-light-accent hover:bg-purple-500/10 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10"
               >
-                {t.nav.stats || "Stats & Projets"}
+                {t.nav.stats || "GitHub & Réalisations"}
               </Link>
             </div>
           </motion.div>

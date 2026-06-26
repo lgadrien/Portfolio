@@ -15,6 +15,7 @@ import {
   FaEye,
   FaCalendar,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Stats = () => {
   const { t, language } = useContext(LanguageContext);
@@ -44,10 +45,46 @@ const Stats = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-light-bg dark:bg-dark-bg pt-24 pb-12 px-4 flex flex-col justify-center items-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-dark-accent mb-4"></div>
-        <p className="text-lg text-light-text-secondary dark:text-gray-400">
-          {t?.stats?.loading || "Chargement..."}
-        </p>
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="relative mb-8"
+        >
+          {/* Glowing effect behind */}
+          <div className="absolute inset-0 rounded-full blur-xl bg-purple-500/30 dark:bg-purple-400/20 scale-150" />
+          <FaGithub className="text-7xl text-light-accent dark:text-white relative z-10" />
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col items-center"
+        >
+          <div className="h-1.5 w-48 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden mb-4 relative shadow-inner">
+            <motion.div
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-light-accent to-purple-600 dark:from-white dark:to-gray-400"
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{ width: "100%" }}
+            />
+          </div>
+          <p className="text-lg font-medium text-light-text-secondary dark:text-gray-300 animate-pulse">
+            {t?.stats?.loading || "Chargement de l'activité..."}
+          </p>
+        </motion.div>
       </div>
     );
   }
@@ -66,8 +103,8 @@ const Stats = () => {
     <div className="min-h-screen bg-light-bg dark:bg-dark-bg pt-24 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-5xl font-bold text-center mb-4 text-light-text dark:text-dark-text">
-          <span className="text-light-accent dark:text-dark-accent">
-            {t?.stats?.title || "Statistiques & Projets GitHub"}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-light-accent to-purple-600 dark:from-white dark:to-gray-400">
+            {t?.stats?.title || "Activité GitHub & Réalisations"}
           </span>
         </h1>
         <p className="text-center text-xl mb-12 text-light-text-secondary dark:text-gray-400">
