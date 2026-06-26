@@ -1,36 +1,45 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### 0.0.1 (2026-06-26)
 
-## [Unreleased]
 
-### Added - 2026-01-04
+### Features
 
-- 🛡️ **Error Boundary** - Composant global pour capturer les erreurs React avec UI de secours élégante
-- 📚 **README.md complet** - Documentation complète avec badges, instructions d'installation, et architecture
-- 📄 **CHANGELOG.md** - Historique des changements du projet
+* Add GitHub Contribution Graph and Activity Feed to Stats Dashboard ([481a331](https://github.com/lgadrien/Portfolio/commit/481a331835776e1f9d1b7696e4e07f68d203b2fb))
+* add serverless github stats endpoint ([3d989ed](https://github.com/lgadrien/Portfolio/commit/3d989edcdb00494c0fc0d16251d06dbd05c98ce5))
+* add Vercel Analytics ([5dd7b64](https://github.com/lgadrien/Portfolio/commit/5dd7b64837438db8fab686dfd8090bb51d3e3fb8))
+* ajout menu burger mobile et suppression ScrollToTop ([0b0f87b](https://github.com/lgadrien/Portfolio/commit/0b0f87b89082013864eb5c6433f1da9ecd8275f8))
+* ajout SEO complet, page Stats, système multilingue FR/EN et Timeline ([adcd3c7](https://github.com/lgadrien/Portfolio/commit/adcd3c711d48b5a3b3f78b5e26171014a7cb64c1))
+* amélioration de la responsivité du composant Timeline ([f3bd536](https://github.com/lgadrien/Portfolio/commit/f3bd5361354e82719bf6ec2dbb032b0d63b48551))
+* amélioration du code quality, performance, SEO et accessibilité ([6c54e98](https://github.com/lgadrien/Portfolio/commit/6c54e98d8572ceb2c45f07dc5bab4dfd6fc2ee7f))
+* amélioration transitions thème et synchronisation globale ([95a455c](https://github.com/lgadrien/Portfolio/commit/95a455cc2cc9d6dee8a57f1a3052194fdd860a90))
+* improve github stats loader and rename sections ([0d93271](https://github.com/lgadrien/Portfolio/commit/0d93271d4245f143548758238416a6b1a7dc6590))
+* improve navbar aesthetics with floating design ([3010a8d](https://github.com/lgadrien/Portfolio/commit/3010a8db4c92d046822fae6ae10be7f1821da77f))
+* optimize performance, refactor stats, fix SEO and improve mobile UX ([fc6ec9b](https://github.com/lgadrien/Portfolio/commit/fc6ec9b3cd4a658b9ecbde35fe9585ced41e9806))
+* revamp UI with animated background and glassmorphism ([4b95f22](https://github.com/lgadrien/Portfolio/commit/4b95f22f1d3c3b1e920f38119024a2f4a94559ed))
+* sécurisation des clés API EmailJS ([beadcf2](https://github.com/lgadrien/Portfolio/commit/beadcf2016b00fa4d4a9a983bd818e86322d1ad9))
+* système de traduction EN/FR 100% fonctionnel ([32fbd01](https://github.com/lgadrien/Portfolio/commit/32fbd0194ea94673b16192135bc4c9f71d3143cc))
+* **tech-skills:** add HTML5, Next.js, Vue.js, PostgreSQL and move MongoDB to Data ([2edd563](https://github.com/lgadrien/Portfolio/commit/2edd5639715858e5f059c7f2f55ca6333973a299))
+* **timeline:** update alternance card to Data Analyst SWIFT IT - BNP Paribas ([1c8513d](https://github.com/lgadrien/Portfolio/commit/1c8513d4b1b9a99ec58689b2550faa3728ee6b80))
+* traduction complète EN/FR de tous les composants ([c9c9c6c](https://github.com/lgadrien/Portfolio/commit/c9c9c6c04161932db44038809be38a6d6281e7aa))
 
-### Fixed - 2026-01-04
 
-- 🐛 **Contact.jsx** - Ajout de l'import manquant de `logger` (ligne 8)
-- 🌍 **Contact.jsx** - Correction du message d'erreur hardcodé pour utiliser `t.contact.form.errorMessage`
-- ⚡ **Error Handling** - Meilleure gestion des erreurs avec affichage détaillé en développement
+### Bug Fixes
 
-### Changed - 2026-01-04
-
-- ⬆️ **React** - Mise à jour de 18.2.0 vers 18.3.1 (amélioration performances et corrections de bugs)
-- ⬆️ **React-DOM** - Mise à jour de 18.2.0 vers 18.3.1
-- 🏗️ **Architecture** - Intégration de l'Error Boundary dans le point d'entrée (main.jsx)
-
-### Security - 2026-01-04
-
-- ✅ Toutes les variables d'environnement sont maintenant validées au démarrage
-- ✅ Les erreurs en production ne révèlent pas de détails sensibles
-
----
+* align home sections scroll behavior ([9f61c70](https://github.com/lgadrien/Portfolio/commit/9f61c7008b7f25cb3f5ccf50938e402410160e35))
+* clean github stats object keys ([58706c5](https://github.com/lgadrien/Portfolio/commit/58706c5715c1c292071e29841aa002d9a15f2d51))
+* correction d'authographe ([2f31358](https://github.com/lgadrien/Portfolio/commit/2f3135883efd74136926c615bc1456771753d357))
+* correction d'authographe ([5082041](https://github.com/lgadrien/Portfolio/commit/5082041c5eff1a505091c01773e3d673c0d25240))
+* correction d'authographe & ui incohérences ([549a82a](https://github.com/lgadrien/Portfolio/commit/549a82a69bdf0de95baf31fc3afb0ed10554f74c))
+* correction de l'architechture du projet ([548fb7a](https://github.com/lgadrien/Portfolio/commit/548fb7a870a08160317622ff32b439785ad2ef1d))
+* correction des chemins d'import pour projectData.js, CV et image de profil ([f1b6a39](https://github.com/lgadrien/Portfolio/commit/f1b6a39038b1d88a1cc335e8cb17f64b0bc555a7))
+* masquer le bouton de changement de langue ([b1ea3b3](https://github.com/lgadrien/Portfolio/commit/b1ea3b3662f936a9e981eacae78ed6d7f6429013))
+* restore scroll to top on navbar brand click ([a6aab2d](https://github.com/lgadrien/Portfolio/commit/a6aab2d0b0bacf5dffa93e2b5c62159bc69aeec5))
+* robust github-stats serverless handler ([4d859b8](https://github.com/lgadrien/Portfolio/commit/4d859b81caed1c393c0b488e5d9bfb1ae2304daf))
+* switch github-stats api to esm handler ([762dae4](https://github.com/lgadrien/Portfolio/commit/762dae48fc2f7a27a0f2911f89747911ede45267))
+* **ui:** improve mobile tech skills layout and contact form icons ([7f532ab](https://github.com/lgadrien/Portfolio/commit/7f532ab9c671db97a5d999e7dc276dbbaf622953))
 
 ## [1.0.0] - 2026-01-03
 
