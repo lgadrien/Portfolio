@@ -1,0 +1,1 @@
+cd Portfolio-app && npx --no -- commitlint --edit "$1"
