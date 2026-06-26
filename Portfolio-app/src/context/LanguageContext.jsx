@@ -10,7 +10,7 @@ const translations = {
       skills: "Compétences",
       projects: "Projets",
       timeline: "Parcours",
-      stats: "Stats & Projets",
+      stats: "GitHub & Réalisations",
       contact: "Contact",
     },
     home: {
@@ -38,7 +38,7 @@ const translations = {
       subtitle: "Les étapes qui ont marqué mon parcours",
     },
     stats: {
-      title: "Statistiques & Projets GitHub",
+      title: "Activité GitHub & Réalisations",
       subtitle: "Mes statistiques GitHub et l'évolution de mes projets",
       publicRepos: "Dépôts publics",
       totalStars: "Stars totales",
@@ -98,7 +98,7 @@ const translations = {
       skills: "Skills",
       projects: "Projects",
       timeline: "Journey",
-      stats: "Stats & Projects",
+      stats: "GitHub Activity",
       contact: "Contact",
     },
     home: {
@@ -126,7 +126,7 @@ const translations = {
       subtitle: "Key steps of my journey",
     },
     stats: {
-      title: "Statistics & GitHub Projects",
+      title: "GitHub Activity & Achievements",
       subtitle: "My GitHub statistics and project evolution",
       publicRepos: "Public repos",
       totalStars: "Total stars",
