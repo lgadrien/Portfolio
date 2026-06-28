@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Empêcher la boucle infinie : ne pas lancer la release si c'est déjà un commit de release
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Nécessaire pour que standard-version puisse lire tous les commits
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: cd Portfolio-app && npm ci
+
+      - name: Run Standard Version
+        run: cd Portfolio-app && npm run release
+
+      - name: Push Release Commits and Tags
+        run: git push --follow-tags origin main
