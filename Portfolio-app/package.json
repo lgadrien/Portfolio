@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "cd .. && npx --no husky .husky",
+    "prepare": "node -e \"if(!process.env.CI){require('child_process').execSync('cd .. && npx --no husky .husky')}\"",
     "release": "standard-version"
   },
   "dependencies": {
