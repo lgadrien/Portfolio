@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/lgadrien/Portfolio/compare/v1.0.0...v1.0.1) (2026-06-28)
+
+
+### Bug Fixes
+
+* **ci:** skip husky install in CI environments like Vercel ([6d43a87](https://github.com/lgadrien/Portfolio/commit/6d43a87c5bdd51a947285ab99f2764ed3b154fe0))
+
 ## 1.0.0 (2026-06-26)
 
 
